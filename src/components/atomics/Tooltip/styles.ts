@@ -11,10 +11,10 @@ export const TooltipTip = styled.div`
   ${({ color, theme }) => css`
     position: absolute;
     font-family: "Inter";
-    border-radius: .5rem;
+    border-radius: 0.5rem;
     left: 50%;
     transform: translateX(-50%);
-    padding: .5rem 1rem;
+    padding: 0.5rem 1rem;
     color: #fff;
     background: ${color || theme.colors.ribonBlack};
     font-size: 11px;
