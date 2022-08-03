@@ -1,4 +1,5 @@
 import integrationsApi from "services/api/integrationsApi";
+import Integration from "types/entities/Integration";
 
 function useApiIntegrations() {
   async function getAllApiIntegrations() {
@@ -13,9 +14,16 @@ function useApiIntegrations() {
     return integration;
   }
 
+  async function updateApiIntegration(id: any, data: Integration) {
+    const { data: integration } = await integrationsApi.updateIntegration(id, data);
+
+    return integration;
+  }
+
   return {
     getAllApiIntegrations,
-    getApiIntegration
+    getApiIntegration,
+    updateApiIntegration
   };
 }
 

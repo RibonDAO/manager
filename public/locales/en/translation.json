@@ -37,6 +37,11 @@
         "createdAt": "Created At",
         "lastEditedAt": "Last Edited At",
         "edit": "Edit"
+    }, 
+    "editIntegrationPage" :{
+      "title": "Edit Integration",
+      "save": "Save changes",
+      "cancel": "Cancel"
     }
   },
   "menu": {

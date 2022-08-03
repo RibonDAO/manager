@@ -70,9 +70,7 @@ function AuthenticationProvider({ children }: Props) {
         localStorage.removeItem("token");
         setUser(undefined);
       })
-      .catch((err) => {
-        console.error(err);
-      })
+      .catch(() => {})
       .finally(() => {
         navigate("/");
       });
