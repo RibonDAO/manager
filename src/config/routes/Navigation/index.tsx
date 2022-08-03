@@ -25,7 +25,7 @@ function Navigation(): JSX.Element {
       title: t("dashboardLabel"),
     },
     {
-      path: "/test",
+      path: "/integrations",
       iconOn: IntegrationsIconOn,
       iconOff: IntegrationsIconOff,
       title: t("integrationsLabel"),

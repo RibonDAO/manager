@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 
 export const Container = styled.div`
   ${() => css`
-    margint-top: 16px;
+    margin-top: 16px;
   `}
 `;
 

@@ -1,5 +1,11 @@
 import React from "react";
-import { act, render, RenderResult } from "@testing-library/react";
+import {
+  act,
+  fireEvent,
+  render,
+  RenderResult,
+  screen,
+} from "@testing-library/react";
 import { ThemeProvider } from "styled-components";
 import { createMemoryHistory, MemoryHistory } from "history";
 import { Router } from "react-router-dom";
@@ -130,4 +136,12 @@ export function renderHook(
     hook: renderTestingLibraryHook(hook, { wrapper }),
     history,
   };
+}
+
+export function clickOn(textOrComponent: string | any) {
+  if (typeof textOrComponent === "string") {
+    return fireEvent.click(screen.getByText(textOrComponent));
+  }
+
+  return fireEvent.click(textOrComponent);
 }

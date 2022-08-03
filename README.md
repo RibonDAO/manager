@@ -51,6 +51,12 @@ To install the application:
 yarn install
 ```
 
+Copy the .env.example to a .env file
+
+```shell
+cp .env.example .env
+```
+
 To start a local copy of the app on port `3000`:
 
 ```shell

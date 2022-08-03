@@ -1,5 +1,5 @@
 import { AxiosResponse } from "axios";
-import User from "types/entities/user";
+import User from "types/entities/User";
 import { apiPost } from "..";
 
 const usersApi = {

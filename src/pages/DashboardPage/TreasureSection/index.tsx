@@ -26,6 +26,7 @@ function TreasureSection(): JSX.Element {
     address: currentNetwork.donationTokenContractAddress,
     ABI: DonationTokenAbi.abi,
   });
+
   const contract = useContract({
     address: currentNetwork.ribonContractAddress,
     ABI: RibonAbi.abi,
@@ -36,7 +37,7 @@ function TreasureSection(): JSX.Element {
     currentNetwork.ribonContractAddress,
   );
 
-  const fecthAssignedBalance = useCallback(async () => {
+  const fetchAssignedBalance = useCallback(async () => {
     try {
       const allIntegrations = await getAllIntegrations();
       const assignedAmount = allIntegrations.integrations
@@ -58,7 +59,7 @@ function TreasureSection(): JSX.Element {
   }, []);
 
   function renderGraph() {
-    fecthAssignedBalance();
+    fetchAssignedBalance();
     const data = {
       datasets: [
         {
