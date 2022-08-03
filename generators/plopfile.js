@@ -37,22 +37,22 @@ module.exports = function (plop) {
     actions: [
       {
         type: "add",
-        path: "../src/presentation/components/{{componentType}}{{scope}}/{{pascalCase name}}/index.tsx",
+        path: "../src/components/{{componentType}}{{scope}}/{{pascalCase name}}/index.tsx",
         templateFile: "templates/index.tsx.hbs",
       },
       {
         type: "add",
-        path: "../src/presentation/components/{{componentType}}{{scope}}/{{pascalCase name}}/styles.ts",
+        path: "../src/components/{{componentType}}{{scope}}/{{pascalCase name}}/styles.ts",
         templateFile: "templates/styles.ts.hbs",
       },
       {
         type: "add",
-        path: "../src/presentation/components/{{componentType}}{{scope}}/{{pascalCase name}}/index.stories.tsx",
+        path: "../src/components/{{componentType}}{{scope}}/{{pascalCase name}}/index.stories.tsx",
         templateFile: "templates/index.stories.tsx.hbs",
       },
       {
         type: "add",
-        path: "../src/presentation/components/{{componentType}}{{scope}}/{{pascalCase name}}/index.test.tsx",
+        path: "../src/components/{{componentType}}{{scope}}/{{pascalCase name}}/index.test.tsx",
         templateFile: "templates/index.test.tsx.hbs",
       },
     ],
@@ -83,17 +83,17 @@ module.exports = function (plop) {
     actions: [
       {
         type: "add",
-        path: "../src/presentation/pages/{{scope}}/{{pascalCase name}}Page/index.tsx",
+        path: "../src/pages/{{scope}}/{{pascalCase name}}Page/index.tsx",
         templateFile: "templates/page.tsx.hbs",
       },
       {
         type: "add",
-        path: "../src/presentation/pages/{{scope}}/{{pascalCase name}}Page/styles.ts",
+        path: "../src/pages/{{scope}}/{{pascalCase name}}Page/styles.ts",
         templateFile: "templates/styles.ts.hbs",
       },
       {
         type: "add",
-        path: "../src/presentation/pages/{{scope}}/{{pascalCase name}}Page/index.test.tsx",
+        path: "../src/pages/{{scope}}/{{pascalCase name}}Page/index.test.tsx",
         templateFile: "templates/pageTest.test.tsx.hbs",
       },
     ],
@@ -114,7 +114,7 @@ module.exports = function (plop) {
       {
         type: "list",
         choices: (answers) => {
-          const pathToSearch = `../src/presentation/pages/${answers.pageScope}/`;
+          const pathToSearch = `../src/pages/${answers.pageScope}/`;
           return directoriesInPath(pathToSearch);
         },
         name: "page",
@@ -132,18 +132,18 @@ module.exports = function (plop) {
     actions: [
       {
         type: "add",
-        path: "../src/presentation/pages/{{pageScope}}/{{pascalCase page}}/{{pascalCase name}}/index.tsx",
+        path: "../src/pages/{{pageScope}}/{{pascalCase page}}/{{pascalCase name}}/index.tsx",
         templateFile: "templates/index.tsx.hbs",
       },
       {
         type: "add",
-        path: "../src/presentation/pages/{{pageScope}}/{{pascalCase page}}/{{pascalCase name}}/styles.ts",
+        path: "../src/pages/{{pageScope}}/{{pascalCase page}}/{{pascalCase name}}/styles.ts",
         templateFile: "templates/styles.ts.hbs",
       },
       {
         type: "add",
         path:
-          "../src/presentation/pages/{{pageScope}}/{{pascalCase page}}/{{pascalCase name}}/index.test.tsx",
+          "../src/pages/{{pageScope}}/{{pascalCase page}}/{{pascalCase name}}/index.test.tsx",
         templateFile: "templates/index.test.tsx.hbs",
       },
     ],
@@ -176,18 +176,18 @@ module.exports = function (plop) {
     actions: [
       {
         type: "add",
-        path: "../src/presentation/pages/{{camelCase folder}}/{{pascalCase page}}/{{pascalCase name}}/index.tsx",
+        path: "../src/pages/{{camelCase folder}}/{{pascalCase page}}/{{pascalCase name}}/index.tsx",
         templateFile: "templates/index.tsx.hbs",
       },
       {
         type: "add",
-        path: "../src/presentation/pages/{{camelCase folder}}/{{pascalCase page}}/{{pascalCase name}}/styles.ts",
+        path: "../src/pages/{{camelCase folder}}/{{pascalCase page}}/{{pascalCase name}}/styles.ts",
         templateFile: "templates/styles.ts.hbs",
       },
       {
         type: "add",
         path:
-          "../src/presentation/pages/{{camelCase folder}}/{{pascalCase page}}/{{pascalCase name}}/index.test.tsx",
+          "../src/pages/{{camelCase folder}}/{{pascalCase page}}/{{pascalCase name}}/index.test.tsx",
         templateFile: "templates/index.test.tsx.hbs",
       },
     ],

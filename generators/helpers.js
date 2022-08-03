@@ -10,7 +10,7 @@ function getDirectories(pathname){
 }
 
 function scopes(){
-    const pagesPath = path.resolve(__dirname, "../src/presentation/pages");
+    const pagesPath = path.resolve(__dirname, "../src/pages");
 
     return getDirectories(pagesPath);
 }

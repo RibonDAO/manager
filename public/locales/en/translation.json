@@ -1,0 +1,57 @@
+{
+  "dashboard": {
+    "treasureDashboard": {
+      "title": "Treasure Dashboard",
+      "treasureSection": {
+        "mainText": "Donation Treasure Balance (USDC)",
+        "assignedText": "Assigned (USDC)",
+        "unassignedText": "Unassigned (USDC)"
+      },
+      "integrationsSection": {
+        "subtitle": "Assigned (USDC)"
+      }
+    }
+  },
+  "integrations": {
+    "integrationsList": {
+      "title": "Integrations List",
+      "listColumns": {
+        "id": "Id",
+        "name": "Name",
+        "walletAddress": "Wallet Address",
+        "integrationAddress": "Integration Address",
+        "status": "Status"
+      }
+    },
+    "copyableAddress": {
+      "successTooltipText": "Address copied",
+      "alternativeText": "Copy to clipboard"
+    }, 
+      "integrationDetailsPage": {
+        "title": "{{integrationName}} Details",
+        "status": "Status",
+        "id": "ID",
+        "name": "Name",
+        "walletAddress": "Wallet Address",
+        "integrationAddress": "Integration Address",
+        "createdAt": "Created At",
+        "lastEditedAt": "Last Edited At",
+        "edit": "Edit"
+    }, 
+    "editIntegrationPage" :{
+      "title": "Edit Integration",
+      "save": "Save changes",
+      "cancel": "Cancel"
+    }
+  },
+  "menu": {
+    "integrationsLabel": "Integrations",
+    "dashboardLabel": "Dashboard"
+  },
+  "login": {
+    "title": "Dapp Manager",
+    "buttonText": "Login com o Google",
+    "errorText": "Login failed",
+    "errorDescription": "Make sure your e-mail domain is @ribon.io"
+  }
+}

@@ -8,7 +8,7 @@ jest.mock("firebase/auth", () => ({
   signOut: () => Promise.resolve(),
 }));
 
-jest.mock("hooks/useUsers", () => ({
+jest.mock("hooks/apiHooks/useUsers", () => ({
   __esModule: true,
   default: () => ({
     findOrCreateUser: () => ({
