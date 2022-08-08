@@ -88,7 +88,7 @@
     "@typescript-eslint/eslint-plugin": "^5.30.5",
     "@typescript-eslint/parser": "^5.30.4",
     "axios-mock-adapter": "^1.20.0",
-    "eslint": "^7.32.0 || ^8.2.0",
+    "eslint": "^8.21.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.25.3",
