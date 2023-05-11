@@ -9,7 +9,7 @@ import theme from "styles/theme";
 import InfoName from "components/moleculars/infoName";
 
 import useRibonConfig from "hooks/apiHooks/useRibonConfig";
-import { RibonConfig } from "types/entities/RibonConfig";
+import { RibonConfig } from "@ribon.io/shared/types";
 import * as S from "./styles";
 
 function EditSettingsPage() {

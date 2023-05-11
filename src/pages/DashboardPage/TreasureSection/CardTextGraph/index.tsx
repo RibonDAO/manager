@@ -9,7 +9,7 @@ import {
   Legend,
 } from "chart.js";
 import { useEffect, useState } from "react";
-import Cause from "types/entities/Cause";
+import { Cause } from "@ribon.io/shared/types";
 import theme from "styles/theme";
 import * as S from "./styles";
 

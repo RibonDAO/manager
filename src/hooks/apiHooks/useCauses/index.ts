@@ -1,7 +1,6 @@
 import { useCallback, useState } from "react";
 import causesApi from "services/api/causesApi";
-import { CreateCause } from "types/apiResponses/cause";
-import Cause from "types/entities/Cause";
+import { CreateCause, Cause } from "@ribon.io/shared/types";
 
 function useCauses() {
   const [causes, setCauses] = useState<Cause[]>([]);

@@ -1,5 +1,5 @@
 import { AxiosResponse } from "axios";
-import Pool from "types/entities/Pool";
+import { Pool } from "@ribon.io/shared/types";
 import { apiGet } from "..";
 
 const poolsApi = {

@@ -1,7 +1,6 @@
 import { useCallback, useState } from "react";
 import articlesApi from "services/api/articlesApi";
-import { CreateArticle } from "types/apiResponses/article";
-import Article from "types/entities/Article";
+import { CreateArticle, Article } from "@ribon.io/shared/types";
 
 function useArticles() {
   const [articles, setArticles] = useState<Article[]>([]);

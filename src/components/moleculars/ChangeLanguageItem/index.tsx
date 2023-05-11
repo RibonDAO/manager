@@ -1,6 +1,7 @@
 import ButtonSwitch from "components/atomics/Buttons/ButtonSwitch";
-import { useLanguage } from "hooks/useLanguage";
+import {useLanguage} from "hooks/useLanguage";
 import * as S from "./styles";
+import {Languages} from "@ribon.io/shared";
 
 function ChangeLanguageItem(): JSX.Element {
   const { currentLang, handleSwitchLanguage } = useLanguage();
@@ -15,7 +16,7 @@ function ChangeLanguageItem(): JSX.Element {
         leftText="PT"
         rightText="EN"
         onSwitch={() => handleSwitch()}
-        initialCheckState={currentLang === "en"}
+        initialCheckState={currentLang === Languages.EN}
       />
     </S.Container>
   );

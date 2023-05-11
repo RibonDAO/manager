@@ -1,5 +1,5 @@
 import dateFormatter from "lib/dateFormatter";
-import { NonProfitImpact } from "types/entities/NonProfitImpact";
+import { NonProfitImpact } from "@ribon.io/shared/types";
 
 type Props = {
   impacts: NonProfitImpact[];
@@ -26,7 +26,7 @@ function ImpactsItems({ impacts, searchTerm }: Props) {
         <tr key={impact?.id}>
           <th>{impact?.id}</th>
           <th>{impact?.usdCentsToOneImpactUnit}</th>
-          <th>{dateFormatter(impact.startDate)}</th>
+          <th>{dateFormatter(impact?.startDate)}</th>
           <th>{dateFormatter(impact?.endDate)}</th>
         </tr>
       ))

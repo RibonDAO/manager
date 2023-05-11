@@ -10,7 +10,7 @@ import ModalImage from "components/moleculars/modals/ModalImage";
 import WarningRedIcon from "assets/icons/warning-red-icon.svg";
 import Loading from "components/moleculars/Loading";
 import useCauses from "hooks/apiHooks/useCauses";
-import { CreateCause } from "types/apiResponses/cause";
+import { CreateCause } from "@ribon.io/shared/types";
 import FileUpload from "components/moleculars/FileUpload";
 import { useUploadFile } from "hooks/apiHooks/useUploadFile";
 import * as S from "./styles";

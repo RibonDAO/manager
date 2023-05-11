@@ -1,12 +1,12 @@
 import useArticles from "hooks/apiHooks/useArticles";
-import { useCallback, useState, useEffect } from "react";
-import { useTranslation } from "react-i18next";
+import {useCallback, useEffect, useState} from "react";
+import {useTranslation} from "react-i18next";
 import AddIcon from "assets/icons/addIcon";
-import { logError } from "services/crashReport";
-import Article from "types/entities/Article";
-import { useNavigate } from "react-router";
+import {logError} from "services/crashReport";
+import {Article, Languages} from "@ribon.io/shared/types";
+import {useNavigate} from "react-router";
 import theme from "styles/theme";
-import { useLanguage } from "hooks/useLanguage";
+import {useLanguage} from "hooks/useLanguage";
 import NewsItems from "../NewsItems";
 import * as S from "./styles";
 
@@ -27,8 +27,8 @@ function NewsListSection(): JSX.Element {
   const [searchTerm, setSearchTerm] = useState("");
   const { currentLang } = useLanguage();
   const defaultLanguageSelection = {
-    pt: currentLang === "pt-BR",
-    en: currentLang === "en",
+    pt: currentLang === Languages.PT,
+    en: currentLang === Languages.EN,
   };
   const [selectedLanguage, setSelectedLanguage] = useState<LanguageObject>(
     defaultLanguageSelection,

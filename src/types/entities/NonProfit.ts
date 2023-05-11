@@ -1,8 +1,4 @@
-import { CreateStory } from "types/apiResponses/story";
-import { CreateNonProfitImpacts } from "types/apiResponses/nonProfitImpacts";
-import Cause from "./Cause";
-import Story from "./Story";
-import { NonProfitImpact } from "./NonProfitImpact";
+import { CreateStory, CreateNonProfitImpacts, Cause, Story, NonProfitImpact } from "@ribon.io/shared/types";
 
 export default interface NonProfit {
   id: string;

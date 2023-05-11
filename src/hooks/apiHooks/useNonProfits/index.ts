@@ -1,7 +1,6 @@
 import { useCallback, useState } from "react";
 import nonProfitsApi from "services/api/nonProfitsApi";
-import { CreateNonProfit } from "types/apiResponses/nonProfit";
-import NonProfit from "types/entities/NonProfit";
+import { CreateNonProfit, NonProfit } from "@ribon.io/shared/types";
 
 function useNonProfits() {
   const [nonProfits, setNonProfits] = useState<NonProfit[]>([]);

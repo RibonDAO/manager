@@ -3,7 +3,7 @@ import infoIcon from "assets/icons/info-icon.svg";
 import editIcon from "assets/icons/edit-icon.svg";
 import CopyableAddress from "components/atomics/CopyableAddress";
 
-import Offer from "types/entities/Offer";
+import { Offer } from "@ribon.io/shared/types";
 import theme from "styles/theme";
 import { useTranslation } from "react-i18next";
 import { capitalize } from "lib/capitalize";

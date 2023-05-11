@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import NonProfit from "types/entities/NonProfit";
+import { NonProfit } from "@ribon.io/shared/types";
 import infoIcon from "assets/icons/info-icon.svg";
 import editIcon from "assets/icons/edit-icon.svg";
 import CopyableAddress from "components/atomics/CopyableAddress";

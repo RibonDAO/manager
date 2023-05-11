@@ -1,6 +1,5 @@
 import { AxiosResponse } from "axios";
-import NonProfit from "types/entities/NonProfit";
-import { CreateNonProfit } from "types/apiResponses/nonProfit";
+import { NonProfit, CreateNonProfit } from "@ribon.io/shared/types";
 import { apiGet, apiGetWithParams, apiPost, apiPut } from "..";
 
 type NonProfitsParams = {

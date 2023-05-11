@@ -1,6 +1,6 @@
 import { renderHook } from "@testing-library/react-hooks";
 import integrationsApi from "services/api/integrationsApi";
-import IntegrationWallet from "types/entities/IntegrationWallet";
+import { IntegrationWallet } from "@ribon.io/shared/types";
 import useApiIntegrations from ".";
 
 describe("useIntegrations", () => {
@@ -43,6 +43,7 @@ describe("useIntegrations", () => {
       status: "active",
       ticketAvailabilityInMinutes: null,
       integrationTask: {
+        id: 1,
         description: "Faça uma compra",
         link: "Comprar",
         linkAddress: "https://renner.com",
@@ -78,6 +79,7 @@ describe("useIntegrations", () => {
       created_at: "2020-01-01T00:00:00.000Z",
       updated_at: "2020-01-01T00:00:00.000Z",
       integrationTask: {
+        id: 1,
         description: "Faça uma compra",
         link: "Comprar",
         linkAddress: "https://renner.com",

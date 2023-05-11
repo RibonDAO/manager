@@ -1,4 +1,4 @@
-import PersonPayment from "types/entities/PersonPayment";
+import { PersonPayment } from "@ribon.io/shared/types";
 import dateFormatter from "lib/dateFormatter";
 import theme from "styles/theme";
 import refundIcon from "assets/icons/refund-icon.svg";

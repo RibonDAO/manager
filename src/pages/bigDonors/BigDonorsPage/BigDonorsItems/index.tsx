@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import editIcon from "assets/icons/edit-icon.svg";
 
-import BigDonor from "types/entities/BigDonor";
+import { BigDonor } from "@ribon.io/shared/types";
 import { useTranslation } from "react-i18next";
 
 type Props = {

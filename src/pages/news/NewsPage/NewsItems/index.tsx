@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import infoIcon from "assets/icons/info-icon.svg";
 import editIcon from "assets/icons/edit-icon.svg";
 import CopyableAddress from "components/atomics/CopyableAddress";
-import Article from "types/entities/Article";
+import { Article } from "@ribon.io/shared/types";
 import { useTranslation } from "react-i18next";
 import theme from "styles/theme";
 import dateFormatterWithMinutes from "lib/dateFormatterWithMinutes";

@@ -9,7 +9,7 @@ import { useCallback, useEffect, useState } from "react";
 import { logError } from "services/crashReport";
 
 import useRibonConfig from "hooks/apiHooks/useRibonConfig";
-import { RibonConfig } from "types/entities/RibonConfig";
+import { RibonConfig } from "@ribon.io/shared/types";
 
 import dateFormatterWithMinutes from "lib/dateFormatterWithMinutes";
 import centsFormatter from "lib/centsFormatter";

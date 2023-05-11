@@ -1,7 +1,7 @@
 import { useCallback, useState } from "react";
 import offersApi from "services/api/offersApi";
 
-import Offer from "types/entities/Offer";
+import { Offer } from "@ribon.io/shared/types";
 
 function useOffers() {
   const [offers, setOffers] = useState<Offer[]>([]);

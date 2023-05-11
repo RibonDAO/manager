@@ -1,5 +1,5 @@
 import bigDonorsApi from "services/api/bigDonorsApi";
-import BigDonor from "types/entities/BigDonor";
+import { BigDonor } from "@ribon.io/shared/types";
 
 function useBigDonors() {
   async function getBigDonors() {

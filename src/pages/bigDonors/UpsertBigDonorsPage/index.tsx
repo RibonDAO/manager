@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router";
 import { logError } from "services/crashReport";
-import BigDonor from "types/entities/BigDonor";
+import { BigDonor } from "@ribon.io/shared/types";
 import theme from "styles/theme";
 import Loading from "components/moleculars/Loading";
 import * as S from "./styles";

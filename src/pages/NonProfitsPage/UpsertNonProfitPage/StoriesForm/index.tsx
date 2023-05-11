@@ -4,7 +4,7 @@ import { Button } from "@chakra-ui/react";
 import FileUpload from "components/moleculars/FileUpload";
 import InfoName from "components/moleculars/infoName";
 import { useTranslation } from "react-i18next";
-import { CreateStory } from "types/apiResponses/story";
+import { CreateStory } from "@ribon.io/shared/types";
 import useStories from "hooks/apiHooks/useStories";
 import { useUploadFile } from "hooks/apiHooks/useUploadFile";
 import theme from "styles/theme";

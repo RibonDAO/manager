@@ -1,5 +1,5 @@
 import { AxiosResponse } from "axios";
-import { RibonConfig } from "types/entities/RibonConfig";
+import { RibonConfig } from "@ribon.io/shared/types";
 import { apiGet, apiPut } from "..";
 
 const ribonConfigApi = {

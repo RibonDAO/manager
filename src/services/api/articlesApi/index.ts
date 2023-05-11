@@ -1,6 +1,5 @@
 import { AxiosResponse } from "axios";
-import { CreateArticle } from "types/apiResponses/article";
-import Article from "types/entities/Article";
+import { CreateArticle, Article } from "@ribon.io/shared/types";
 import { apiPost, apiPut, apiGetWithParams, apiGet } from "..";
 
 type ArticlesList = {

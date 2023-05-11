@@ -5,8 +5,7 @@ import { useTranslation } from "react-i18next";
 import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router";
 import { logError } from "services/crashReport";
-import Integration from "types/entities/Integration";
-import IntegrationTask from "types/entities/IntegrationTask";
+import { Integration, IntegrationTask } from "@ribon.io/shared/types";
 import theme from "styles/theme";
 import FileUpload from "components/moleculars/FileUpload";
 import * as S from "./styles";
@@ -151,7 +150,6 @@ function UpsertIntegrationPage({ isEdit }: Props) {
         status: "active",
         webhookUrl: "",
         ticketAvailabilityInMinutes: null,
-        integrationTask: null,
       };
       reset(newIntegration);
     }

@@ -1,5 +1,5 @@
 import ribonConfigApi from "services/api/ribonConfigApi";
-import { RibonConfig } from "types/entities/RibonConfig";
+import { RibonConfig } from "@ribon.io/shared/types";
 
 function useRibonConfig() {
   async function getConfig() {

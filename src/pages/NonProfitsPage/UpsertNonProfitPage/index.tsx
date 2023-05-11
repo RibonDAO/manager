@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router";
 import { logError } from "services/crashReport";
 import useCauses from "hooks/apiHooks/useCauses";
-import Cause from "types/entities/Cause";
+import { Cause , CreateNonProfit, CreateStory, NonProfitImpact, CreateNonProfitImpacts } from "@ribon.io/shared/types";
 import theme from "styles/theme";
 import FileUpload from "components/moleculars/FileUpload";
 import InfoName from "components/moleculars/infoName";
@@ -14,11 +14,7 @@ import WarningRedIcon from "assets/icons/warning-red-icon.svg";
 import Loading from "components/moleculars/Loading";
 import Dropdown from "components/atomics/Dropdown";
 import useNonProfits from "hooks/apiHooks/useNonProfits";
-import { CreateNonProfit } from "types/apiResponses/nonProfit";
-import { CreateStory } from "types/apiResponses/story";
-import { NonProfitImpact } from "types/entities/NonProfitImpact";
 import { useUploadFile } from "hooks/apiHooks/useUploadFile";
-import { CreateNonProfitImpacts } from "types/apiResponses/nonProfitImpacts";
 import ImpactsForm from "./ImpactForm";
 import ImpactPreviewer from "./ImpactPreviewer";
 import StoriesForm from "./StoriesForm";
@@ -90,11 +86,11 @@ function UpsertNonProfitPage({ isEdit }: Props) {
         nonProfit.nonProfitImpacts![nonProfit.nonProfitImpacts!.length - 1],
       );
 
-      setStories(nonProfit.stories);
+      setStories(nonProfit.stories || []);
       setCurrentCauseId(nonProfit.cause?.id);
       setCurrentUnit(
         nonProfit.nonProfitImpacts![nonProfit.nonProfitImpacts!.length - 1]
-          .measurementUnit,
+          .measurementUnit || "",
       );
     } catch (e) {
       logError(e);

@@ -59,7 +59,7 @@ describe("useNonProfits", () => {
   });
 
   describe("#updateApiNonProfit", () => {
-    const id = "1";
+    const id = 1;
     const data = {
       id,
       name: "New NonProfit",

@@ -4,7 +4,7 @@ import { useCallback, useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router";
 import { logError } from "services/crashReport";
-import Offer from "types/entities/Offer";
+import { Offer } from "@ribon.io/shared/types";
 import AddIcon from "assets/icons/addIcon";
 import theme from "styles/theme";
 import OffersItems from "../OffersItems";

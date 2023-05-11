@@ -2,7 +2,7 @@ import usePersonPayments from "hooks/apiHooks/usePersonPayments";
 import { useCallback, useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { logError } from "services/crashReport";
-import PersonPayment from "types/entities/PersonPayment";
+import { PersonPayment } from "@ribon.io/shared/types";
 import PurchaseItems from "../PurchaseItems";
 import * as S from "./styles";
 

@@ -1,5 +1,5 @@
 import { AxiosResponse } from "axios";
-import BigDonor from "types/entities/BigDonor";
+import { BigDonor } from "@ribon.io/shared/types";
 import { apiGet, apiPost, apiPut } from "..";
 
 const bigDonorsApi = {

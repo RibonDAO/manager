@@ -1,7 +1,5 @@
 import { AxiosResponse } from "axios";
-import { CreateBigDonation } from "types/apiResponses/BigDonation";
-import BigDonation from "types/entities/BigDonation";
-import PersonPayment from "types/entities/PersonPayment";
+import { CreateBigDonation, BigDonation, PersonPayment } from "@ribon.io/shared/types";
 import { apiGet, apiGetWithParams, apiPost } from "..";
 
 type PersonPaymentsParams = {

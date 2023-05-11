@@ -11,7 +11,7 @@ import useArticles from "hooks/apiHooks/useArticles";
 import theme from "styles/theme";
 import InfoName from "components/moleculars/infoName";
 import { Button } from "@chakra-ui/react";
-import Article from "types/entities/Article";
+import { Article } from "@ribon.io/shared/types";
 import dateFormatterWithMinutes from "lib/dateFormatterWithMinutes";
 import * as S from "./styles";
 

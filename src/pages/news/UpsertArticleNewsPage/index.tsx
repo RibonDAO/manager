@@ -17,9 +17,7 @@ import { useTranslation } from "react-i18next";
 import { useNavigate, useParams } from "react-router";
 import { logError } from "services/crashReport";
 import neutral from "styles/colors/neutral";
-import { CreateArticle } from "types/apiResponses/article";
-import { CreateAuthor } from "types/apiResponses/author";
-import Author from "types/entities/Author";
+import { CreateArticle, CreateAuthor, Author } from "@ribon.io/shared/types";
 import * as S from "./styles";
 
 export type Props = {

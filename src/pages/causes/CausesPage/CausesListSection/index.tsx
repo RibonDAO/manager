@@ -2,7 +2,7 @@ import useCauses from "hooks/apiHooks/useCauses";
 import { useCallback, useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { logError } from "services/crashReport";
-import Cause from "types/entities/Cause";
+import { Cause } from "@ribon.io/shared/types";
 import CauseItems from "../CausesItems";
 import * as S from "./styles";
 

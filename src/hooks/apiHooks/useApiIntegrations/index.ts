@@ -1,5 +1,5 @@
 import integrationsApi from "services/api/integrationsApi";
-import Integration from "types/entities/Integration";
+import { Integration } from "@ribon.io/shared/types";
 import { useUploadFile } from "../useUploadFile";
 
 function useApiIntegrations() {

@@ -1,7 +1,6 @@
 import { useCallback, useState } from "react";
 import authorsApi from "services/api/authorsApi";
-import { CreateAuthor } from "types/apiResponses/author";
-import Author from "types/entities/Author";
+import { CreateAuthor, Author } from "@ribon.io/shared/types";
 
 function useAuthors() {
   const [authors, setAuthors] = useState<Author[]>([]);

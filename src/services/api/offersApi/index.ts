@@ -1,5 +1,5 @@
 import { AxiosResponse } from "axios";
-import Offer from "types/entities/Offer";
+import { Offer } from "@ribon.io/shared/types";
 import { apiGet, apiGetWithParams, apiPost, apiPut } from "..";
 
 type OffersParams = {

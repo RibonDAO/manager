@@ -1,7 +1,6 @@
 import { useCallback, useState } from "react";
 import personPaymentsApi from "services/api/personPaymentsApi";
-import { CreateBigDonation } from "types/apiResponses/BigDonation";
-import PersonPayment from "types/entities/PersonPayment";
+import { CreateBigDonation, PersonPayment } from "@ribon.io/shared/types";
 
 function usePersonPayments() {
   const [personPayments, setPersonPayments] = useState<PersonPayment[]>([]);

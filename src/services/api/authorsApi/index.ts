@@ -1,6 +1,5 @@
 import { AxiosResponse } from "axios";
-import { CreateAuthor } from "types/apiResponses/author";
-import Author from "types/entities/Author";
+import { CreateAuthor, Author } from "@ribon.io/shared/types";
 import { apiPost, apiPut, apiGetWithParams, apiGet } from "..";
 
 type AuthorsList = {

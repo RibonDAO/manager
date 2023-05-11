@@ -1,6 +1,5 @@
 import { AxiosResponse } from "axios";
-import { CreateCause } from "types/apiResponses/cause";
-import Cause from "types/entities/Cause";
+import { CreateCause, Cause } from "@ribon.io/shared/types";
 import { apiPost, apiPut, apiGetWithParams, apiGet } from "..";
 
 type CausesParams = {

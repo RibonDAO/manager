@@ -7,7 +7,7 @@
     "@chakra-ui/react": "^2.2.1",
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
-    "@ribon.io/shared": "^1.0.46",
+    "@ribon.io/shared": "../ribon-shared/dist",
     "@sentry/react": "^6.16.1",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",

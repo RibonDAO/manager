@@ -1,4 +1,4 @@
-import Cause from "types/entities/Cause";
+import { Cause } from "@ribon.io/shared/types";
 import moneyFormatter from "lib/moneyFormatter";
 import * as S from "./styles";
 

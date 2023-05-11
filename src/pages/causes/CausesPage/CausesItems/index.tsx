@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
-import Cause from "types/entities/Cause";
-import Pool from "types/entities/Pool";
+import { Cause, Pool } from "@ribon.io/shared/types";
 import infoIcon from "assets/icons/info-icon.svg";
 import editIcon from "assets/icons/edit-icon.svg";
 import CopyableAddress from "components/atomics/CopyableAddress";

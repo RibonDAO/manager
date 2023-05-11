@@ -7,9 +7,7 @@ import useCauses from "hooks/apiHooks/useCauses";
 import usePools from "hooks/apiHooks/usePools";
 import { logError } from "services/crashReport";
 
-import NonProfit from "types/entities/NonProfit";
-import Cause from "types/entities/Cause";
-import Pool from "types/entities/Pool";
+import { NonProfit, Cause, Pool } from "@ribon.io/shared/types";
 import ArrowOutward from "assets/icons/arrow-outward.svg";
 
 import CopyableAddress from "components/atomics/CopyableAddress";
@@ -91,8 +89,8 @@ function CausesDetailsPage(): JSX.Element {
 
         <S.RightSection>
           <S.Subtitle>{t("details.linkedProjects")}</S.Subtitle>
-          {cause?.nonProfits.map((nonProfit: NonProfit) => (
-            <S.CardProject onClick={() => handleClick(nonProfit.id)}>
+          {cause?.nonProfits?.map((nonProfit: NonProfit) => (
+            <S.CardProject onClick={() => handleClick(nonProfit.id.toString())}>
               <S.CardProjectInfo>{nonProfit.name}</S.CardProjectInfo>{" "}
               <S.ArrowOutward src={ArrowOutward} alt="project link" />
             </S.CardProject>
