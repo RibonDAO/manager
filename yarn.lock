@@ -4471,7 +4471,7 @@
     prettier ">=2.2.1 <=2.3.0"
     ts-dedent "^2.0.0"
 
-"@storybook/node-logger@6.5.9", "@storybook/node-logger@^6.4.13":
+"@storybook/node-logger@6.5.9":
   version "6.5.9"
   resolved "https://registry.yarnpkg.com/@storybook/node-logger/-/node-logger-6.5.9.tgz#129cfe0d0f79cab4f6a2ba194d39516680b1626f"
   integrity sha512-nZZNZG2Wtwv6Trxi3FrnIqUmB55xO+X/WQGPT5iKlqNjdRIu/T72mE7addcp4rbuWCQfZUhcDDGpBOwKtBxaGg==
@@ -4481,6 +4481,11 @@
     core-js "^3.8.2"
     npmlog "^5.0.1"
     pretty-hrtime "^1.0.3"
+
+"@storybook/node-logger@^7.1.0":
+  version "7.1.0"
+  resolved "https://registry.yarnpkg.com/@storybook/node-logger/-/node-logger-7.1.0.tgz#077ccb57e50f613fd84563900994b82311667032"
+  integrity sha512-Mw5kfcqfW1YI4pqW4+Y/SgnjitEMoqVZdTBQxxA9lS6YOlkQqwmtIFu7or4W/ZCFaPX9dwgd171o870vsA2DlA==
 
 "@storybook/postinstall@6.5.9":
   version "6.5.9"
