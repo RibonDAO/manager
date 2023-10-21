@@ -29,7 +29,7 @@
     "crypto-js": "^4.1.1",
     "ethers": "^5.5.3",
     "firebase": "^9.8.4",
-    "framer-motion": "^6.4.2",
+    "framer-motion": "^10.16.4",
     "gapi-client": "^0.0.3",
     "gapi-script": "^1.2.0",
     "graphql": "^16.4.0",
