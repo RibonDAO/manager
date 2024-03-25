@@ -9,5 +9,5 @@ export default interface Offer {
   priceCents: number;
   subscription: boolean;
   category: string;
-  plan: Plan;
+  plan?: Plan;
 }
