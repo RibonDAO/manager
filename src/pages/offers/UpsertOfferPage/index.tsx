@@ -93,7 +93,7 @@ function UpsertOfferPage({ isEdit }: Props) {
 
   const handleSave = async () => {
     if (offer()) {
-      const offerObject = {
+      let offerObject: any = {
         id: offer().id,
         currency: offer().currency,
         priceCents: offer().priceCents,
@@ -105,8 +105,13 @@ function UpsertOfferPage({ isEdit }: Props) {
           externalId: offer().externalId,
         },
         category: offer().category,
-        plansAttributes: [PlanObject()],
       };
+      if (offer().category === "club") {
+        offerObject = {
+          ...offerObject,
+          plansAttributes: [PlanObject()],
+        };
+      }
 
       try {
         if (isEdit) {
@@ -129,7 +134,6 @@ function UpsertOfferPage({ isEdit }: Props) {
     if (isEdit) {
       fetchOffer();
     } else {
-      const plan = { status: "active", dailyTickets: 3, monthlyTickets: 10 };
       const newOffer: Offer = {
         priceCents: 123,
         currency: "brl",
@@ -138,10 +142,8 @@ function UpsertOfferPage({ isEdit }: Props) {
         active: true,
         subscription: false,
         category: "direct_contribution",
-        plan,
       };
       reset(newOffer);
-      resetPlan(plan);
     }
   }, []);
 
