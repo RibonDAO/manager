@@ -37,7 +37,7 @@ function ImpactPreviewer({
         <S.Info>
           {minimumNumberOfTickets > 1
             ? t("tickets", { minimumNumberOfTickets })
-            : t("ticket")}{" "}
+            : t("oneTicket")}{" "}
           {impactNormalizer(
             nonProfit,
             Number(nonProfitImpact?.roundedImpact) * minimumNumberOfTickets,
