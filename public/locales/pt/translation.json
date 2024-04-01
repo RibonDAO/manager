@@ -318,7 +318,9 @@
         "fund": "geram",
         "previewTicket": "Prévia de impacto de ticket",
         "previewContribution": "Prévia de impacto de contribuição",
-        "oneTicket": "1 ticket gera "
+        "oneTicket": "1 ticket gera ",
+        "tickets": "{{minimumNumberOfTickets}} tickets geram",
+        "ticket": "1 ticket gera"
       }
     },
     "details": {
