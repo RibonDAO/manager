@@ -6,4 +6,5 @@ export interface CreateNonProfitImpacts {
   measurementUnit?: string;
   impactDescription?: string;
   donorRecipient?: string;
+  minimumNumberOfTickets?: number;
 }
