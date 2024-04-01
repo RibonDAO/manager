@@ -203,6 +203,7 @@ function UpsertNonProfitPage({ isEdit }: Props) {
         measurementUnit: "quantity_without_decimals",
         impactDescription: "impact,impacts",
         donorRecipient: "donor,donors",
+        minimumNumberOfTickets: 1,
       };
       reset(newNonProfit);
       resetImpact(newNonProfitImpacts);
@@ -373,7 +374,7 @@ function UpsertNonProfitPage({ isEdit }: Props) {
                   ...NonProfitObject(),
                   nonProfitImpacts: [watchImpactFields],
                 }}
-                usdCentsToOneImpactUnit={ImpactObject().usdCentsToOneImpactUnit}
+                minimumNumberOfTickets={ImpactObject().minimumNumberOfTickets}
               />
             )}
             <ImpactsForm
@@ -382,7 +383,7 @@ function UpsertNonProfitPage({ isEdit }: Props) {
               currentUnit={currentUnit}
               formStateImpact={formStateImpact}
               setValueImpact={setValueImpact}
-            />
+              />
 
             <S.Divider />
 

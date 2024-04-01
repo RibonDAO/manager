@@ -166,7 +166,7 @@ function NonProfitsDetailsPage(): JSX.Element {
           {nonProfitImpact && nonProfitImpact.usdCentsToOneImpactUnit && (
             <ImpactPreviewer
               nonProfit={nonProfit}
-              usdCentsToOneImpactUnit={nonProfitImpact.usdCentsToOneImpactUnit}
+              minimumNumberOfTickets={nonProfitImpact.minimumNumberOfTickets}
             />
           )}
           <S.Subtitle>{t("details.images")}</S.Subtitle>

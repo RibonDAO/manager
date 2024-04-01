@@ -2,19 +2,17 @@ import { useTranslation } from "react-i18next";
 import { impactNormalizer } from "@ribon.io/shared/lib";
 import { useNonProfitImpact } from "@ribon.io/shared/hooks";
 import { Currencies } from "types/enums/Currencies";
-import useRibonConfig from "hooks/apiHooks/useRibonConfig";
-import { useEffect, useState } from "react";
 import * as S from "./styles";
 
 export type Props = {
   nonProfit: any;
-  usdCentsToOneImpactUnit: string;
+  minimumNumberOfTickets: number;
   defaultAmountInUsd?: number;
 };
 
 function ImpactPreviewer({
   nonProfit,
-  usdCentsToOneImpactUnit,
+  minimumNumberOfTickets,
   defaultAmountInUsd = 100,
 }: Props) {
   const { t } = useTranslation("translation", {
@@ -24,18 +22,6 @@ function ImpactPreviewer({
   const { t: normalizerTranslations } = useTranslation("translation", {
     keyPrefix: "impactNormalizer",
   });
-
-  const { getConfig } = useRibonConfig();
-  const [defaultTicket, setDefaultTicket] = useState<number>(0);
-
-  async function fetchdefaultTicketValue() {
-    const config = await getConfig();
-
-    setDefaultTicket(config[0].defaultTicketValue);
-  }
-  useEffect(() => {
-    fetchdefaultTicketValue();
-  }, []);
 
   const { nonProfitImpact } = useNonProfitImpact(
     nonProfit?.id,
@@ -49,10 +35,12 @@ function ImpactPreviewer({
       <S.Container>
         <S.Title>{t("previewTicket")}</S.Title>
         <S.Info>
-          {t("oneTicket")}{" "}
+          {minimumNumberOfTickets > 1
+            ? t("tickets", { minimumNumberOfTickets })
+            : t("ticket")}{" "}
           {impactNormalizer(
             nonProfit,
-            defaultTicket / parseFloat(usdCentsToOneImpactUnit),
+            Number(nonProfitImpact?.roundedImpact) * minimumNumberOfTickets,
             normalizerTranslations,
           ).join(" ")}
         </S.Info>
