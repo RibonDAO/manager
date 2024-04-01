@@ -202,8 +202,7 @@ function UpsertNonProfitPage({ isEdit }: Props) {
         usdCentsToOneImpactUnit: "1.0",
         measurementUnit: "quantity_without_decimals",
         impactDescription: "impact,impacts",
-        donorRecipient: "donor,donors",
-        minimumNumberOfTickets: 1,
+        donorRecipient: "donor,donors"
       };
       reset(newNonProfit);
       resetImpact(newNonProfitImpacts);
