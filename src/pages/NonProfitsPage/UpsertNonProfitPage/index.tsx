@@ -202,7 +202,7 @@ function UpsertNonProfitPage({ isEdit }: Props) {
         usdCentsToOneImpactUnit: "1.0",
         measurementUnit: "quantity_without_decimals",
         impactDescription: "impact,impacts",
-        donorRecipient: "donor,donors"
+        donorRecipient: "donor,donors",
       };
       reset(newNonProfit);
       resetImpact(newNonProfitImpacts);
@@ -382,7 +382,7 @@ function UpsertNonProfitPage({ isEdit }: Props) {
               currentUnit={currentUnit}
               formStateImpact={formStateImpact}
               setValueImpact={setValueImpact}
-              />
+            />
 
             <S.Divider />
 
