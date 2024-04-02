@@ -386,18 +386,20 @@ function UpsertNonProfitPage({ isEdit }: Props) {
             <S.Divider />
 
             <S.Subtitle>{t("upsert.impacts")}</S.Subtitle>
-            {watchImpactFields && ImpactObject().usdCentsToOneImpactUnit && ticketValueInCents && (
-              <ImpactPreviewer
-                nonProfit={{
-                  ...NonProfitObject(),
-                  nonProfitImpacts: [watchImpactFields],
-                }}
-                minimumNumberOfTickets={
-                  Number(ImpactObject().usdCentsToOneImpactUnit) /
-                  ticketValueInCents
-                }
-              />
-            )}
+            {watchImpactFields &&
+              ImpactObject().usdCentsToOneImpactUnit &&
+              ticketValueInCents && (
+                <ImpactPreviewer
+                  nonProfit={{
+                    ...NonProfitObject(),
+                    nonProfitImpacts: [watchImpactFields],
+                  }}
+                  minimumNumberOfTickets={
+                    Number(ImpactObject().usdCentsToOneImpactUnit) /
+                    ticketValueInCents
+                  }
+                />
+              )}
             <ImpactsForm
               registerImpact={registerImpact}
               setCurrentUnit={setCurrentUnit}
