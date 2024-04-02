@@ -319,7 +319,7 @@
         "previewTicket": "Prévia de impacto de ticket",
         "previewContribution": "Prévia de impacto de contribuição",
         "oneTicket": "1 ticket gera ",
-        "tickets": "{{minimumNumberOfTickets}} tickets geram"
+        "tickets": "{{minimumNumberOfTickets}} tickets geram "
       }
     },
     "details": {

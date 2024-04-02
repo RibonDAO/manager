@@ -46,7 +46,7 @@ function ImpactPreviewer({
         </S.Info>
         <S.Title>{t("previewContribution")}</S.Title>
         <S.Info>
-          ${defaultAmountInUsd} {t("fund")}{" "}
+          ${defaultAmountInUsd}{" "}{t("fund")}{" "}
           {impactNormalizer(
             nonProfit,
             Number(nonProfitImpact?.roundedImpact),

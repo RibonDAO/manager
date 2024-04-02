@@ -8,8 +8,10 @@ import theme from "styles/theme";
 import { useCallback, useEffect, useState } from "react";
 import { logError } from "services/crashReport";
 import NonProfit from "types/entities/NonProfit";
+import { RibonConfig } from "types/entities/RibonConfig";
 import { NonProfitImpact } from "types/entities/NonProfitImpact";
 import useNonProfits from "hooks/apiHooks/useNonProfits";
+import useRibonConfig from "hooks/apiHooks/useRibonConfig";
 
 import dateFormatter from "lib/dateFormatter";
 import LinkPage from "components/atomics/LinkPage";
@@ -28,7 +30,10 @@ function NonProfitsDetailsPage(): JSX.Element {
 
   const [nonProfit, setNonProfit] = useState<NonProfit>();
   const [nonProfitImpact, setNonProfitImpact] = useState<NonProfitImpact>();
-
+  const [config, setConfig] = useState<RibonConfig>();
+  const ticketValueInCents = config?.defaultTicketValue || 0;
+  
+  const { getConfig } = useRibonConfig();
   const { getNonProfit } = useNonProfits();
 
   const { id } = useParams();
@@ -49,8 +54,21 @@ function NonProfitsDetailsPage(): JSX.Element {
     }
   }, []);
 
+  const fetchConfig = useCallback(async () => {
+    try {
+      const configData = await getConfig();
+      setConfig(configData[0]);
+    } catch (e) {
+      logError(e);
+    }
+  }, [setConfig]);
+
   useEffect(() => {
     fetchNonProfit();
+  }, []);
+
+  useEffect(() => {
+    fetchConfig();
   }, []);
 
   return (
@@ -163,10 +181,13 @@ function NonProfitsDetailsPage(): JSX.Element {
             <LinkPage page={`/ngos/${id}/impacts`} text={t("viewHistory")} />
           </S.Container>
 
-          {nonProfitImpact && nonProfitImpact.usdCentsToOneImpactUnit && (
+          {nonProfitImpact && nonProfitImpact.usdCentsToOneImpactUnit && ticketValueInCents && (
             <ImpactPreviewer
               nonProfit={nonProfit}
-              minimumNumberOfTickets={nonProfitImpact.minimumNumberOfTickets}
+              minimumNumberOfTickets={
+                  Number(nonProfitImpact.usdCentsToOneImpactUnit) /
+                  ticketValueInCents
+                }
             />
           )}
           <S.Subtitle>{t("details.images")}</S.Subtitle>
