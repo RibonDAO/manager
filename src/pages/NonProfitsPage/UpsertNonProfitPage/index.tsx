@@ -106,7 +106,6 @@ function UpsertNonProfitPage({ isEdit }: Props) {
           .measurementUnit,
       );
       setStatusNonProfit(nonProfit.status);
-      console.log(Number(ImpactObject().usdCentsToOneImpactUnit));
     } catch (e) {
       logError(e);
     }
