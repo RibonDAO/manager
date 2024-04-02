@@ -32,7 +32,7 @@ function NonProfitsDetailsPage(): JSX.Element {
   const [nonProfitImpact, setNonProfitImpact] = useState<NonProfitImpact>();
   const [config, setConfig] = useState<RibonConfig>();
   const ticketValueInCents = config?.defaultTicketValue || 0;
-  
+
   const { getConfig } = useRibonConfig();
   const { getNonProfit } = useNonProfits();
 
@@ -181,15 +181,17 @@ function NonProfitsDetailsPage(): JSX.Element {
             <LinkPage page={`/ngos/${id}/impacts`} text={t("viewHistory")} />
           </S.Container>
 
-          {nonProfitImpact && nonProfitImpact.usdCentsToOneImpactUnit && ticketValueInCents && (
-            <ImpactPreviewer
-              nonProfit={nonProfit}
-              minimumNumberOfTickets={
+          {nonProfitImpact &&
+            nonProfitImpact.usdCentsToOneImpactUnit &&
+            ticketValueInCents && (
+              <ImpactPreviewer
+                nonProfit={nonProfit}
+                minimumNumberOfTickets={
                   Number(nonProfitImpact.usdCentsToOneImpactUnit) /
                   ticketValueInCents
                 }
-            />
-          )}
+              />
+            )}
           <S.Subtitle>{t("details.images")}</S.Subtitle>
           <S.Container>
             <S.LeftSection>
