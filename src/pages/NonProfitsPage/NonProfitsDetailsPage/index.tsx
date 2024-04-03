@@ -190,6 +190,7 @@ function NonProfitsDetailsPage(): JSX.Element {
                   Number(nonProfitImpact.usdCentsToOneImpactUnit) /
                   ticketValueInCents
                 }
+                usdCentsToOneImpactUnit={nonProfitImpact.usdCentsToOneImpactUnit}
               />
             )}
           <S.Subtitle>{t("details.images")}</S.Subtitle>

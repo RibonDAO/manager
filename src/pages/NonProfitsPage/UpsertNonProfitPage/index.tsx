@@ -397,6 +397,7 @@ function UpsertNonProfitPage({ isEdit }: Props) {
                     Number(ImpactObject().usdCentsToOneImpactUnit) /
                     ticketValueInCents
                   }
+                  usdCentsToOneImpactUnit={ImpactObject().usdCentsToOneImpactUnit}
                 />
               )}
             <ImpactsForm

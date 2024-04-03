@@ -9,12 +9,14 @@ import * as S from "./styles";
 export type Props = {
   nonProfit: any;
   minimumNumberOfTickets: number;
+  usdCentsToOneImpactUnit: string;
   defaultAmountInUsd?: number;
 };
 
 function ImpactPreviewer({
   nonProfit,
   minimumNumberOfTickets,
+  usdCentsToOneImpactUnit,
   defaultAmountInUsd = 100,
 }: Props) {
   const { t } = useTranslation("translation", {
@@ -44,6 +46,11 @@ function ImpactPreviewer({
     fetchDefaultTicketValue();
   }, []);
 
+  const roundedImpact =
+    minimumNumberOfTickets > 1
+      ? Number(defaultTicket) * minimumNumberOfTickets
+      : defaultTicket / parseFloat(usdCentsToOneImpactUnit);
+
   return (
     nonProfit?.nonProfitImpacts &&
     nonProfitImpact && (
@@ -55,7 +62,7 @@ function ImpactPreviewer({
             : t("oneTicket")}{" "}
           {impactNormalizer(
             nonProfit,
-            Number(defaultTicket) * minimumNumberOfTickets,
+            roundedImpact,
             normalizerTranslations,
           ).join(" ")}
         </S.Info>
