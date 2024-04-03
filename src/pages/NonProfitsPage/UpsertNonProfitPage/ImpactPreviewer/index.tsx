@@ -1,6 +1,8 @@
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { impactNormalizer } from "@ribon.io/shared/lib";
 import { useNonProfitImpact } from "@ribon.io/shared/hooks";
+import useRibonConfig from "hooks/apiHooks/useRibonConfig";
 import { Currencies } from "types/enums/Currencies";
 import * as S from "./styles";
 
@@ -29,6 +31,19 @@ function ImpactPreviewer({
     Currencies.USD,
   );
 
+  const { getConfig } = useRibonConfig();
+  const [defaultTicket, setDefaultTicket] = useState<number>(0);
+
+  async function fetchDefaultTicketValue() {
+    const config = await getConfig();
+
+    setDefaultTicket(config[0].defaultTicketValue);
+  }
+
+  useEffect(() => {
+    fetchDefaultTicketValue();
+  }, []);
+
   return (
     nonProfit?.nonProfitImpacts &&
     nonProfitImpact && (
@@ -40,7 +55,7 @@ function ImpactPreviewer({
             : t("oneTicket")}{" "}
           {impactNormalizer(
             nonProfit,
-            Number(nonProfitImpact?.roundedImpact) * minimumNumberOfTickets,
+            Number(defaultTicket) * minimumNumberOfTickets,
             normalizerTranslations,
           ).join(" ")}
         </S.Info>
