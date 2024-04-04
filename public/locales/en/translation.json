@@ -454,6 +454,7 @@
     "donorsLabel": "Donors",
     "donationsLabel": "Donations",
     "impressionCardsLabel": "Impression Cards",
+    "reportsLabel": "Reports",
     "settingsLabel": "Settings",
     "urlBuilderLabel": "URL Builder"
   },
@@ -572,7 +573,46 @@
       "description": "To implement the impression card, you need to use the following code in somethere in our web or app. We recommend to use some implemented card if you don't have a specific reason to create a new one."
     }
   },
-
+  "reports": {
+    "title": "Reports",
+    "edit": "Edit",
+    "details": {
+      "title": "Report details",
+      "details": "Details"
+    },
+    "attributes": {
+      "name": "Name",
+      "link": "Link",
+      "status": "Status",
+      "active": "Active",
+      "inactive": "Inactive",
+      "activityStatus": "Status",
+      "createdAt": "Created at",
+      "lastEditedAt": "Last Edited At"
+    },
+    "list": {
+      "title": "Reports",
+      "createNew": "Add report",
+      "search": "Search by ID...",
+      "next": "next >",
+      "previous": "< previous"
+    },
+    "upsert": {
+      "create": {
+        "title": "Add new report",
+        "save": "Save",
+        "cancel": "Cancel"
+      },
+      "edit": {
+        "title": "Edit report",
+        "save": "Save",
+        "cancel": "Cancel"
+      },
+      "active": "Active",
+      "inactive": "Inactive",
+      "required": "this is required"
+    }
+  },
   "bigDonations": {
     "title": "Donations",
     "noBigDonations": "No donations found",

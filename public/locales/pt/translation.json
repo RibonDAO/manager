@@ -453,6 +453,7 @@
     "donorsLabel": "Doadores",
     "donationsLabel": "Doações",
     "impressionCardsLabel": "Cards de impressão",
+    "reportsLabel": "Relatórios",
     "settingsLabel": "Configurações",
     "urlBuilderLabel": "URL Builder"
   },
@@ -569,6 +570,46 @@
     "implementation": {
       "title": "Implementação",
       "description": "Para que seu card de impressão apareça, é necessário que ele esteja implementado em algum lugar do código (web ou app). Recomendamos reaproveitar algum card já implementado caso seja algo urgente."
+    }
+  },
+  "reports": {
+    "title": "Relatórios",
+    "edit": "Editar",
+    "details": {
+      "title": "Detalhes do relatório",
+      "details": "Detalhes"
+    },
+    "attributes": {
+      "name": "Nome",
+      "link": "Link",
+      "status": "Status",
+      "active": "Ativo",
+      "inactive": "Inativo",
+      "activityStatus": "Status",
+      "createdAt": "Criado em",
+      "lastEditedAt": "Última edição em"
+    },
+    "list": {
+      "title": "Relatórios",
+      "createNew": "Adicionar relatório",
+      "search": "Procurar por ID...",
+      "next": "próximo >",
+      "previous": "< anterior"
+    },
+    "upsert": {
+      "create": {
+        "title": "Adicionar relatório",
+        "save": "Salvar",
+        "cancel": "Cancelar"
+      },
+      "edit": {
+        "title": "Editar relatório",
+        "save": "Salvar",
+        "cancel": "Cancelar"
+      },
+      "active": "Ativo",
+      "inactive": "Inativo",
+      "required": "* Obrigatório"
     }
   },
   "bigDonations": {
