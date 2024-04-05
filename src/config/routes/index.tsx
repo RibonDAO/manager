@@ -34,6 +34,9 @@ import CreateBigDonationsPage from "pages/bigDonors/CreateBigDonationsPage";
 import ImpressionCardsPage from "pages/impressionCards/ImpressionCardsPage";
 import UpsertImpressionCardPage from "pages/impressionCards/UpsertImpressionCardPage";
 import ImpressionCardDetailsPage from "pages/impressionCards/ImpressionCardDetailsPage";
+import ReportDetailPage from "pages/reports/ReportDetailsPage";
+import ReportsPage from "pages/reports/ReportsPage";
+import UpsertReportPage from "pages/reports/UpsertReportPage";
 import Navigation from "./Navigation";
 import PrivateRoute from "./privateRoute";
 
@@ -494,6 +497,62 @@ function RoutesComponent(): JSX.Element {
               <Navigation />
               <MainLayout>
                 <ImpressionCardDetailsPage />
+              </MainLayout>
+            </Suspense>
+          </PrivateRoute>
+        }
+      />
+
+      <Route
+        path="/reports"
+        element={
+          <PrivateRoute>
+            <Suspense fallback={<div />}>
+              <Navigation />
+              <MainLayout>
+                <ReportsPage />
+              </MainLayout>
+            </Suspense>
+          </PrivateRoute>
+        }
+      />
+
+      <Route
+        path="/reports/:id"
+        element={
+          <PrivateRoute>
+            <Suspense fallback={<div />}>
+              <Navigation />
+              <MainLayout>
+                <ReportDetailPage />
+              </MainLayout>
+            </Suspense>
+          </PrivateRoute>
+        }
+      />
+
+      <Route
+        path="/reports/:id/edit"
+        element={
+          <PrivateRoute>
+            <Suspense fallback={<div />}>
+              <Navigation />
+              <MainLayout>
+                <UpsertReportPage isEdit />
+              </MainLayout>
+            </Suspense>
+          </PrivateRoute>
+        }
+      />
+
+      <Route
+        path="/reports/new"
+        element={
+          <PrivateRoute>
+            <Suspense fallback={<div />}>
+              <Navigation />
+              <MainLayout>
+                <UpsertReportPage />
               </MainLayout>
             </Suspense>
           </PrivateRoute>
