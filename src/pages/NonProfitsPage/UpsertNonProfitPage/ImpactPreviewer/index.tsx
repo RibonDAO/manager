@@ -46,9 +46,9 @@ function ImpactPreviewer({
     fetchDefaultTicketValue();
   }, []);
 
-  const roundedImpact =
+  const oneImpact =
     minimumNumberOfTickets > 1
-      ? Number(defaultTicket) * minimumNumberOfTickets
+      ? 1
       : defaultTicket / parseFloat(usdCentsToOneImpactUnit);
 
   return (
@@ -60,11 +60,9 @@ function ImpactPreviewer({
           {minimumNumberOfTickets > 1
             ? t("tickets", { minimumNumberOfTickets })
             : t("oneTicket")}{" "}
-          {impactNormalizer(
-            nonProfit,
-            roundedImpact,
-            normalizerTranslations,
-          ).join(" ")}
+          {impactNormalizer(nonProfit, oneImpact, normalizerTranslations).join(
+            " ",
+          )}
         </S.Info>
         <S.Title>{t("previewContribution")}</S.Title>
         <S.Info>
