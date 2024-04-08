@@ -19,6 +19,8 @@ import { CreateStory } from "types/apiResponses/story";
 import { NonProfitImpact } from "types/entities/NonProfitImpact";
 import { useUploadFile } from "hooks/apiHooks/useUploadFile";
 import { CreateNonProfitImpacts } from "types/apiResponses/nonProfitImpacts";
+import useRibonConfig from "hooks/apiHooks/useRibonConfig";
+import { RibonConfig } from "types/entities/RibonConfig";
 import ImpactsForm from "./ImpactForm";
 import ImpactPreviewer from "./ImpactPreviewer";
 import StoriesForm from "./StoriesForm";
@@ -46,6 +48,7 @@ function UpsertNonProfitPage({ isEdit }: Props) {
   const [logoFile, setLogoFile] = useState<string>("");
   const [mainImageFile, setMainImageFile] = useState<string>("");
   const [backgroundImageFile, setBackgroundImageFile] = useState<string>("");
+  const [config, setConfig] = useState<RibonConfig>();
   const [confirmationImageFile, setConfirmationImageFile] =
     useState<string>("");
   const navigate = useNavigate();
@@ -85,6 +88,8 @@ function UpsertNonProfitPage({ isEdit }: Props) {
   });
 
   const toast = useToast();
+  const { getConfig } = useRibonConfig();
+  const ticketValueInCents = config?.defaultTicketValue || 0;
 
   const fetchNonProfit = useCallback(async () => {
     try {
@@ -278,9 +283,14 @@ function UpsertNonProfitPage({ isEdit }: Props) {
     }
   }, [setCauses]);
 
-  useEffect(() => {
-    fetchCauses();
-  }, [fetchCauses]);
+  const fetchConfig = useCallback(async () => {
+    try {
+      const configData = await getConfig();
+      setConfig(configData[0]);
+    } catch (e) {
+      logError(e);
+    }
+  }, [setConfig]);
 
   const onCauseIdChanged = (causeId: number) => {
     setCurrentCauseId(causeId);
@@ -294,6 +304,14 @@ function UpsertNonProfitPage({ isEdit }: Props) {
   const watchStoryValues = watchStory();
   const watchImpactFields = watch();
   const maxLengthNonProfitName = 25;
+
+  useEffect(() => {
+    fetchCauses();
+  }, [fetchCauses]);
+
+  useEffect(() => {
+    fetchConfig();
+  }, [fetchConfig]);
 
   return (
     <>
@@ -367,15 +385,23 @@ function UpsertNonProfitPage({ isEdit }: Props) {
             <S.Divider />
 
             <S.Subtitle>{t("upsert.impacts")}</S.Subtitle>
-            {watchImpactFields && ImpactObject().usdCentsToOneImpactUnit && (
-              <ImpactPreviewer
-                nonProfit={{
-                  ...NonProfitObject(),
-                  nonProfitImpacts: [watchImpactFields],
-                }}
-                usdCentsToOneImpactUnit={ImpactObject().usdCentsToOneImpactUnit}
-              />
-            )}
+            {watchImpactFields &&
+              ImpactObject().usdCentsToOneImpactUnit &&
+              ticketValueInCents && (
+                <ImpactPreviewer
+                  nonProfit={{
+                    ...NonProfitObject(),
+                    nonProfitImpacts: [watchImpactFields],
+                  }}
+                  minimumNumberOfTickets={
+                    Number(ImpactObject().usdCentsToOneImpactUnit) /
+                    ticketValueInCents
+                  }
+                  usdCentsToOneImpactUnit={
+                    ImpactObject().usdCentsToOneImpactUnit
+                  }
+                />
+              )}
             <ImpactsForm
               registerImpact={registerImpact}
               setCurrentUnit={setCurrentUnit}
