@@ -18,6 +18,9 @@ import LabelIconOn from "./assets/labelIconOn.svg";
 import LabelIconOff from "./assets/labelIconOff.svg";
 import SettingsIconOff from "./assets/settingsIconOff.svg";
 import SettingsIconOn from "./assets/settingsIconOn.svg";
+import ReportIconOff from "./assets/reportsIconOff.svg";
+import ReportsIconOn from "./assets/reportsIconOn.svg";
+
 import * as S from "./styles";
 import NavigationLink from "./NavigationLink";
 
@@ -89,6 +92,12 @@ function Navigation(): JSX.Element {
       iconOn: IntegrationsIconOn,
       iconOff: IntegrationsIconOff,
       title: t("impressionCardsLabel"),
+    },
+    {
+      path: "/reports",
+      iconOn: ReportsIconOn,
+      iconOff: ReportIconOff,
+      title: t("reportsLabel"),
     },
     {
       path: "/big-donors/index",
