@@ -320,7 +320,8 @@
         "fund": "fund",
         "previewTicket": "Ticket impact preview",
         "previewContribution": "Contribution impact preview",
-        "oneTicket": "1 ticket funds "
+        "oneTicket": "1 ticket funds ",
+        "tickets": "{{minimumNumberOfTickets}} tickets fund "
       }
     },
     "details": {
