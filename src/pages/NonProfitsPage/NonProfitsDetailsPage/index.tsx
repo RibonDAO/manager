@@ -186,10 +186,10 @@ function NonProfitsDetailsPage(): JSX.Element {
             ticketValueInCents && (
               <ImpactPreviewer
                 nonProfit={nonProfit}
-                minimumNumberOfTickets={
+                minimumNumberOfTickets={Math.ceil(
                   Number(nonProfitImpact.usdCentsToOneImpactUnit) /
-                  ticketValueInCents
-                }
+                    ticketValueInCents,
+                )}
                 usdCentsToOneImpactUnit={
                   nonProfitImpact.usdCentsToOneImpactUnit
                 }
