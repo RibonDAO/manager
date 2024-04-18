@@ -49,7 +49,7 @@ function ImpactPreviewer({
   const oneImpact =
     minimumNumberOfTickets > 1
       ? 1
-      : Math.ceil(defaultTicket / parseFloat(usdCentsToOneImpactUnit));
+      : Math.round(defaultTicket / parseFloat(usdCentsToOneImpactUnit));
 
   return (
     nonProfit?.nonProfitImpacts &&
