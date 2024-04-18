@@ -393,7 +393,7 @@ function UpsertNonProfitPage({ isEdit }: Props) {
                     ...NonProfitObject(),
                     nonProfitImpacts: [watchImpactFields],
                   }}
-                  minimumNumberOfTickets={Math.ceil(
+                  minimumNumberOfTickets={Math.round(
                     Number(ImpactObject().usdCentsToOneImpactUnit) /
                       ticketValueInCents,
                   )}
