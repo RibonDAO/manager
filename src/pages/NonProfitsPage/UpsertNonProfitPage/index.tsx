@@ -51,6 +51,8 @@ function UpsertNonProfitPage({ isEdit }: Props) {
   const [config, setConfig] = useState<RibonConfig>();
   const [confirmationImageFile, setConfirmationImageFile] =
     useState<string>("");
+    const [coverImageFile, setCoverImageFile] =
+    useState<string>("");
   const navigate = useNavigate();
   const { id } = useParams();
   const { createNonProfit, getNonProfit, updateNonProfit } = useNonProfits();
@@ -221,7 +223,7 @@ function UpsertNonProfitPage({ isEdit }: Props) {
 
   const handleUploadImage = (
     image: File,
-    attribute: "logo" | "backgroundImage" | "mainImage" | "confirmationImage",
+    attribute: "logo" | "backgroundImage" | "mainImage" | "confirmationImage" | "coverImage",
   ) => {
     try {
       setLoading(true);
@@ -272,6 +274,15 @@ function UpsertNonProfitPage({ isEdit }: Props) {
 
     setConfirmationImageFile(URL.createObjectURL(confirmationImage));
     handleUploadImage(confirmationImage, "confirmationImage");
+  };
+
+  const handleCoverImageChange = (
+    e: React.ChangeEvent<HTMLInputElement>,
+  ) => {
+    const coverImage = e.target.files![0];
+
+    setCoverImageFile(URL.createObjectURL(coverImage));
+    handleUploadImage(coverImage, "coverImage");
   };
 
   const fetchCauses = useCallback(async () => {
@@ -509,6 +520,28 @@ function UpsertNonProfitPage({ isEdit }: Props) {
                 )}
               </S.ItemBox>
             </S.FlexRow>
+
+            <S.FlexRow>
+              <S.ItemBox>
+                <InfoName>{t("attributes.coverImage")}</InfoName>
+                <FileUpload
+                  onChange={handleCoverImageChange}
+                  logo={NonProfitObject().coverImage}
+                  value={coverImageFile}
+                />
+                <S.ImageRecommendation>
+                  {t("attributes.imageRecommendation", { size: "512x512" })}
+                </S.ImageRecommendation>
+              </S.ItemBox>
+              <S.ItemBox>
+                <InfoName hasTranslation>{t("attributes.altText")}</InfoName>
+                <S.TextInput {...register("coverImageDescription")} />
+                {formState?.errors.name && formState?.errors.name.type && (
+                  <S.Error>{formState?.errors.name.message}</S.Error>
+                )}
+              </S.ItemBox>
+            </S.FlexRow>
+
           </S.RightSection>
         </S.ContentSection>
         <S.ContentSection>

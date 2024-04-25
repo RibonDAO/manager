@@ -15,6 +15,8 @@ export interface CreateNonProfit {
   nonProfitImpactsAttributes?: CreateNonProfitImpacts[];
   cause?: CreateCause;
   confirmationImage?: any;
+  coverImage?: any;
+  coverImageDescription?: string;
   logoDescription?: string;
   mainImageDescription?: string;
   backgroundImageDescription?: string;

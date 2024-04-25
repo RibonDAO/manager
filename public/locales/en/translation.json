@@ -245,6 +245,7 @@
       "impactDescription": "Impact Description",
       "donorRecipients": "Donor Recipients",
       "confirmationImage": "Confirmation Image",
+      "coverImage": "Cover image",
       "costForOneImpact": "Cost to 1 impact unit (USDC cents)",
       "unit": "Unit",
       "cause": "Cause",
