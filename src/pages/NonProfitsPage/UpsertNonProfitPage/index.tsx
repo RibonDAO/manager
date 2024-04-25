@@ -77,17 +77,19 @@ function UpsertNonProfitPage({ isEdit }: Props) {
     watch: watchStory,
   } = useForm<CreateStory[]>({ mode: "onChange", reValidateMode: "onChange" });
 
-  const {
-    register: registerImpact,
-    reset: resetImpact,
-    setValue: setValueImpact,
-    formState: formStateImpact,
-    getValues: ImpactObject,
-    watch,
-  } = useForm<NonProfitImpact>({
+  const nonProfitImpactsUseForm = useForm<NonProfitImpact>({
     mode: "onChange",
     reValidateMode: "onChange",
   });
+
+  // const {
+  //   register: registerImpact,
+  //   reset: resetImpact,
+  //   setValue: setValueImpact,
+  //   formState: formStateImpact,
+  //   getValues: ImpactObject,
+  //   watch,
+  // } = nonProfitImpactsUseForm;
 
   const toast = useToast();
   const { getConfig } = useRibonConfig();
@@ -97,7 +99,7 @@ function UpsertNonProfitPage({ isEdit }: Props) {
     try {
       const nonProfit = await getNonProfit(id);
       reset(nonProfit);
-      resetImpact(
+      nonProfitImpactsUseForm.reset(
         nonProfit.nonProfitImpacts![nonProfit.nonProfitImpacts!.length - 1],
       );
 
@@ -152,7 +154,7 @@ function UpsertNonProfitPage({ isEdit }: Props) {
       const nonProfitObject = {
         ...nonProfitUpdate(),
         storiesAttributes: storyObject(),
-        nonProfitImpactsAttributes: [ImpactObject()],
+        nonProfitImpactsAttributes: [nonProfitImpactsUseForm.getValues()],
       };
 
       try {
@@ -212,7 +214,7 @@ function UpsertNonProfitPage({ isEdit }: Props) {
         donorRecipient: "donor,donors",
       };
       reset(newNonProfit);
-      resetImpact(newNonProfitImpacts);
+      nonProfitImpactsUseForm.reset(newNonProfitImpacts);
     }
   }, []);
 
@@ -313,7 +315,7 @@ function UpsertNonProfitPage({ isEdit }: Props) {
 
   const nonProfitName = watchNonProfit()?.name;
   const watchStoryValues = watchStory();
-  const watchImpactFields = watch();
+  const watchImpactFields = nonProfitImpactsUseForm.watch();
   const maxLengthNonProfitName = 25;
 
   useEffect(() => {
@@ -397,7 +399,7 @@ function UpsertNonProfitPage({ isEdit }: Props) {
 
             <S.Subtitle>{t("upsert.impacts")}</S.Subtitle>
             {watchImpactFields &&
-              ImpactObject().usdCentsToOneImpactUnit &&
+              nonProfitImpactsUseForm.getValues().usdCentsToOneImpactUnit &&
               ticketValueInCents && (
                 <ImpactPreviewer
                   nonProfit={{
@@ -405,20 +407,19 @@ function UpsertNonProfitPage({ isEdit }: Props) {
                     nonProfitImpacts: [watchImpactFields],
                   }}
                   minimumNumberOfTickets={Math.round(
-                    Number(ImpactObject().usdCentsToOneImpactUnit) /
+                    Number(nonProfitImpactsUseForm.getValues().usdCentsToOneImpactUnit) /
                       ticketValueInCents,
                   )}
                   usdCentsToOneImpactUnit={
-                    ImpactObject().usdCentsToOneImpactUnit
+                    nonProfitImpactsUseForm.getValues().usdCentsToOneImpactUnit
                   }
                 />
               )}
+              
             <ImpactsForm
-              registerImpact={registerImpact}
+              nonProfitImpactUseForm={nonProfitImpactsUseForm}
               setCurrentUnit={setCurrentUnit}
               currentUnit={currentUnit}
-              formStateImpact={formStateImpact}
-              setValueImpact={setValueImpact}
             />
 
             <S.Divider />

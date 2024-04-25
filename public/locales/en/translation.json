@@ -303,6 +303,7 @@
       },
       "impactsForm": {
         "attributes": {
+          "impactTitle": "Impact Title",
           "impactDescription": "Impact Description",
           "donorRecipients": "Donor Recipients",
           "costForOneImpact": "Cost to 1 impact unit (USDC cents)",
