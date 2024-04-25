@@ -183,7 +183,7 @@
       "createdAt": "Created At",
       "lastEditedAt": "Last Edited At",
       "category": "Category",
-      "plan" : {
+      "plan": {
         "title": "Plan",
         "status": "Status",
         "active": "Active",
@@ -204,7 +204,7 @@
       "details": "Details",
       "edit": "Edit",
       "gatewayInfo": "Gateway information",
-      "plan" : {
+      "plan": {
         "title": "Plan",
         "status": "Status",
         "active": "Active",
@@ -456,6 +456,7 @@
     "donationsLabel": "Donations",
     "impressionCardsLabel": "Impression Cards",
     "reportsLabel": "Reports",
+    "couponsLabel": "Coupons",
     "settingsLabel": "Settings",
     "urlBuilderLabel": "URL Builder"
   },
@@ -655,6 +656,21 @@
         "processingDate": "Processed in",
         "status": "Status"
       }
+    }
+  },
+  "coupons": {
+    "title": "Coupons",
+    "createNew": "Add coupons",
+    "edit": "Edit",
+    "attributes": {
+      "id": "ID",
+      "expiration": "Expiration",
+      "status": "Status",
+      "link": "Link",
+      "reward": "Reward",
+      "tickets": "Tickets",
+      "active": "Active",
+      "inactive": "Inactive"
     }
   },
   "layouts": {

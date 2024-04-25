@@ -183,7 +183,7 @@
       "createdAt": "Criado em",
       "lastEditedAt": "Última edição em",
       "category": "Categoria",
-      "plan" : {
+      "plan": {
         "title": "Plano",
         "status": "Status",
         "active": "Ativo",
@@ -204,7 +204,7 @@
       "details": "Detalhes",
       "edit": "Editar",
       "gatewayInfo": "Informação do meio de pagamento",
-      "plan" : {
+      "plan": {
         "title": "Plano",
         "status": "Status",
         "active": "Ativo",
@@ -415,7 +415,7 @@
     "edit": {
       "title": "Editar Configurações",
       "defaultTicketValue": "Valor do ticket (USDC)",
-      "ribonClubFeePercentage":"Porcentagem de fee do Clube Ribon",
+      "ribonClubFeePercentage": "Porcentagem de fee do Clube Ribon",
       "details": "Detalhes",
       "save": "Salvar",
       "cancel": "Cancelar"
@@ -455,6 +455,7 @@
     "donationsLabel": "Doações",
     "impressionCardsLabel": "Cards de impressão",
     "reportsLabel": "Relatórios",
+    "couponsLabel": "Cupons",
     "settingsLabel": "Configurações",
     "urlBuilderLabel": "URL Builder"
   },
@@ -528,7 +529,7 @@
   },
   "impressionCards": {
     "title": "Cards de impressão",
-    "createNew":"Adicionar novo",
+    "createNew": "Adicionar novo",
     "edit": "Editar",
     "details": "Detalhes",
     "attributes": {
@@ -655,6 +656,21 @@
         "processingDate": "Processado em",
         "status": "Status"
       }
+    }
+  },
+  "coupons": {
+    "title": "Cupons",
+    "createNew": "Adicionar cupons",
+    "edit": "Editar",
+    "attributes": {
+      "id": "ID",
+      "expiration": "Expiração",
+      "status": "Status",
+      "link": "Link",
+      "reward": "Agradecimento",
+      "tickets": "Tickets",
+      "active": "Ativo",
+      "inactive": "Inativo"
     }
   },
   "layouts": {

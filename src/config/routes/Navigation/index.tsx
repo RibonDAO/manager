@@ -20,7 +20,8 @@ import SettingsIconOff from "./assets/settingsIconOff.svg";
 import SettingsIconOn from "./assets/settingsIconOn.svg";
 import ReportIconOff from "./assets/reportsIconOff.svg";
 import ReportsIconOn from "./assets/reportsIconOn.svg";
-
+import CouponIconOff from "./assets/couponIconOff.svg";
+import CouponIconOn from "./assets/couponIconOn.svg";
 import * as S from "./styles";
 import NavigationLink from "./NavigationLink";
 
@@ -98,6 +99,12 @@ function Navigation(): JSX.Element {
       iconOn: ReportsIconOn,
       iconOff: ReportIconOff,
       title: t("reportsLabel"),
+    },
+    {
+      path: "/coupons",
+      iconOn: CouponIconOn,
+      iconOff: CouponIconOff,
+      title: t("couponsLabel"),
     },
     {
       path: "/big-donors/index",
