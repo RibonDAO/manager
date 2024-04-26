@@ -16,6 +16,11 @@ function CouponsListSection(): JSX.Element {
   const { getAllCoupons } = useCoupons();
   const { primary, tertiary } = theme.colors.brand;
 
+  const statusColors: { [key: string]: string } = {
+    active: primary[300],
+    inactive: tertiary[400],
+  };
+
   const { t } = useTranslation("translation", {
     keyPrefix: "coupons.attributes",
   });
@@ -40,11 +45,9 @@ function CouponsListSection(): JSX.Element {
         <th>{dateFormatter(item.expirationDate)}</th>
         <th>
           {" "}
-          <S.StatusTableCell
-            style={{ color: item?.status ? primary[300] : tertiary[400] }}
-          >
-            {item?.status ? t("active") : t("inactive")}
-          </S.StatusTableCell>
+          <S.InfoValue style={{ color: `${statusColors[item.status]}` }}>
+            {item.status}
+          </S.InfoValue>
         </th>
         <th>
           <CopyableAddress text={item.link} />

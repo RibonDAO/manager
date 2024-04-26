@@ -53,3 +53,8 @@ export const walletColumn = styled.th`
     width: 100px;
   }
 `;
+
+export const InfoValue = styled.p`
+  display: flex;
+  color: ${({ theme }) => theme.colors.neutral[500]};
+`;

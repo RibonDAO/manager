@@ -662,6 +662,8 @@
     "title": "Coupons",
     "createNew": "Add coupons",
     "edit": "Edit",
+    "dailyCollect": "Every day at midnight",
+    "uniqueCollect": "Unique collect",
     "attributes": {
       "id": "ID",
       "expiration": "Expiration",
@@ -670,7 +672,9 @@
       "reward": "Reward",
       "tickets": "Tickets",
       "active": "Active",
-      "inactive": "Inactive"
+      "inactive": "Inactive",
+      "ticketsAvailability": "Tickets availability",
+      "ticketsQuantity": "Tickets quantity"
     }
   },
   "layouts": {

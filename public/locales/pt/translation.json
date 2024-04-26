@@ -662,6 +662,8 @@
     "title": "Cupons",
     "createNew": "Adicionar cupons",
     "edit": "Editar",
+    "dailyCollect": "Todo dia à meia noite",
+    "uniqueCollect": "Coleta única",
     "attributes": {
       "id": "ID",
       "expiration": "Expiração",
@@ -670,7 +672,9 @@
       "reward": "Agradecimento",
       "tickets": "Tickets",
       "active": "Ativo",
-      "inactive": "Inativo"
+      "inactive": "Inativo",
+      "ticketsAvailability": "Disponibilidade dos tickets",
+      "ticketsQuantity": "Quantidade de tickets"
     }
   },
   "layouts": {

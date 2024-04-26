@@ -39,7 +39,14 @@ function CouponDetailsPage(): JSX.Element {
     }
   }, []);
 
-  const { expirationDate, status, link, numberOfTickets, rewardText } = Coupon;
+  const {
+    expirationDate,
+    status,
+    link,
+    numberOfTickets,
+    rewardText,
+    ticketAvailabilityInMinutes,
+  } = Coupon;
 
   useEffect(() => {
     fetchCoupon();
@@ -69,10 +76,8 @@ function CouponDetailsPage(): JSX.Element {
           <S.InfoValue>{dateFormatter(expirationDate)}</S.InfoValue>
 
           <InfoName>{t("attributes.status")}</InfoName>
-          <S.InfoValue
-            style={{ color: `${statusColors[status ?? "inactive"]}` }}
-          >
-            {status ? t("attributes.active") : t("attributes.inactive")}
+          <S.InfoValue style={{ color: `${statusColors[status]}` }}>
+            {status}
           </S.InfoValue>
 
           <InfoName>{t("attributes.link")}</InfoName>
@@ -82,7 +87,11 @@ function CouponDetailsPage(): JSX.Element {
           <S.InfoValue>{numberOfTickets}</S.InfoValue>
 
           <InfoName>{t("attributes.ticketsAvailability")}</InfoName>
-          <S.InfoValue>Coleta única</S.InfoValue>
+          <S.InfoValue>
+            {ticketAvailabilityInMinutes
+              ? t("dailyCollect")
+              : t("uniqueCollect")}
+          </S.InfoValue>
 
           <InfoName>{t("attributes.reward")}</InfoName>
           <S.InfoValue>{rewardText}</S.InfoValue>
