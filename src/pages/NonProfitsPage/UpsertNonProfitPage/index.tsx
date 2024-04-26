@@ -37,22 +37,20 @@ function UpsertNonProfitPage({ isEdit }: Props) {
   const mode = isEdit ? "edit" : "create";
   const [modalOpen, setModalOpen] = useState(false);
   const [causes, setCauses] = useState<Cause[]>([]);
-  const [currentCauseId, setCurrentCauseId] = useState<number>(1);
-  const [currentUnit, setCurrentUnit] = useState<string>("");
+  const [currentCauseId, setCurrentCauseId] = useState(1);
+  const [currentUnit, setCurrentUnit] = useState("");
   const { getCauses } = useCauses();
   const [loading, setLoading] = useState(false);
   const { neutral } = theme.colors;
   const { tertiary } = theme.colors.brand;
   const [statusNonProfit, setStatusNonProfit] = useState("");
   const [stories, setStories] = useState<CreateStory[]>([]);
-  const [logoFile, setLogoFile] = useState<string>("");
-  const [mainImageFile, setMainImageFile] = useState<string>("");
-  const [backgroundImageFile, setBackgroundImageFile] = useState<string>("");
+  const [logoFile, setLogoFile] = useState("");
+  const [mainImageFile, setMainImageFile] = useState("");
+  const [backgroundImageFile, setBackgroundImageFile] = useState("");
   const [config, setConfig] = useState<RibonConfig>();
-  const [confirmationImageFile, setConfirmationImageFile] =
-    useState<string>("");
-    const [coverImageFile, setCoverImageFile] =
-    useState<string>("");
+  const [confirmationImageFile, setConfirmationImageFile] = useState("");
+  const [coverImageFile, setCoverImageFile] = useState("");
   const navigate = useNavigate();
   const { id } = useParams();
   const { createNonProfit, getNonProfit, updateNonProfit } = useNonProfits();
@@ -62,8 +60,10 @@ function UpsertNonProfitPage({ isEdit }: Props) {
     reValidateMode: "onChange",
   });
 
-  const storyForm = useForm<CreateStory[]>({ mode: "onChange", reValidateMode: "onChange" });
-
+  const storyForm = useForm<CreateStory[]>({
+    mode: "onChange",
+    reValidateMode: "onChange"
+  });
 
   const nonProfitImpactForm = useForm<NonProfitImpact>({
     mode: "onChange",
@@ -101,12 +101,12 @@ function UpsertNonProfitPage({ isEdit }: Props) {
       const newStories = allStories.storiesAttributes.map((story: any) =>
         story?.image?.includes("http")
           ? {
-              id: story.id,
-              title: story.title,
-              description: story.description,
-              position: story.position,
-              imageDescription: story.imageDescription,
-            }
+            id: story.id,
+            title: story.title,
+            description: story.description,
+            position: story.position,
+            imageDescription: story.imageDescription,
+          }
           : story,
       );
 
@@ -387,16 +387,17 @@ function UpsertNonProfitPage({ isEdit }: Props) {
                   }}
                   minimumNumberOfTickets={Math.round(
                     Number(nonProfitImpactForm.getValues().usdCentsToOneImpactUnit) /
-                      ticketValueInCents,
+                    ticketValueInCents,
                   )}
                   usdCentsToOneImpactUnit={
                     nonProfitImpactForm.getValues().usdCentsToOneImpactUnit
                   }
                 />
               )}
-              
+
             <ImpactsForm
-              nonProfitImpactUseForm={nonProfitImpactForm}
+              nonProfitImpactForm={nonProfitImpactForm}
+              nonProfitForm={nonProfitForm}
               setCurrentUnit={setCurrentUnit}
               currentUnit={currentUnit}
             />
@@ -501,7 +502,7 @@ function UpsertNonProfitPage({ isEdit }: Props) {
               </S.ItemBox>
             </S.FlexRow>
 
-            <S.FlexRow>
+            <S.FlexRow>        
               <S.ItemBox>
                 <InfoName>{t("attributes.coverImage")}</InfoName>
                 <FileUpload

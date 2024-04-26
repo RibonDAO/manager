@@ -5,6 +5,7 @@ import { CreateStory } from "./story";
 export interface CreateNonProfit {
   id?: string;
   name: string;
+  impactTitle?: string;
   walletAddress: string;
   status: string;
   logo?: any;

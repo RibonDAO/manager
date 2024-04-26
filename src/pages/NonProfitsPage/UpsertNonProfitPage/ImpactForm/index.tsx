@@ -5,24 +5,33 @@ import { useTranslation } from "react-i18next";
 import { Dispatch, SetStateAction } from "react";
 import { UseFormReturn } from "react-hook-form";
 import { NonProfitImpact } from "types/entities/NonProfitImpact";
+import { CreateNonProfit } from "types/apiResponses/nonProfit";
 import * as S from "./styles";
 
 export type Props = {
-  nonProfitImpactUseForm: UseFormReturn<NonProfitImpact>;
+  nonProfitImpactForm: UseFormReturn<NonProfitImpact>;
+  nonProfitForm: UseFormReturn<CreateNonProfit>
   setCurrentUnit: Dispatch<SetStateAction<string>>;
   currentUnit: string;
 };
 
 function ImpactsForm({
-  nonProfitImpactUseForm,
+  nonProfitImpactForm,
+  nonProfitForm,
   setCurrentUnit,
   currentUnit,
 }: Props) {
-  const { 
+  const {
     register: registerImpact,
     setValue: setValueImpact,
-    formState: formStateImpact 
-  } = nonProfitImpactUseForm
+    formState: formStateImpact
+  } = nonProfitImpactForm
+
+  const {
+    register: registerNonProfit,
+    formState: formStateNonProfit
+  } = nonProfitForm
+
   const { t } = useTranslation("translation", {
     keyPrefix: "nonProfits.upsert.impactsForm",
   });
@@ -40,14 +49,14 @@ function ImpactsForm({
         <S.ItemBox>
           <InfoName>{t("attributes.impactTitle")}</InfoName>
           <S.TextInput
-            {...registerImpact("title", {
+            {...registerNonProfit("impactTitle", {
               required: t("upsert.required"),
             })}
           />
-          {formStateImpact?.errors.title &&
-            formStateImpact?.errors.title.type && (
+          {formStateNonProfit?.errors.impactTitle &&
+            formStateNonProfit?.errors.impactTitle.type && (
               <S.Error>
-                {formStateImpact?.errors.title.message}
+                {formStateNonProfit?.errors.impactTitle.message}
               </S.Error>
             )}
         </S.ItemBox>
