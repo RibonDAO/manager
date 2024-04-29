@@ -39,14 +39,7 @@ function CouponDetailsPage(): JSX.Element {
     }
   }, []);
 
-  const {
-    expirationDate,
-    status,
-    link,
-    numberOfTickets,
-    rewardText,
-    ticketAvailabilityInMinutes,
-  } = Coupon;
+  const { expirationDate, status, link, numberOfTickets, rewardText } = Coupon;
 
   useEffect(() => {
     fetchCoupon();
@@ -85,13 +78,6 @@ function CouponDetailsPage(): JSX.Element {
 
           <InfoName>{t("attributes.ticketsQuantity")}</InfoName>
           <S.InfoValue>{numberOfTickets}</S.InfoValue>
-
-          <InfoName>{t("attributes.ticketsAvailability")}</InfoName>
-          <S.InfoValue>
-            {ticketAvailabilityInMinutes
-              ? t("dailyCollect")
-              : t("uniqueCollect")}
-          </S.InfoValue>
 
           <InfoName>{t("attributes.reward")}</InfoName>
           <S.InfoValue>{rewardText}</S.InfoValue>

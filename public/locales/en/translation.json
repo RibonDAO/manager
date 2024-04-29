@@ -673,7 +673,6 @@
       "tickets": "Tickets",
       "active": "Active",
       "inactive": "Inactive",
-      "ticketsAvailability": "Tickets availability",
       "ticketsQuantity": "Tickets quantity"
     }
   },

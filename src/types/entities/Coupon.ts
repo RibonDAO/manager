@@ -5,5 +5,4 @@ export default interface Coupon {
   numberOfTickets?: string;
   rewardText: string;
   status: string;
-  ticketAvailabilityInMinutes: string;
 }
