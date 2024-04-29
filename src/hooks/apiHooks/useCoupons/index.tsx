@@ -1,7 +1,7 @@
 import couponsApi from "services/api/couponsApi";
 
 function useCoupons() {
-  async function getAllCoupons() {
+  async function getCoupons() {
     const { data: coupons } = await couponsApi.getCouponsList();
 
     return coupons;
@@ -15,7 +15,7 @@ function useCoupons() {
 
   return {
     getCoupon,
-    getAllCoupons,
+    getCoupons,
   };
 }
 

@@ -13,7 +13,7 @@ import * as S from "./styles";
 
 function CouponsListSection(): JSX.Element {
   const [coupons, setCoupons] = useState<any>([]);
-  const { getAllCoupons } = useCoupons();
+  const { getCoupons } = useCoupons();
   const { primary, tertiary } = theme.colors.brand;
 
   const statusColors: { [key: string]: string } = {
@@ -27,7 +27,7 @@ function CouponsListSection(): JSX.Element {
 
   const fetchCoupons = useCallback(async () => {
     try {
-      const allCoupons = await getAllCoupons();
+      const allCoupons = await getCoupons();
       setCoupons(allCoupons);
     } catch (e) {
       logError(e);

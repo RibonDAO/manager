@@ -10,13 +10,13 @@ describe("useCoupons", () => {
     hook = result.current;
   });
 
-  describe("#getAllCoupons", () => {
+  describe("#getCoupons", () => {
     beforeEach(() => {
       couponsApi.getCouponsList = jest.fn(() => ({} as any));
     });
 
     it("calls getCouponsList with correct params", () => {
-      hook.getAllCoupons();
+      hook.getCoupons();
 
       expect(couponsApi.getCouponsList).toHaveBeenCalled();
     });
