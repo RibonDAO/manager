@@ -11,6 +11,7 @@ describe("Coupons Section", () => {
     expect(screen.getByText("Status")).toBeInTheDocument();
     expect(screen.getByText("Link")).toBeInTheDocument();
     expect(screen.getByText("Tickets quantity")).toBeInTheDocument();
+    expect(screen.getByText("Coupons quantity")).toBeInTheDocument();
     expect(screen.getByText("Reward")).toBeInTheDocument();
   });
 });

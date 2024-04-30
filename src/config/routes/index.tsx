@@ -39,6 +39,7 @@ import ReportsPage from "pages/reports/ReportsPage";
 import UpsertReportPage from "pages/reports/UpsertReportPage";
 import CouponsPage from "pages/coupons/CouponsPage";
 import CouponDetailsPage from "pages/coupons/CouponDetailsPage";
+import UpsertCouponPage from "pages/coupons/UpsertCouponPage";
 import Navigation from "./Navigation";
 import PrivateRoute from "./privateRoute";
 
@@ -583,6 +584,34 @@ function RoutesComponent(): JSX.Element {
               <Navigation />
               <MainLayout>
                 <CouponDetailsPage />
+              </MainLayout>
+            </Suspense>
+          </PrivateRoute>
+        }
+      />
+
+      <Route
+        path="/coupons/new"
+        element={
+          <PrivateRoute>
+            <Suspense fallback={<div />}>
+              <Navigation />
+              <MainLayout>
+                <UpsertCouponPage />
+              </MainLayout>
+            </Suspense>
+          </PrivateRoute>
+        }
+      />
+
+      <Route
+        path="/coupons/:id/edit"
+        element={
+          <PrivateRoute>
+            <Suspense fallback={<div />}>
+              <Navigation />
+              <MainLayout>
+                <UpsertCouponPage isEdit />
               </MainLayout>
             </Suspense>
           </PrivateRoute>

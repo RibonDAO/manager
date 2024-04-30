@@ -1,4 +1,5 @@
 import couponsApi from "services/api/couponsApi";
+import Coupon from "types/entities/Coupon";
 
 function useCoupons() {
   async function getCoupons() {
@@ -13,9 +14,23 @@ function useCoupons() {
     return coupon;
   }
 
+  async function createCoupon(newCoupon: Coupon) {
+    const { data: coupon } = await couponsApi.createCoupon(newCoupon);
+
+    return coupon;
+  }
+
+  async function updateCoupon(data: Coupon) {
+    const { data: coupon } = await couponsApi.updateCoupon(data.id, data);
+
+    return coupon;
+  }
+
   return {
     getCoupon,
     getCoupons,
+    createCoupon,
+    updateCoupon,
   };
 }
 
