@@ -12,6 +12,7 @@ import {
   dateISOFormatter,
   dateISOFormatterFromString,
 } from "lib/dateISOFormatter";
+import CouponMessage from "types/entities/CouponMessage";
 import * as S from "./styles";
 
 export type Props = {
@@ -38,6 +39,15 @@ function UpsertCouponPage({ isEdit }: Props) {
     formState,
   } = useForm<Coupon>({ mode: "onChange", reValidateMode: "onChange" });
 
+  const {
+    register: registerCouponMessage,
+    reset: resetCouponMessage,
+    getValues: CouponMessageObject,
+  } = useForm<CouponMessage>({
+    mode: "onChange",
+    reValidateMode: "onChange",
+  });
+
   const [statusCheckbox, setStatusCheckbox] = useState(true);
   const [expirationDateCheckbox, setExpirationDateCheckbox] = useState(true);
 
@@ -45,6 +55,9 @@ function UpsertCouponPage({ isEdit }: Props) {
     try {
       const apiCoupon = await getCoupon(id);
       setStatusCheckbox(apiCoupon.status === "active");
+      if (apiCoupon.couponMessage) {
+        resetCouponMessage(apiCoupon.couponMessage);
+      }
       if (apiCoupon.expirationDate)
         apiCoupon.expirationDate = dateISOFormatterFromString(
           apiCoupon.expirationDate,
@@ -83,7 +96,7 @@ function UpsertCouponPage({ isEdit }: Props) {
         status: coupon().status,
         numberOfTickets: coupon().numberOfTickets,
         availableQuantity: coupon().availableQuantity,
-        rewardText: coupon().rewardText,
+        couponMessageAttributes: CouponMessageObject(),
       };
       try {
         if (isEdit) {
@@ -111,7 +124,9 @@ function UpsertCouponPage({ isEdit }: Props) {
         status: "active",
         numberOfTickets: 0,
         availableQuantity: 0,
-        rewardText: "",
+        couponMessage: {
+          rewardText: "",
+        },
       };
       reset(newCoupon);
     }
@@ -155,7 +170,7 @@ function UpsertCouponPage({ isEdit }: Props) {
           <InfoName>{t("attributes.reward")}</InfoName>
           <S.TextInput
             type="text"
-            {...register("rewardText", {
+            {...registerCouponMessage("rewardText", {
               required: t("upsert.required"),
             })}
           />

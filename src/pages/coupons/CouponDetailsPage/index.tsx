@@ -44,7 +44,7 @@ function CouponDetailsPage(): JSX.Element {
     status,
     link,
     numberOfTickets,
-    rewardText,
+    couponMessage,
     availableQuantity,
   } = Coupon;
 
@@ -90,7 +90,7 @@ function CouponDetailsPage(): JSX.Element {
           <S.InfoValue>{availableQuantity}</S.InfoValue>
 
           <InfoName>{t("attributes.reward")}</InfoName>
-          <S.InfoValue>{rewardText}</S.InfoValue>
+          <S.InfoValue>{couponMessage?.rewardText}</S.InfoValue>
         </S.LeftSection>
       </S.Container>
     </S.Content>

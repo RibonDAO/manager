@@ -38,10 +38,13 @@ describe("useCoupons", () => {
 
   describe("#createCoupon", () => {
     const newCoupon = {
-      id: 1,
+      id: "1",
       status: "active",
       expirationDate: "2022-01-01",
-      rewardText: "Reward text",
+      couponMessageAttributes: {
+        id: "1",
+        reward_text: "Reward text",
+      },
       ticketsQuantity: 1,
       availableQuantity: 1,
       link: "https://example.com",
@@ -60,10 +63,13 @@ describe("useCoupons", () => {
 
   describe("#updateCoupon", () => {
     const data = {
-      id: 1,
+      id: "1",
       status: "active",
       expirationDate: "2022-01-01",
-      rewardText: "Reward text",
+      couponMessageAttributes: {
+        id: "1",
+        reward_text: "Reward text",
+      },
       ticketsQuantity: 1,
       availableQuantity: 1,
       link: "https://example.com",

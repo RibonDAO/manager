@@ -54,7 +54,7 @@ function CouponsListSection(): JSX.Element {
 
         <th>{item.link && <CopyableAddress text={item.link} />}</th>
 
-        <th>{item.rewardText}</th>
+        <th>{item.couponMessage?.rewardText}</th>
         <th>{item.numberOfTickets}</th>
         <th>
           <S.ActionsTableCell>

@@ -1,9 +1,11 @@
+import CouponMessage from "./CouponMessage";
+
 export default interface Coupon {
-  id?: number;
+  id?: string;
   expirationDate?: string;
   link?: string;
   numberOfTickets?: number;
   availableQuantity: number;
-  rewardText: string;
   status: string;
+  couponMessage?: CouponMessage;
 }
