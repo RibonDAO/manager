@@ -76,3 +76,13 @@ export const ButtonContainer = styled.div`
   margin: ${({ theme }) => theme.spacing(24, 0)};
   display: flex;
 `;
+
+export const Error = styled.span`
+  margin-top: -8px;
+  padding: ${({ theme }) => theme.spacing(8, 0)};
+  color: ${({ color, theme }) => color || theme.colors.brand.tertiary[400]};
+
+  ::first-letter {
+    text-transform: uppercase;
+  }
+`;

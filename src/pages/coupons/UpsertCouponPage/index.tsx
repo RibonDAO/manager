@@ -43,6 +43,7 @@ function UpsertCouponPage({ isEdit }: Props) {
     register: registerCouponMessage,
     reset: resetCouponMessage,
     getValues: CouponMessageObject,
+    formState: formStateCouponMessage,
   } = useForm<CouponMessage>({
     mode: "onChange",
     reValidateMode: "onChange",
@@ -164,9 +165,27 @@ function UpsertCouponPage({ isEdit }: Props) {
             <S.Span>{t("attributes.noExpires")}</S.Span> <br />
           </S.CheckboxContainer>
           <InfoName>{t("attributes.ticketsQuantity")}</InfoName>
-          <S.NumberInput type="number" {...register("numberOfTickets")} />
+          <S.NumberInput
+            type="number"
+            {...register("numberOfTickets", {
+              required: t("upsert.required"),
+            })}
+          />
+          {formState.errors.numberOfTickets &&
+            formState.errors.numberOfTickets.type && (
+              <S.Error>{formState.errors.numberOfTickets.message}</S.Error>
+            )}
           <InfoName>{t("attributes.availableQuantity")}</InfoName>
-          <S.NumberInput type="number" {...register("availableQuantity")} />
+          <S.NumberInput
+            type="number"
+            {...register("availableQuantity", {
+              required: t("upsert.required"),
+            })}
+          />
+          {formState.errors.availableQuantity &&
+            formState.errors.availableQuantity.type && (
+              <S.Error>{formState.errors.availableQuantity.message}</S.Error>
+            )}
           <InfoName>{t("attributes.reward")}</InfoName>
           <S.TextInput
             type="text"
@@ -174,6 +193,12 @@ function UpsertCouponPage({ isEdit }: Props) {
               required: t("upsert.required"),
             })}
           />
+          {formStateCouponMessage?.errors.rewardText &&
+            formStateCouponMessage?.errors.rewardText.type && (
+              <S.Error>
+                {formStateCouponMessage?.errors.rewardText.message}
+              </S.Error>
+            )}
         </S.Container>
         <S.ContentSection>
           <S.ButtonContainer>
@@ -182,7 +207,7 @@ function UpsertCouponPage({ isEdit }: Props) {
               color={neutral[50]}
               backgroundColor={neutral[800]}
               _hover={{ bg: neutral[500] }}
-              disabled={!formState?.isValid}
+              disabled={!formState?.isValid || !formStateCouponMessage?.isValid}
             >
               {t("upsert.save")}
             </Button>
