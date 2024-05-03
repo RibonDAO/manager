@@ -55,17 +55,18 @@ function UpsertCouponPage({ isEdit }: Props) {
   const fetchCoupon = useCallback(async () => {
     try {
       const apiCoupon = await getCoupon(id);
-      setStatusCheckbox(apiCoupon.status === "active");
-      if (apiCoupon.couponMessage) {
-        resetCouponMessage(apiCoupon.couponMessage);
-      }
       if (apiCoupon.expirationDate)
         apiCoupon.expirationDate = dateISOFormatterFromString(
           apiCoupon.expirationDate,
         );
-      setExpirationDateCheckbox(!apiCoupon.expirationDate);
-
       reset(apiCoupon);
+      resetCouponMessage(apiCoupon.couponMessage);
+      setStatusCheckbox(apiCoupon.status === "active");
+      if (apiCoupon.couponMessage) {
+        resetCouponMessage(apiCoupon.couponMessage);
+      }
+
+      setExpirationDateCheckbox(!apiCoupon.expirationDate);
     } catch (e) {
       logError(e);
     }
@@ -84,7 +85,7 @@ function UpsertCouponPage({ isEdit }: Props) {
   ) => {
     const { checked } = e.target;
     if (checked) {
-      setValue("expirationDate", undefined);
+      setValue("expirationDate", "");
     }
     setExpirationDateCheckbox(!expirationDateCheckbox);
   };
