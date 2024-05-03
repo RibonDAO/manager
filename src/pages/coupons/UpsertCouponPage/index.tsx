@@ -121,16 +121,17 @@ function UpsertCouponPage({ isEdit }: Props) {
     if (isEdit) {
       fetchCoupon();
     } else {
+      const newCouponMessage: CouponMessage = {
+        rewardText: "New Coupon",
+      };
       const newCoupon: Coupon = {
         expirationDate: "",
         status: "active",
         numberOfTickets: 0,
         availableQuantity: 0,
-        couponMessage: {
-          rewardText: "",
-        },
       };
       reset(newCoupon);
+      resetCouponMessage(newCouponMessage);
     }
   }, []);
 
@@ -187,7 +188,7 @@ function UpsertCouponPage({ isEdit }: Props) {
             formState.errors.availableQuantity.type && (
               <S.Error>{formState.errors.availableQuantity.message}</S.Error>
             )}
-          <InfoName>{t("attributes.reward")}</InfoName>
+          <InfoName hasTranslation>{t("attributes.reward")}</InfoName>
           <S.TextInput
             type="text"
             {...registerCouponMessage("rewardText", {
@@ -208,7 +209,6 @@ function UpsertCouponPage({ isEdit }: Props) {
               color={neutral[50]}
               backgroundColor={neutral[800]}
               _hover={{ bg: neutral[500] }}
-              disabled={!formState?.isValid || !formStateCouponMessage?.isValid}
             >
               {t("upsert.save")}
             </Button>
