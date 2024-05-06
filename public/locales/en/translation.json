@@ -236,6 +236,7 @@
     "attributes": {
       "id": "Id",
       "name": "Name",
+      "impactTitle": "Impact Title",
       "walletAddress": "Wallet address",
       "token": "Token",
       "status": "Status",
@@ -245,6 +246,7 @@
       "impactDescription": "Impact Description",
       "donorRecipients": "Donor Recipients",
       "confirmationImage": "Confirmation Image",
+      "coverImage": "Cover image",
       "costForOneImpact": "Cost to 1 impact unit (USDC cents)",
       "unit": "Unit",
       "cause": "Cause",
@@ -262,6 +264,7 @@
       "previous": "< previous"
     },
     "upsert": {
+
       "activityStatus": "Activity status",
       "details": "Details",
       "impacts": "Impacts",
@@ -303,6 +306,7 @@
       "impactsForm": {
         "attributes": {
           "impactDescription": "Impact Description",
+          "impactTitle": "Impact Title",
           "donorRecipients": "Donor Recipients",
           "costForOneImpact": "Cost to 1 impact unit (USDC cents)",
           "unit": "Unit",

@@ -22,7 +22,7 @@ import * as S from "./styles";
 import StoriesCard from "../UpsertNonProfitPage/StoriesCard";
 import ImpactPreviewer from "../UpsertNonProfitPage/ImpactPreviewer";
 
-function NonProfitsDetailsPage(): JSX.Element {
+function  NonProfitsDetailsPage(): JSX.Element {
   const { t } = useTranslation("translation", {
     keyPrefix: "nonProfits",
   });
@@ -91,6 +91,8 @@ function NonProfitsDetailsPage(): JSX.Element {
           <S.Subtitle>{t("details.details")}</S.Subtitle>
           <InfoName>{t("details.attributes.name")}</InfoName>
           <S.InfoValue>{nonProfit?.name}</S.InfoValue>
+          <InfoName>{t("attributes.impactTitle")}</InfoName>
+          <S.InfoValue>{nonProfit?.impactTitle}</S.InfoValue>
           <InfoName>{t("attributes.cause")}</InfoName>
           <LinkPage
             page={`/causes/${nonProfit?.cause.id}`}
@@ -213,6 +215,11 @@ function NonProfitsDetailsPage(): JSX.Element {
               <S.ItemBox>
                 <InfoName>{t("details.attributes.cardCause")}</InfoName>
                 <S.CardImage src={nonProfit?.mainImage} />
+              </S.ItemBox>
+
+              <S.ItemBox>
+                <InfoName>{t("attributes.coverImage")}</InfoName>
+                <S.CardImage src={nonProfit?.coverImage} />
               </S.ItemBox>
             </S.RightSection>
           </S.Container>

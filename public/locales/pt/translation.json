@@ -236,6 +236,7 @@
     "attributes": {
       "id": "Id",
       "name": "Nome",
+      "impactTitle": "Título do Impacto",
       "walletAddress": "Endereço da carteira",
       "token": "Token",
       "status": "Status",
@@ -243,6 +244,7 @@
       "logo": "Logo",
       "backgroundImage": "Support Image",
       "impactDescription": "Descrição do Impacto",
+      "coverImage": "Imagem de capa",
       "donorRecipients": "Beneficiários",
       "costForOneImpact": "Cost to 1 impact unit (centavos de USDC)",
       "unit": "Unit",
@@ -300,6 +302,7 @@
       },
       "impactsForm": {
         "attributes": {
+          "impactTitle": "Título do Impacto",
           "impactDescription": "Descrição do Impacto",
           "donorRecipients": "Beneficiários",
           "costForOneImpact": "Custo por 1 unidade de impacto (centavos de USDC)",

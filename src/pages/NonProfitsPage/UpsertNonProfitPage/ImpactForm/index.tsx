@@ -2,23 +2,36 @@ import Dropdown from "components/atomics/Dropdown";
 import InfoName from "components/moleculars/infoName";
 import snakeToCamelCase from "lib/snakeToCamelCase";
 import { useTranslation } from "react-i18next";
+import { Dispatch, SetStateAction } from "react";
+import { UseFormReturn } from "react-hook-form";
+import { NonProfitImpact } from "types/entities/NonProfitImpact";
+import { CreateNonProfit } from "types/apiResponses/nonProfit";
 import * as S from "./styles";
 
 export type Props = {
-  registerImpact: any;
-  setValueImpact: any;
-  formStateImpact: any;
-  setCurrentUnit: (value: string) => void;
+  nonProfitImpactForm: UseFormReturn<NonProfitImpact>;
+  nonProfitForm: UseFormReturn<CreateNonProfit>
+  setCurrentUnit: Dispatch<SetStateAction<string>>;
   currentUnit: string;
 };
 
 function ImpactsForm({
-  registerImpact,
-  setValueImpact,
-  formStateImpact,
+  nonProfitImpactForm,
+  nonProfitForm,
   setCurrentUnit,
   currentUnit,
 }: Props) {
+  const {
+    register: registerImpact,
+    setValue: setValueImpact,
+    formState: formStateImpact
+  } = nonProfitImpactForm
+
+  const {
+    register: registerNonProfit,
+    formState: formStateNonProfit
+  } = nonProfitForm
+
   const { t } = useTranslation("translation", {
     keyPrefix: "nonProfits.upsert.impactsForm",
   });
@@ -32,6 +45,22 @@ function ImpactsForm({
 
   return (
     <>
+      <S.DoubleItemSection>
+        <S.ItemBox>
+          <InfoName>{t("attributes.impactTitle")}</InfoName>
+          <S.TextInput
+            {...registerNonProfit("impactTitle", {
+              required: t("upsert.required"),
+            })}
+          />
+          {formStateNonProfit?.errors.impactTitle &&
+            formStateNonProfit?.errors.impactTitle.type && (
+              <S.Error>
+                {formStateNonProfit?.errors.impactTitle.message}
+              </S.Error>
+            )}
+        </S.ItemBox>
+      </S.DoubleItemSection>
       <S.DoubleItemSection>
         <S.ItemBox>
           <InfoName>{t("attributes.costForOneImpact")}</InfoName>
