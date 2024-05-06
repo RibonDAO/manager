@@ -42,17 +42,19 @@ function CouponsListSection(): JSX.Element {
     return coupons?.map((item: Coupon) => (
       <tr key={item.id}>
         <th>{item.id}</th>
-        <th>{dateFormatter(item.expirationDate)}</th>
+        <th>
+          {item.expirationDate ? dateFormatter(item.expirationDate) : "-"}
+        </th>
         <th>
           {" "}
           <S.InfoValue style={{ color: `${statusColors[item.status]}` }}>
             {item.status}
           </S.InfoValue>
         </th>
-        <th>
-          <CopyableAddress text={item.link} />
-        </th>
-        <th>{item.rewardText}</th>
+
+        <th>{item.link && <CopyableAddress text={item.link} />}</th>
+
+        <th>{item.couponMessage?.rewardText}</th>
         <th>{item.numberOfTickets}</th>
         <th>
           <S.ActionsTableCell>

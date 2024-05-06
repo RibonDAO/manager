@@ -660,7 +660,7 @@
   },
   "coupons": {
     "title": "Coupons",
-    "createNew": "Add coupons",
+    "createNew": "Add coupon",
     "edit": "Edit",
     "dailyCollect": "Every day at midnight",
     "uniqueCollect": "Unique collect",
@@ -673,7 +673,20 @@
       "tickets": "Tickets",
       "active": "Active",
       "inactive": "Inactive",
-      "ticketsQuantity": "Tickets quantity"
+      "ticketsQuantity": "Tickets quantity",
+      "availableQuantity": "Coupons quantity",
+      "noExpires": "Never expires"
+    },
+    "upsert": {
+      "create": {
+        "title": "Add new coupon"
+      },
+      "edit": {
+        "title": "Edit coupon"
+      },
+      "save": "Save",
+      "cancel": "Cancel",
+      "required": "this is required"
     }
   },
   "layouts": {
