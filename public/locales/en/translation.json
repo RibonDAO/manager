@@ -183,7 +183,7 @@
       "createdAt": "Created At",
       "lastEditedAt": "Last Edited At",
       "category": "Category",
-      "plan" : {
+      "plan": {
         "title": "Plan",
         "status": "Status",
         "active": "Active",
@@ -204,7 +204,7 @@
       "details": "Details",
       "edit": "Edit",
       "gatewayInfo": "Gateway information",
-      "plan" : {
+      "plan": {
         "title": "Plan",
         "status": "Status",
         "active": "Active",
@@ -264,7 +264,6 @@
       "previous": "< previous"
     },
     "upsert": {
-
       "activityStatus": "Activity status",
       "details": "Details",
       "impacts": "Impacts",

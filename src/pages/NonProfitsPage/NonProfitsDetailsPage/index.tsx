@@ -22,7 +22,7 @@ import * as S from "./styles";
 import StoriesCard from "../UpsertNonProfitPage/StoriesCard";
 import ImpactPreviewer from "../UpsertNonProfitPage/ImpactPreviewer";
 
-function  NonProfitsDetailsPage(): JSX.Element {
+function NonProfitsDetailsPage(): JSX.Element {
   const { t } = useTranslation("translation", {
     keyPrefix: "nonProfits",
   });

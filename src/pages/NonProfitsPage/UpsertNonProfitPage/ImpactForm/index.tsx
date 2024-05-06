@@ -10,7 +10,7 @@ import * as S from "./styles";
 
 export type Props = {
   nonProfitImpactForm: UseFormReturn<NonProfitImpact>;
-  nonProfitForm: UseFormReturn<CreateNonProfit>
+  nonProfitForm: UseFormReturn<CreateNonProfit>;
   setCurrentUnit: Dispatch<SetStateAction<string>>;
   currentUnit: string;
 };
@@ -24,13 +24,11 @@ function ImpactsForm({
   const {
     register: registerImpact,
     setValue: setValueImpact,
-    formState: formStateImpact
-  } = nonProfitImpactForm
+    formState: formStateImpact,
+  } = nonProfitImpactForm;
 
-  const {
-    register: registerNonProfit,
-    formState: formStateNonProfit
-  } = nonProfitForm
+  const { register: registerNonProfit, formState: formStateNonProfit } =
+    nonProfitForm;
 
   const { t } = useTranslation("translation", {
     keyPrefix: "nonProfits.upsert.impactsForm",
