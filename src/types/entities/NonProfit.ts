@@ -13,6 +13,8 @@ export default interface NonProfit {
   logo?: any;
   mainImage?: any;
   backgroundImage?: any;
+  coverImage?: any;
+  impactTitle?: string;
   cause: Cause;
   stories: Story[];
   storiesAttributes: CreateStory[];
@@ -24,6 +26,7 @@ export default interface NonProfit {
   nonProfitImpactsAttributes?: CreateNonProfitImpacts[];
   confirmationImage?: any;
   logoDescription?: string;
+  coverImageDescription?: string;
   mainImageDescription?: string;
   backgroundImageDescription?: string;
   confirmationImageDescription?: string;

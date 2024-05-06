@@ -183,7 +183,7 @@
       "createdAt": "Created At",
       "lastEditedAt": "Last Edited At",
       "category": "Category",
-      "plan" : {
+      "plan": {
         "title": "Plan",
         "status": "Status",
         "active": "Active",
@@ -204,7 +204,7 @@
       "details": "Details",
       "edit": "Edit",
       "gatewayInfo": "Gateway information",
-      "plan" : {
+      "plan": {
         "title": "Plan",
         "status": "Status",
         "active": "Active",
@@ -236,6 +236,7 @@
     "attributes": {
       "id": "Id",
       "name": "Name",
+      "impactTitle": "Impact Title",
       "walletAddress": "Wallet address",
       "token": "Token",
       "status": "Status",
@@ -245,6 +246,7 @@
       "impactDescription": "Impact Description",
       "donorRecipients": "Donor Recipients",
       "confirmationImage": "Confirmation Image",
+      "coverImage": "Cover image",
       "costForOneImpact": "Cost to 1 impact unit (USDC cents)",
       "unit": "Unit",
       "cause": "Cause",
@@ -303,6 +305,7 @@
       "impactsForm": {
         "attributes": {
           "impactDescription": "Impact Description",
+          "impactTitle": "Impact Title",
           "donorRecipients": "Donor Recipients",
           "costForOneImpact": "Cost to 1 impact unit (USDC cents)",
           "unit": "Unit",

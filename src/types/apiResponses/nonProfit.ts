@@ -5,6 +5,7 @@ import { CreateStory } from "./story";
 export interface CreateNonProfit {
   id?: string;
   name: string;
+  impactTitle?: string;
   walletAddress: string;
   status: string;
   logo?: any;
@@ -15,6 +16,8 @@ export interface CreateNonProfit {
   nonProfitImpactsAttributes?: CreateNonProfitImpacts[];
   cause?: CreateCause;
   confirmationImage?: any;
+  coverImage?: any;
+  coverImageDescription?: string;
   logoDescription?: string;
   mainImageDescription?: string;
   backgroundImageDescription?: string;

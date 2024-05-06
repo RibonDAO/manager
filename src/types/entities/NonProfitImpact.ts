@@ -1,5 +1,6 @@
 export interface NonProfitImpact {
   id: string;
+  title: string;
   endDate: string;
   startDate: string;
   usdCentsToOneImpactUnit: string;
