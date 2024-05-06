@@ -62,7 +62,7 @@ function UpsertNonProfitPage({ isEdit }: Props) {
 
   const storyForm = useForm<CreateStory[]>({
     mode: "onChange",
-    reValidateMode: "onChange"
+    reValidateMode: "onChange",
   });
 
   const nonProfitImpactForm = useForm<NonProfitImpact>({
@@ -101,12 +101,12 @@ function UpsertNonProfitPage({ isEdit }: Props) {
       const newStories = allStories.storiesAttributes.map((story: any) =>
         story?.image?.includes("http")
           ? {
-            id: story.id,
-            title: story.title,
-            description: story.description,
-            position: story.position,
-            imageDescription: story.imageDescription,
-          }
+              id: story.id,
+              title: story.title,
+              description: story.description,
+              position: story.position,
+              imageDescription: story.imageDescription,
+            }
           : story,
       );
 
@@ -204,7 +204,12 @@ function UpsertNonProfitPage({ isEdit }: Props) {
 
   const handleUploadImage = (
     image: File,
-    attribute: "logo" | "backgroundImage" | "mainImage" | "confirmationImage" | "coverImage",
+    attribute:
+      | "logo"
+      | "backgroundImage"
+      | "mainImage"
+      | "confirmationImage"
+      | "coverImage",
   ) => {
     try {
       setLoading(true);
@@ -257,9 +262,7 @@ function UpsertNonProfitPage({ isEdit }: Props) {
     handleUploadImage(confirmationImage, "confirmationImage");
   };
 
-  const handleCoverImageChange = (
-    e: React.ChangeEvent<HTMLInputElement>,
-  ) => {
+  const handleCoverImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const coverImage = e.target.files![0];
 
     setCoverImageFile(URL.createObjectURL(coverImage));
@@ -308,7 +311,11 @@ function UpsertNonProfitPage({ isEdit }: Props) {
   return (
     <>
       <S.Title>{t(`upsert.${mode}.title`)}</S.Title>
-      <form onSubmit={nonProfitForm.handleSubmit(isEdit ? handleSave : handleOpenModal)}>
+      <form
+        onSubmit={nonProfitForm.handleSubmit(
+          isEdit ? handleSave : handleOpenModal,
+        )}
+      >
         <S.ContentSection>
           <S.LeftSection>
             <S.Subtitle>{t("upsert.activityStatus")}</S.Subtitle>
@@ -335,9 +342,12 @@ function UpsertNonProfitPage({ isEdit }: Props) {
                     required: t("upsert.required"),
                   })}
                 />
-                {nonProfitForm.formState?.errors.name && nonProfitForm.formState?.errors.name.type && (
-                  <S.Error>{nonProfitForm.formState?.errors.name.message}</S.Error>
-                )}
+                {nonProfitForm.formState?.errors.name &&
+                  nonProfitForm.formState?.errors.name.type && (
+                    <S.Error>
+                      {nonProfitForm.formState?.errors.name.message}
+                    </S.Error>
+                  )}
                 {nonProfitName && (
                   <S.CharLimit>
                     <S.CharLimitText>
@@ -369,9 +379,12 @@ function UpsertNonProfitPage({ isEdit }: Props) {
                   required: t("upsert.required"),
                 })}
               />
-              {nonProfitForm.formState?.errors.name && nonProfitForm.formState?.errors.name.type && (
-                <S.Error>{nonProfitForm.formState?.errors.name.message}</S.Error>
-              )}
+              {nonProfitForm.formState?.errors.name &&
+                nonProfitForm.formState?.errors.name.type && (
+                  <S.Error>
+                    {nonProfitForm.formState?.errors.name.message}
+                  </S.Error>
+                )}
             </S.ItemBox>
 
             <S.Divider />
@@ -386,8 +399,9 @@ function UpsertNonProfitPage({ isEdit }: Props) {
                     nonProfitImpacts: [watchImpactFields],
                   }}
                   minimumNumberOfTickets={Math.round(
-                    Number(nonProfitImpactForm.getValues().usdCentsToOneImpactUnit) /
-                    ticketValueInCents,
+                    Number(
+                      nonProfitImpactForm.getValues().usdCentsToOneImpactUnit,
+                    ) / ticketValueInCents,
                   )}
                   usdCentsToOneImpactUnit={
                     nonProfitImpactForm.getValues().usdCentsToOneImpactUnit
@@ -435,9 +449,12 @@ function UpsertNonProfitPage({ isEdit }: Props) {
               <S.ItemBox>
                 <InfoName hasTranslation>{t("attributes.altText")}</InfoName>
                 <S.TextInput {...nonProfitForm.register("logoDescription")} />
-                {nonProfitForm.formState?.errors.name && nonProfitForm.formState?.errors.name.type && (
-                  <S.Error>{nonProfitForm.formState?.errors.name.message}</S.Error>
-                )}
+                {nonProfitForm.formState?.errors.name &&
+                  nonProfitForm.formState?.errors.name.type && (
+                    <S.Error>
+                      {nonProfitForm.formState?.errors.name.message}
+                    </S.Error>
+                  )}
               </S.ItemBox>
             </S.FlexRow>
 
@@ -455,10 +472,15 @@ function UpsertNonProfitPage({ isEdit }: Props) {
               </S.ItemBox>
               <S.ItemBox>
                 <InfoName hasTranslation>{t("attributes.altText")}</InfoName>
-                <S.TextInput {...nonProfitForm.register("mainImageDescription")} />
-                {nonProfitForm.formState?.errors.name && nonProfitForm.formState?.errors.name.type && (
-                  <S.Error>{nonProfitForm.formState?.errors.name.message}</S.Error>
-                )}
+                <S.TextInput
+                  {...nonProfitForm.register("mainImageDescription")}
+                />
+                {nonProfitForm.formState?.errors.name &&
+                  nonProfitForm.formState?.errors.name.type && (
+                    <S.Error>
+                      {nonProfitForm.formState?.errors.name.message}
+                    </S.Error>
+                  )}
               </S.ItemBox>
             </S.FlexRow>
             <S.FlexRow>
@@ -475,10 +497,15 @@ function UpsertNonProfitPage({ isEdit }: Props) {
               </S.ItemBox>
               <S.ItemBox>
                 <InfoName hasTranslation>{t("attributes.altText")}</InfoName>
-                <S.TextInput {...nonProfitForm.register("backgroundImageDescription")} />
-                {nonProfitForm.formState?.errors.name && nonProfitForm.formState?.errors.name.type && (
-                  <S.Error>{nonProfitForm.formState?.errors.name.message}</S.Error>
-                )}
+                <S.TextInput
+                  {...nonProfitForm.register("backgroundImageDescription")}
+                />
+                {nonProfitForm.formState?.errors.name &&
+                  nonProfitForm.formState?.errors.name.type && (
+                    <S.Error>
+                      {nonProfitForm.formState?.errors.name.message}
+                    </S.Error>
+                  )}
               </S.ItemBox>
             </S.FlexRow>
             <S.FlexRow>
@@ -495,14 +522,19 @@ function UpsertNonProfitPage({ isEdit }: Props) {
               </S.ItemBox>
               <S.ItemBox>
                 <InfoName hasTranslation>{t("attributes.altText")}</InfoName>
-                <S.TextInput {...nonProfitForm.register("confirmationImageDescription")} />
-                {nonProfitForm.formState?.errors.name && nonProfitForm.formState?.errors.name.type && (
-                  <S.Error>{nonProfitForm.formState?.errors.name.message}</S.Error>
-                )}
+                <S.TextInput
+                  {...nonProfitForm.register("confirmationImageDescription")}
+                />
+                {nonProfitForm.formState?.errors.name &&
+                  nonProfitForm.formState?.errors.name.type && (
+                    <S.Error>
+                      {nonProfitForm.formState?.errors.name.message}
+                    </S.Error>
+                  )}
               </S.ItemBox>
             </S.FlexRow>
 
-            <S.FlexRow>        
+            <S.FlexRow>
               <S.ItemBox>
                 <InfoName>{t("attributes.coverImage")}</InfoName>
                 <FileUpload
@@ -516,13 +548,17 @@ function UpsertNonProfitPage({ isEdit }: Props) {
               </S.ItemBox>
               <S.ItemBox>
                 <InfoName hasTranslation>{t("attributes.altText")}</InfoName>
-                <S.TextInput {...nonProfitForm.register("coverImageDescription")} />
-                {nonProfitForm.formState?.errors.name && nonProfitForm.formState?.errors.name.type && (
-                  <S.Error>{nonProfitForm.formState?.errors.name.message}</S.Error>
-                )}
+                <S.TextInput
+                  {...nonProfitForm.register("coverImageDescription")}
+                />
+                {nonProfitForm.formState?.errors.name &&
+                  nonProfitForm.formState?.errors.name.type && (
+                    <S.Error>
+                      {nonProfitForm.formState?.errors.name.message}
+                    </S.Error>
+                  )}
               </S.ItemBox>
             </S.FlexRow>
-
           </S.RightSection>
         </S.ContentSection>
         <S.ContentSection>
