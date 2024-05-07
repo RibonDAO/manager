@@ -6,9 +6,10 @@ import * as S from "./styles";
 
 export type Props = {
   text: string;
+  icon?: string;
 };
 
-function CopyableAddress({ text }: Props): JSX.Element {
+function CopyableAddress({ text, icon }: Props): JSX.Element {
   const { t } = useTranslation("translation", {
     keyPrefix: "copyableAddress",
   });
@@ -28,7 +29,7 @@ function CopyableAddress({ text }: Props): JSX.Element {
     <S.Container onClick={copyText}>
       <Tooltip text={currentText}>
         <>
-          <img src={copyIcon} alt={t("copyText")} />
+          <img src={icon ?? copyIcon} alt={t("copyText")} />
           <span>{text}</span>
         </>
       </Tooltip>

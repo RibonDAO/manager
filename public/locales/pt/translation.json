@@ -458,6 +458,7 @@
     "donationsLabel": "Doações",
     "impressionCardsLabel": "Cards de impressão",
     "reportsLabel": "Relatórios",
+    "couponsLabel": "Cupons",
     "settingsLabel": "Configurações",
     "urlBuilderLabel": "URL Builder"
   },
@@ -658,6 +659,37 @@
         "processingDate": "Processado em",
         "status": "Status"
       }
+    }
+  },
+  "coupons": {
+    "title": "Cupons",
+    "createNew": "Adicionar cupom",
+    "edit": "Editar",
+    "dailyCollect": "Todo dia à meia noite",
+    "uniqueCollect": "Coleta única",
+    "attributes": {
+      "id": "ID",
+      "expiration": "Expiração",
+      "status": "Status",
+      "link": "Link",
+      "reward": "Agradecimento",
+      "tickets": "Tickets",
+      "active": "Ativo",
+      "inactive": "Inativo",
+      "ticketsQuantity": "Quantidade de tickets",
+      "availableQuantity": "Quantidade disponível",
+      "noExpires": "Sem expiração"
+    },
+    "upsert": {
+      "create": {
+        "title": "Adicionar cupom"
+      },
+      "edit": {
+        "title": "Editar cupom"
+      },
+      "save": "Salvar",
+      "cancel": "Cancelar",
+      "required": "Este campo é obrigatório"
     }
   },
   "layouts": {
