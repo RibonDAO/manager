@@ -245,6 +245,7 @@
       "backgroundImage": "Support Image",
       "impactDescription": "Descrição do Impacto",
       "coverImage": "Imagem de capa",
+      "icon": "Ícone (perfil)",
       "donorRecipients": "Beneficiários",
       "costForOneImpact": "Cost to 1 impact unit (centavos de USDC)",
       "unit": "Unit",

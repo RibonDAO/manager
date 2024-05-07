@@ -14,6 +14,7 @@ export default interface NonProfit {
   mainImage?: any;
   backgroundImage?: any;
   coverImage?: any;
+  icon?: any;
   impactTitle?: string;
   cause: Cause;
   stories: Story[];
@@ -27,6 +28,7 @@ export default interface NonProfit {
   confirmationImage?: any;
   logoDescription?: string;
   coverImageDescription?: string;
+  iconDescription?: string;
   mainImageDescription?: string;
   backgroundImageDescription?: string;
   confirmationImageDescription?: string;
