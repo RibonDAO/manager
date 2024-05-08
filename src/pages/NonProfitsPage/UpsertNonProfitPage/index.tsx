@@ -128,6 +128,9 @@ function UpsertNonProfitPage({ isEdit }: Props) {
       if (nonProfitForm.getValues().confirmationImage?.includes("http")) {
         delete nonProfit.confirmationImage;
       }
+      if (nonProfitForm.getValues().coverImage?.includes("http")) {
+        delete nonProfit.coverImage;
+      }
       if (nonProfitForm.getValues().icon?.includes("http")) {
         delete nonProfit.icon;
       }
