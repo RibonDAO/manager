@@ -128,7 +128,7 @@ function UpsertCouponPage({ isEdit }: Props) {
         expirationDate: "",
         status: "active",
         numberOfTickets: 0,
-        availableQuantity: 0,
+        availableQuantity: undefined,
       };
       reset(newCoupon);
       resetCouponMessage(newCouponMessage);
@@ -178,16 +178,7 @@ function UpsertCouponPage({ isEdit }: Props) {
               <S.Error>{formState.errors.numberOfTickets.message}</S.Error>
             )}
           <InfoName>{t("attributes.availableQuantity")}</InfoName>
-          <S.NumberInput
-            type="number"
-            {...register("availableQuantity", {
-              required: t("upsert.required"),
-            })}
-          />
-          {formState.errors.availableQuantity &&
-            formState.errors.availableQuantity.type && (
-              <S.Error>{formState.errors.availableQuantity.message}</S.Error>
-            )}
+          <S.NumberInput type="number" {...register("availableQuantity")} />
           <InfoName hasTranslation>{t("attributes.reward")}</InfoName>
           <S.TextInput
             type="text"

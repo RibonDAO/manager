@@ -5,7 +5,7 @@ export default interface Coupon {
   expirationDate?: string;
   link?: string;
   numberOfTickets?: number;
-  availableQuantity: number;
+  availableQuantity?: number;
   status: string;
   couponMessage?: CouponMessage;
 }

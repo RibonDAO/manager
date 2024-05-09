@@ -72,8 +72,12 @@ function CouponDetailsPage(): JSX.Element {
           <InfoName>{t("attributes.id")}</InfoName>
           <S.InfoValue>{id}</S.InfoValue>
 
-          <InfoName>{t("attributes.expiration")}</InfoName>
-          <S.InfoValue>{dateFormatter(expirationDate)}</S.InfoValue>
+          {expirationDate && (
+            <>
+              <InfoName>{t("attributes.expiration")}</InfoName>
+              <S.InfoValue>{dateFormatter(expirationDate)}</S.InfoValue>
+            </>
+          )}
 
           <InfoName>{t("attributes.status")}</InfoName>
           <S.InfoValue style={{ color: `${statusColors[status]}` }}>
@@ -86,8 +90,12 @@ function CouponDetailsPage(): JSX.Element {
           <InfoName>{t("attributes.ticketsQuantity")}</InfoName>
           <S.InfoValue>{numberOfTickets}</S.InfoValue>
 
-          <InfoName>{t("attributes.availableQuantity")}</InfoName>
-          <S.InfoValue>{availableQuantity}</S.InfoValue>
+          {availableQuantity && (
+            <>
+              <InfoName>{t("attributes.availableQuantity")}</InfoName>
+              <S.InfoValue>{availableQuantity}</S.InfoValue>
+            </>
+          )}
 
           <InfoName>{t("attributes.reward")}</InfoName>
           <S.InfoValue>{couponMessage?.rewardText}</S.InfoValue>
