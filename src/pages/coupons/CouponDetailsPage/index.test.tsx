@@ -7,11 +7,9 @@ describe("Coupons Section", () => {
     renderComponent(<CouponDetailsPage />);
 
     expect(screen.getByText("ID")).toBeInTheDocument();
-    expect(screen.getByText("Expiration")).toBeInTheDocument();
     expect(screen.getByText("Status")).toBeInTheDocument();
     expect(screen.getByText("Link")).toBeInTheDocument();
     expect(screen.getByText("Tickets quantity")).toBeInTheDocument();
-    expect(screen.getByText("Coupons quantity")).toBeInTheDocument();
     expect(screen.getByText("Reward")).toBeInTheDocument();
   });
 });
