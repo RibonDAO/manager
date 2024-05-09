@@ -678,7 +678,8 @@
       "inactive": "Inactive",
       "ticketsQuantity": "Tickets quantity",
       "availableQuantity": "Coupons quantity",
-      "noExpires": "Never expires"
+      "noExpires": "Never expires",
+      "noLimit": "Unlimited quantity"
     },
     "upsert": {
       "create": {

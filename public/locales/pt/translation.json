@@ -678,7 +678,8 @@
       "inactive": "Inativo",
       "ticketsQuantity": "Quantidade de tickets",
       "availableQuantity": "Quantidade disponível",
-      "noExpires": "Sem expiração"
+      "noExpires": "Sem expiração",
+      "noLimit": "Sem limite de quantidade"
     },
     "upsert": {
       "create": {

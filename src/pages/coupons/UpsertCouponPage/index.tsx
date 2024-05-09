@@ -51,6 +51,8 @@ function UpsertCouponPage({ isEdit }: Props) {
 
   const [statusCheckbox, setStatusCheckbox] = useState(true);
   const [expirationDateCheckbox, setExpirationDateCheckbox] = useState(true);
+  const [availableQuantityCheckbox, setAvailableQuantityCheckbox] =
+    useState(false);
 
   const fetchCoupon = useCallback(async () => {
     try {
@@ -67,6 +69,7 @@ function UpsertCouponPage({ isEdit }: Props) {
       }
 
       setExpirationDateCheckbox(!apiCoupon.expirationDate);
+      setAvailableQuantityCheckbox(!apiCoupon.availableQuantity);
     } catch (e) {
       logError(e);
     }
@@ -88,6 +91,16 @@ function UpsertCouponPage({ isEdit }: Props) {
       setValue("expirationDate", "");
     }
     setExpirationDateCheckbox(!expirationDateCheckbox);
+  };
+
+  const handleAvailableQuantityCheckboxChange = (
+    e: React.ChangeEvent<HTMLInputElement>,
+  ) => {
+    const { checked } = e.target;
+    if (checked) {
+      setValue("availableQuantity", undefined);
+    }
+    setAvailableQuantityCheckbox(!availableQuantityCheckbox);
   };
 
   const handleSave = async () => {
@@ -180,14 +193,17 @@ function UpsertCouponPage({ isEdit }: Props) {
           <InfoName>{t("attributes.availableQuantity")}</InfoName>
           <S.NumberInput
             type="number"
-            {...register("availableQuantity", {
-              required: t("upsert.required"),
-            })}
+            {...register("availableQuantity")}
+            disabled={availableQuantityCheckbox}
           />
-          {formState.errors.availableQuantity &&
-            formState.errors.availableQuantity.type && (
-              <S.Error>{formState.errors.availableQuantity.message}</S.Error>
-            )}
+          <S.CheckboxContainer>
+            <S.Checkbox
+              type="checkbox"
+              onChange={handleAvailableQuantityCheckboxChange}
+              checked={availableQuantityCheckbox}
+            />
+            <S.Span>{t("attributes.noLimit")}</S.Span> <br />
+          </S.CheckboxContainer>
           <InfoName hasTranslation>{t("attributes.reward")}</InfoName>
           <S.TextInput
             type="text"
