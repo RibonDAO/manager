@@ -17,7 +17,9 @@ export interface CreateNonProfit {
   cause?: CreateCause;
   confirmationImage?: any;
   coverImage?: any;
+  icon?: any;
   coverImageDescription?: string;
+  iconDescription?: string;
   logoDescription?: string;
   mainImageDescription?: string;
   backgroundImageDescription?: string;

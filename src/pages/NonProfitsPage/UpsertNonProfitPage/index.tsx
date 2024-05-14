@@ -51,6 +51,8 @@ function UpsertNonProfitPage({ isEdit }: Props) {
   const [config, setConfig] = useState<RibonConfig>();
   const [confirmationImageFile, setConfirmationImageFile] = useState("");
   const [coverImageFile, setCoverImageFile] = useState("");
+  const [iconFile, setIconFile] = useState("");
+
   const navigate = useNavigate();
   const { id } = useParams();
   const { createNonProfit, getNonProfit, updateNonProfit } = useNonProfits();
@@ -125,6 +127,12 @@ function UpsertNonProfitPage({ isEdit }: Props) {
       }
       if (nonProfitForm.getValues().confirmationImage?.includes("http")) {
         delete nonProfit.confirmationImage;
+      }
+      if (nonProfitForm.getValues().coverImage?.includes("http")) {
+        delete nonProfit.coverImage;
+      }
+      if (nonProfitForm.getValues().icon?.includes("http")) {
+        delete nonProfit.icon;
       }
       return nonProfit;
     }
@@ -209,7 +217,8 @@ function UpsertNonProfitPage({ isEdit }: Props) {
       | "backgroundImage"
       | "mainImage"
       | "confirmationImage"
-      | "coverImage",
+      | "coverImage"
+      | "icon",
   ) => {
     try {
       setLoading(true);
@@ -267,6 +276,13 @@ function UpsertNonProfitPage({ isEdit }: Props) {
 
     setCoverImageFile(URL.createObjectURL(coverImage));
     handleUploadImage(coverImage, "coverImage");
+  };
+
+  const handleIconChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const icon = e.target.files![0];
+
+    setIconFile(URL.createObjectURL(icon));
+    handleUploadImage(icon, "icon");
   };
 
   const fetchCauses = useCallback(async () => {
@@ -551,6 +567,30 @@ function UpsertNonProfitPage({ isEdit }: Props) {
                 <S.TextInput
                   {...nonProfitForm.register("coverImageDescription")}
                 />
+                {nonProfitForm.formState?.errors.name &&
+                  nonProfitForm.formState?.errors.name.type && (
+                    <S.Error>
+                      {nonProfitForm.formState?.errors.name.message}
+                    </S.Error>
+                  )}
+              </S.ItemBox>
+            </S.FlexRow>
+
+            <S.FlexRow>
+              <S.ItemBox>
+                <InfoName>{t("attributes.icon")}</InfoName>
+                <FileUpload
+                  onChange={handleIconChange}
+                  logo={nonProfitForm.getValues().icon}
+                  value={iconFile}
+                />
+                <S.ImageRecommendation>
+                  {t("attributes.imageRecommendation", { size: "600x560" })}
+                </S.ImageRecommendation>
+              </S.ItemBox>
+              <S.ItemBox>
+                <InfoName hasTranslation>{t("attributes.altText")}</InfoName>
+                <S.TextInput {...nonProfitForm.register("iconDescription")} />
                 {nonProfitForm.formState?.errors.name &&
                   nonProfitForm.formState?.errors.name.type && (
                     <S.Error>
