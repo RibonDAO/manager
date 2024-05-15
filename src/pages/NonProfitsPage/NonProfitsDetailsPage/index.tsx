@@ -114,7 +114,6 @@ function NonProfitsDetailsPage(): JSX.Element {
               .map((story: Story) => (
                 <StoriesCard
                   key={story.id}
-                  title={story.title}
                   description={story.description}
                   image={story.image}
                 />

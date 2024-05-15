@@ -267,6 +267,7 @@
       "activityStatus": "Status",
       "details": "Detalhes",
       "impacts": "Impactos",
+      "carousel": "Carrosel",
       "maxCharacters": "Limite de caracteres",
       "create": {
         "title": "Adicionar Nova NonProfit",
@@ -285,8 +286,8 @@
         "cancel": "Cancelar"
       },
       "storiesForm": {
-        "title": "Título",
-        "description": "Descrição",
+        "backgroundImage": "Imagem de fundo",
+        "content": "Conteúdo",
         "position": "Posição",
         "status": "Status",
         "save": "Salvar",
