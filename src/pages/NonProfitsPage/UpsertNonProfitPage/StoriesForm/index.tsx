@@ -103,7 +103,6 @@ function StoriesForm({
             _hover={{ bg: neutral[500] }}
             onClick={() =>
               append({
-                title: "Story",
                 description: "Story description",
                 image: null,
                 active: true,

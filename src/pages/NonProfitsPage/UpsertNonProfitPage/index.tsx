@@ -102,7 +102,6 @@ function UpsertNonProfitPage({ isEdit }: Props) {
         story?.image?.includes("http")
           ? {
               id: story.id,
-              title: story.title,
               description: story.description,
               position: story.position,
               imageDescription: story.imageDescription,
