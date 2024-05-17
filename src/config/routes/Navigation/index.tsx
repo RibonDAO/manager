@@ -22,6 +22,7 @@ import ReportIconOff from "./assets/reportsIconOff.svg";
 import ReportsIconOn from "./assets/reportsIconOn.svg";
 import CouponIconOff from "./assets/couponIconOff.svg";
 import CouponIconOn from "./assets/couponIconOn.svg";
+import TagsIconOff from "./assets/tagsIconOff.svg";
 import * as S from "./styles";
 import NavigationLink from "./NavigationLink";
 
@@ -127,6 +128,12 @@ function Navigation(): JSX.Element {
       iconOn: LabelIconOn,
       iconOff: LabelIconOff,
       title: t("urlBuilderLabel"),
+    },
+    {
+      path: "/tags",
+      iconOn: TagsIconOff,
+      iconOff: LabelIconOff,
+      title: t("tagsLabel"),
     },
     {
       path: "/settings",

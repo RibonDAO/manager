@@ -462,7 +462,8 @@
     "reportsLabel": "Reports",
     "couponsLabel": "Coupons",
     "settingsLabel": "Settings",
-    "urlBuilderLabel": "URL Builder"
+    "urlBuilderLabel": "URL Builder",
+    "tagsLabel": "Tags"
   },
   "login": {
     "title": "Dapp Manager",
@@ -504,6 +505,38 @@
       "eventFrom": "'From' param for the event",
       "generatedUrl": "Generated URL",
       "openInNewTab": "Test in new tab"
+    }
+  },
+  "tags": {
+    "title": "Tags",
+    "titleDetails": "Tag details",
+    "createNew": "Add new",
+    "next": "next >",
+    "previous": "< previous",
+    "attributes": {
+      "id": "ID",
+      "name": "Name",
+      "status": "Status",
+      "active": "Active",
+      "inactive": "Inactive",
+      "Test": "Test",
+      "nonProfits": "Non Profits",
+      "createdAt": "Created at",
+      "lastEditedAt": "Last edited at",
+      "details": "Details"
+    },
+    "upsert": {
+      "create": {
+        "title": "Add new tag",
+        "save": "Save",
+        "cancel": "Cancel"
+      },
+      "edit": {
+        "title": "Edit tag",
+        "save": "Save",
+        "cancel": "Cancel"
+      },
+      "required": "this is required"
     }
   },
   "bigDonors": {
