@@ -129,6 +129,12 @@ function Navigation(): JSX.Element {
       title: t("urlBuilderLabel"),
     },
     {
+      path: "/tags",
+      iconOn: LabelIconOn,
+      iconOff: LabelIconOff,
+      title: t("tagsLabel"),
+    },
+    {
       path: "/settings",
       iconOn: SettingsIconOn,
       iconOff: SettingsIconOff,
