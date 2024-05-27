@@ -1,6 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import Papa from "papaparse";
+import * as S from "./styles";
 
 interface IFormInput {
   file: FileList;
@@ -41,23 +42,32 @@ function DirectTransferSubscriptionPage() {
     }
   };
 
+  console.log(csvPreview);
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <input type="file" {...register("file")} onChange={handleFileChange} />
-      {csvPreview && (
-        <div>
-          <h3>CSV Preview</h3>
-          <table>
-            <tbody>
-              {csvPreview.slice(1, 6).map((row) => (
+    <S.Container>
+      <S.Title>Upload Direct Transfer CSV File</S.Title>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        {csvPreview && (
+          <>
+            <S.Subtitle>Preview</S.Subtitle>
+            <S.PreviewSection>
+              {csvPreview.slice(0, 5).map((row) => (
                 <p key={Math.random()}>{row}</p>
               ))}
-            </tbody>
-          </table>
-        </div>
-      )}
-      <button type="submit">Upload</button>
-    </form>
+              <p>...</p>
+            </S.PreviewSection>
+          </>
+        )}
+        <input
+          type="file"
+          {...register("file")}
+          accept=".csv"
+          title="Upload CSV File"
+          onChange={handleFileChange}
+        />
+        <button type="submit">Upload</button>
+      </form>
+    </S.Container>
   );
 }
 
