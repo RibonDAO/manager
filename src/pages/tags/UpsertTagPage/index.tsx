@@ -9,7 +9,7 @@ import Tag from "types/entities/Tag";
 import useTags from "hooks/apiHooks/useTags";
 import Dropdown from "components/atomics/Dropdown";
 
-import Select from "react-select";
+// import Select from "react-select";
 import useNonProfits from "hooks/apiHooks/useNonProfits";
 import NonProfit from "types/entities/NonProfit";
 
@@ -48,94 +48,95 @@ function UpsertTagPage({ isEdit }: Props) {
   const fetchTag = useCallback(async () => {
     try {
       const apiTag = await getTag(id);
-
+      
       setStatusTag(apiTag.status);
       const defaultSelectedNonProfits = apiTag.nonProfits?.map(
         (nonProfit: any) => ({
           label: nonProfit.name,
           value: nonProfit.id,
         }),
-      );
-
-      setCurrentNonProfits(defaultSelectedNonProfits);
-      reset(apiTag);
-    } catch (e) {
-      logError(e);
-    }
-  }, []);
-
-  const fetchNonProfits = useCallback(async () => {
-    try {
-      const allNonProfits = await getNonProfits();
-      setNonProfits(allNonProfits);
-    } catch (e) {
-      logError(e);
-    }
-  }, [setNonProfits]);
-
-  const onStatusChanged = (status: string) => {
-    setValue("status", status);
-    setStatusTag(status);
-  };
-
-  const onNonProfitChanged = (nonProfit: any) => {
-    setSelectedNonProfits(nonProfit);
-  };
-
-  const handleSave = async () => {
-    if (tag()) {
-      const tagObject: any = {
-        id: tag().id,
-        name: tag().name,
-        status: "active",
-        nonProfitTagsAttributes: selectedNonProfits?.map((nonProfit: any) => ({
-          nonProfitId: nonProfit.value,
-        })),
-      };
-
-      try {
-        if (isEdit) {
-          await updateTag(tagObject);
-        } else {
-          await createTag(tagObject);
-        }
-        navigate("/tags");
+        );
+        
+        setCurrentNonProfits(defaultSelectedNonProfits);
+        reset(apiTag);
       } catch (e) {
         logError(e);
       }
-    }
-  };
-
-  const handleCancel = () => {
-    navigate("/tags");
-  };
-
-  useEffect(() => {
-    fetchNonProfits();
-    if (isEdit) {
-      fetchTag();
-    } else {
-      const newTag: any = {
-        name: "name",
-        status: true,
-      };
-      reset(newTag);
-    }
-  }, []);
-
-  useEffect(() => {
-    if (currentNonProfits) {
-      setSelectedNonProfits(currentNonProfits);
-    }
-  }, [currentNonProfits]);
-
-  const labeledNonProfits = nonProfits.map((nonProfit) => ({
-    label: nonProfit.name,
-    value: nonProfit.id,
-  }));
-
-  return (
-    <>
+    }, []);
+    
+    const fetchNonProfits = useCallback(async () => {
+      try {
+        const allNonProfits = await getNonProfits();
+        setNonProfits(allNonProfits);
+      } catch (e) {
+        logError(e);
+      }
+    }, [setNonProfits]);
+    
+    const onStatusChanged = (status: string) => {
+      setValue("status", status);
+      setStatusTag(status);
+    };
+    
+    const onNonProfitChanged = (nonProfit: any) => {
+      setSelectedNonProfits(nonProfit);
+    };
+    
+    const handleSave = async () => {
+      if (tag()) {
+        const tagObject: any = {
+          id: tag().id,
+          name: tag().name,
+          status: "active",
+          nonProfitTagsAttributes: selectedNonProfits?.map((nonProfit: any) => ({
+            nonProfitId: nonProfit.value,
+          })),
+        };
+        
+        try {
+          if (isEdit) {
+            await updateTag(tagObject);
+          } else {
+            await createTag(tagObject);
+          }
+          navigate("/tags");
+        } catch (e) {
+          logError(e);
+        }
+      }
+    };
+    
+    const handleCancel = () => {
+      navigate("/tags");
+    };
+    
+    useEffect(() => {
+      fetchNonProfits();
+      if (isEdit) {
+        fetchTag();
+      } else {
+        const newTag: any = {
+          name: "name",
+          status: true,
+        };
+        reset(newTag);
+      }
+    }, []);
+    
+    useEffect(() => {
+      if (currentNonProfits) {
+        setSelectedNonProfits(currentNonProfits);
+      }
+    }, [currentNonProfits]);
+    
+    const labeledNonProfits = nonProfits.map((nonProfit) => ({
+      label: nonProfit.name,
+      value: nonProfit.id,
+    }));
+    
+    console.log(onNonProfitChanged, labeledNonProfits)
+    return (
+      <>
       <S.Title>{t(`upsert.${mode}.title`)}</S.Title>
       <form onSubmit={handleSubmit(handleSave)}>
         <S.Container>
@@ -168,7 +169,7 @@ function UpsertTagPage({ isEdit }: Props) {
                 {t("attributes.nonProfits")}
               </S.SubtitleDescription>
 
-              <Select
+              {/* <Select
                 defaultValue={currentNonProfits}
                 isMulti
                 options={labeledNonProfits}
@@ -188,7 +189,7 @@ function UpsertTagPage({ isEdit }: Props) {
                   }),
                 }}
                 name="nonProfitsTags"
-              />
+              /> */}
             </S.LeftSection>
           </S.ContentSection>
         </S.Container>

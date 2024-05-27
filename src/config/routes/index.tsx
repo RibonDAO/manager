@@ -43,6 +43,7 @@ import UpsertCouponPage from "pages/coupons/UpsertCouponPage";
 import UpsertTagPage from "pages/tags/UpsertTagPage";
 import TagsPage from "pages/tags/TagsPage";
 import TagDetailsPage from "pages/tags/TagDetailsPage";
+import DirectTransferSubscriptionPage from "pages/DirectTransferSubscriptionPage";
 import Navigation from "./Navigation";
 import PrivateRoute from "./privateRoute";
 
@@ -726,6 +727,20 @@ function RoutesComponent(): JSX.Element {
               <Navigation />
               <MainLayout>
                 <UrlBuilder />
+              </MainLayout>
+            </Suspense>
+          </PrivateRoute>
+        }
+      />
+
+      <Route
+        path="/direct-transfer-subscriptions"
+        element={
+          <PrivateRoute>
+            <Suspense fallback={<div />}>
+              <Navigation />
+              <MainLayout>
+                <DirectTransferSubscriptionPage />
               </MainLayout>
             </Suspense>
           </PrivateRoute>
