@@ -25,7 +25,6 @@
       "name": "Name",
       "status": "Status",
       "activityStatus": "Activity status",
-
       "logo": "Integration logo",
       "walletAddress": "Wallet address",
       "integrationAddress": "Integration address",
@@ -46,7 +45,16 @@
       "ctaLink": "Conversion link",
       "typeDescription": "Type description",
       "linkName": "Link name",
-      "linkAddress": "Link address"
+      "linkAddress": "Link address",
+      "onboardingTitle": "Title (56 characters)",
+      "onboardingDescription": "Description (60 characters)",
+      "onboardingImage": "Onboarding image",
+      "bannerTitle": "Title (30 characters)",
+      "bannerDescription": "Description (90 characters)",
+      "upsert": {
+        "details": "Details",
+        "onboarding": "Onboarding (web)"
+      }
     },
     "list": {
       "title": "Integrations list",

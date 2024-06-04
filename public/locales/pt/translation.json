@@ -46,7 +46,16 @@
       "ctaLink": "Link de conversão",
       "typeDescription": "Type description",
       "linkName": "Link name",
-      "linkAddress": "Link address"
+      "linkAddress": "Link address",
+      "onboardingTitle": "Título (56 caracteres)",
+      "onboardingDescription": "Descrição (60 caracteres)",
+      "onboardingImage": "Imagem do onboarding",
+      "bannerTitle": "Título (30 caracteres)",
+      "bannerDescription": "Descrição (90 caracteres)",
+      "upsert": {
+        "details": "Detalhes",
+        "onboarding": "Introdução (onboarding web)"
+      }
     },
     "list": {
       "title": "Lista de Integrações",
