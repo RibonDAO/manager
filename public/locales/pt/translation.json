@@ -506,6 +506,37 @@
       "openInNewTab": "Testar em uma nova aba"
     }
   },
+  "tags": {
+    "title": "Tags",
+    "createNew": "Adicionar tag",
+    "next": "próximo >",
+    "previous": "< anterior",
+    "attributes": {
+      "id": "ID",
+      "name": "Nome",
+      "status": "Status",
+      "active": "Ativo",
+      "inactive": "Inativo",
+      "Test": "Teste",
+      "nonProfits": "Ongs",
+      "createdAt": "Criado em",
+      "lastEditedAt": "Última edição em",
+      "details": "Detalhes"
+    },
+    "upsert": {
+      "create": {
+        "title": "Adicionar nova tag",
+        "save": "Salvar",
+        "cancel": "Cancelar"
+      },
+      "edit": {
+        "title": "Editar tag",
+        "save": "Salvar",
+        "cancel": "Cancelar"
+      },
+      "required": "Este campo é obrigatório"
+    }
+  },
   "bigDonors": {
     "title": "Doadores",
     "noBigDonors": "Nenhum doador encontrado",

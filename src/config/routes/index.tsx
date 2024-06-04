@@ -40,6 +40,9 @@ import UpsertReportPage from "pages/reports/UpsertReportPage";
 import CouponsPage from "pages/coupons/CouponsPage";
 import CouponDetailsPage from "pages/coupons/CouponDetailsPage";
 import UpsertCouponPage from "pages/coupons/UpsertCouponPage";
+import UpsertTagPage from "pages/tags/UpsertTagPage";
+import TagsPage from "pages/tags/TagsPage";
+import TagDetailsPage from "pages/tags/TagDetailsPage";
 import Navigation from "./Navigation";
 import PrivateRoute from "./privateRoute";
 
@@ -640,6 +643,62 @@ function RoutesComponent(): JSX.Element {
               <Navigation />
               <MainLayout>
                 <EditSettingsPage />
+              </MainLayout>
+            </Suspense>
+          </PrivateRoute>
+        }
+      />
+
+      <Route
+        path="/tags"
+        element={
+          <PrivateRoute>
+            <Suspense fallback={<div />}>
+              <Navigation />
+              <MainLayout>
+                <TagsPage />
+              </MainLayout>
+            </Suspense>
+          </PrivateRoute>
+        }
+      />
+
+      <Route
+        path="/tags/:id"
+        element={
+          <PrivateRoute>
+            <Suspense fallback={<div />}>
+              <Navigation />
+              <MainLayout>
+                <TagDetailsPage />
+              </MainLayout>
+            </Suspense>
+          </PrivateRoute>
+        }
+      />
+
+      <Route
+        path="/tags/new"
+        element={
+          <PrivateRoute>
+            <Suspense fallback={<div />}>
+              <Navigation />
+              <MainLayout>
+                <UpsertTagPage />
+              </MainLayout>
+            </Suspense>
+          </PrivateRoute>
+        }
+      />
+
+      <Route
+        path="/tags/:id/edit"
+        element={
+          <PrivateRoute>
+            <Suspense fallback={<div />}>
+              <Navigation />
+              <MainLayout>
+                <UpsertTagPage isEdit />
               </MainLayout>
             </Suspense>
           </PrivateRoute>
