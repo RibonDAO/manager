@@ -268,6 +268,7 @@
       "activityStatus": "Activity status",
       "details": "Details",
       "impacts": "Impacts",
+      "carousel": "Carousel",
       "maxCharacters": "Character limit",
       "required": "* Required",
       "create": {
@@ -287,8 +288,8 @@
         "cancel": "Cancel"
       },
       "storiesForm": {
-        "title": "Title",
-        "description": "Description",
+        "backgroundImage": "Background image",
+        "content": "Content",
         "position": "Position",
         "status": "Status",
         "altText": "Alt text",

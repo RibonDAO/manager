@@ -1,12 +1,12 @@
+import MarkdownViewer from "components/moleculars/Markdown/Viewer";
 import * as S from "./styles";
 
 export type Props = {
-  title: string;
   description: string;
   image: string;
 };
 
-function StoriesCard({ title, description, image }: Props) {
+function StoriesCard({ description, image }: Props) {
   return (
     <S.Container>
       <S.CardContainer>
@@ -18,8 +18,7 @@ function StoriesCard({ title, description, image }: Props) {
 
         <S.RightSection>
           <S.ItemBox>
-            <S.CardTitle>{title}</S.CardTitle>
-            <S.CardDescription>{description}</S.CardDescription>
+            <MarkdownViewer value={description} />
           </S.ItemBox>
         </S.RightSection>
       </S.CardContainer>

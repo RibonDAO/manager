@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useFieldArray } from "react-hook-form";
 import { Button } from "@chakra-ui/react";
 import FileUpload from "components/moleculars/FileUpload";
+import MarkdownEditor from "components/moleculars/Markdown/Editor";
 import InfoName from "components/moleculars/infoName";
 import { useTranslation } from "react-i18next";
 import { CreateStory } from "types/apiResponses/story";
@@ -28,7 +29,6 @@ function StoriesForm({
   setValueStory,
   controlStory,
   stories,
-  watchStory,
 }: Props) {
   const [files, setFiles] = useState<any>({});
   const { t } = useTranslation("translation", {
@@ -86,12 +86,9 @@ function StoriesForm({
     remove(index);
   }
 
-  const storyTitle =
-    watchStory?.storiesAttributes?.[0]?.title || "Default Title";
-  const maxLengthStoryTitle = 30;
-  const storyDescription =
-    watchStory?.storiesAttributes?.[0]?.description || "Default Description";
-  const maxLengthStoryDescription = 175;
+  const handleDescriptionStory = (index: number, value: string) => {
+    setValueStory(`storiesAttributes.${index}.description`, value);
+  };
 
   return (
     <S.Container>
@@ -124,46 +121,24 @@ function StoriesForm({
             <S.LeftSection>
               <S.ItemBox>
                 {files && (
-                  <FileUpload
-                    onChange={(e) => handleImageChange(e, index)}
-                    logo={StoryObject(`storiesAttributes.${index}.image`)}
-                    value={files[index]}
-                  />
+                  <>
+                    <InfoName>{t("backgroundImage")}</InfoName>
+                    <FileUpload
+                      onChange={(e) => handleImageChange(e, index)}
+                      logo={StoryObject(`storiesAttributes.${index}.image`)}
+                      value={files[index]}
+                    />
+                  </>
                 )}
               </S.ItemBox>
             </S.LeftSection>
 
             <S.RightSection>
-              <InfoName hasTranslation>{t("title")}</InfoName>
-              <S.TextInput
-                maxLength={maxLengthStoryTitle}
-                {...registerStory(`storiesAttributes.${index}.title`)}
-                placeholder={t("title")}
+              <InfoName>{t("content")}</InfoName>
+              <MarkdownEditor
+                value={StoryObject(`storiesAttributes.${index}.description`)}
+                onChange={(e) => handleDescriptionStory(index, e)}
               />
-              {storyTitle && (
-                <S.CharLimit>
-                  <S.CharLimitText>{t("maxCharacters")}</S.CharLimitText>
-                  <S.CharLimitText>
-                    {storyTitle.length ?? 0}/{maxLengthStoryTitle}
-                  </S.CharLimitText>
-                </S.CharLimit>
-              )}
-
-              <InfoName hasTranslation>{t("description")}</InfoName>
-              <S.TextInput
-                maxLength={maxLengthStoryDescription}
-                {...registerStory(`storiesAttributes.${index}.description`)}
-                placeholder={t("description")}
-              />
-              {storyDescription && (
-                <S.CharLimit>
-                  <S.CharLimitText>{t("maxCharacters")}</S.CharLimitText>
-                  <S.CharLimitText>
-                    {storyDescription.length ?? 0}/{maxLengthStoryDescription}
-                  </S.CharLimitText>
-                </S.CharLimit>
-              )}
-
               <InfoName>{t("position")}</InfoName>
               <S.TextInput
                 {...registerStory(`storiesAttributes.${index}.position`)}
