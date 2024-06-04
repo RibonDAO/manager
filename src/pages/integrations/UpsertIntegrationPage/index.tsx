@@ -9,6 +9,8 @@ import Integration from "types/entities/Integration";
 import IntegrationTask from "types/entities/IntegrationTask";
 import theme from "styles/theme";
 import FileUpload from "components/moleculars/FileUpload";
+import InfoName from "components/moleculars/infoName";
+import { useUploadFile } from "hooks/apiHooks/useUploadFile";
 import * as S from "./styles";
 import IntegrationTaskForm from "./IntegrationTaskForm";
 
@@ -51,8 +53,32 @@ function UpsertIntegrationPage({ isEdit }: Props) {
   const [statusCheckbox, setStatusCheckbox] = useState(true);
   const [ticketAvailabilityCheckbox, setTicketAvailabilityCheckbox] =
     useState(true);
-  const [file, setFile] = useState<string>("");
+  const [logoFile, setLogoFile] = useState<string>("");
+  const [onboardingImageFile, setOnboardingImageFile] = useState<string>("");
+  const [loading, setLoading] = useState(false);
   const [mobilityAttributes, setMobilityAttributes] = useState<string[]>([]);
+
+  const handleUploadImage = (
+    image: File,
+    attribute: "logo" | "onboardingImage",
+  ) => {
+    try {
+      setLoading(true);
+      const upload = useUploadFile(image);
+      upload.create((error: Error, blob: any) => {
+        if (error) {
+          logError(error);
+          setLoading(false);
+        } else {
+          setValue(attribute, blob.signed_id);
+          setLoading(false);
+        }
+      });
+    } catch (e) {
+      logError(e);
+      setLoading(false);
+    }
+  };
 
   const fetchIntegration = useCallback(async () => {
     try {
@@ -108,9 +134,9 @@ function UpsertIntegrationPage({ isEdit }: Props) {
 
       try {
         if (isEdit) {
-          await updateApiIntegration(integrationObject, file);
+          await updateApiIntegration(integrationObject);
         } else {
-          await createApiIntegration(integrationObject, file);
+          await createApiIntegration(integrationObject);
         }
         navigate("/integrations");
       } catch (e) {
@@ -135,10 +161,17 @@ function UpsertIntegrationPage({ isEdit }: Props) {
   const handleLogoChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const logo = e.target.files![0];
 
-    setFile(URL.createObjectURL(logo));
-    if (integration()) {
-      setValue("logo", logo as File);
-    }
+    setLogoFile(URL.createObjectURL(logo));
+    handleUploadImage(logo, "logo");
+  };
+
+  const handleOnboardingImageChange = (
+    e: React.ChangeEvent<HTMLInputElement>,
+  ) => {
+    const onboardingImage = e.target.files![0];
+
+    setOnboardingImageFile(URL.createObjectURL(onboardingImage));
+    handleUploadImage(onboardingImage, "onboardingImage");
   };
 
   useEffect(() => {
@@ -184,12 +217,55 @@ function UpsertIntegrationPage({ isEdit }: Props) {
             {formState?.errors.name && formState?.errors.name.type && (
               <S.Error>{formState?.errors.name.message}</S.Error>
             )}
+
+            <S.Subtitle>{t("attributes.upsert.onboarding")}</S.Subtitle>
+            <InfoName hasTranslation>
+              {t("attributes.onboardingTitle")}
+            </InfoName>
+            <S.TextInput
+              {...register("onboardingTitle", {
+                required: t("upsert.required"),
+              })}
+            />
+            <InfoName hasTranslation>
+              {t("attributes.onboardingDescription")}
+            </InfoName>
+            <S.TextInput
+              {...register("onboardingDescription", {
+                required: t("upsert.required"),
+              })}
+            />
+
+            <S.Subtitle>{t("attributes.upsert.banner")}</S.Subtitle>
+            <InfoName hasTranslation>{t("attributes.bannerTitle")}</InfoName>
+            <S.TextInput
+              {...register("bannerTitle", {
+                required: t("upsert.required"),
+              })}
+            />
+            <InfoName hasTranslation>
+              {t("attributes.bannerDescription")}
+            </InfoName>
+            <S.TextInput
+              {...register("bannerDescription", {
+                required: t("upsert.required"),
+              })}
+            />
+
             <S.Subtitle>{t("attributes.logo")}</S.Subtitle>
             <FileUpload
               onChange={handleLogoChange}
               logo={integration().logo}
-              value={file}
+              value={logoFile}
             />
+
+            <S.Subtitle>{t("attributes.onboardingImage")}</S.Subtitle>
+            <FileUpload
+              onChange={handleOnboardingImageChange}
+              logo={integration().onboardingImage}
+              value={onboardingImageFile}
+            />
+
             <S.Subtitle>{t("attributes.webhookUrl")}</S.Subtitle>
             <S.TextInput
               placeholder="https://webhook.com"
@@ -235,7 +311,9 @@ function UpsertIntegrationPage({ isEdit }: Props) {
               backgroundColor={neutral[800]}
               _hover={{ bg: neutral[500] }}
               disabled={
-                !formState?.isValid || !!formStateTask?.errors?.description
+                !formState?.isValid ||
+                !!formStateTask?.errors?.description ||
+                loading
               }
             >
               {t(`upsert.${mode}.save`)}
