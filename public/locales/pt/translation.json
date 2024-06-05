@@ -54,6 +54,7 @@
       "bannerDescription": "Descrição (90 caracteres)",
       "upsert": {
         "details": "Detalhes",
+        "banner": "Banner",
         "onboarding": "Introdução (onboarding web)"
       }
     },
