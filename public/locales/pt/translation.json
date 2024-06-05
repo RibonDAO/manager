@@ -54,7 +54,7 @@
       "bannerDescription": "Descrição (90 caracteres)",
       "upsert": {
         "details": "Detalhes",
-        "banner": "Banner",
+        "banner": "Banner (doe tickets)",
         "onboarding": "Introdução (onboarding web)"
       }
     },

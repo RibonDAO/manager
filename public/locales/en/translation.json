@@ -53,7 +53,7 @@
       "bannerDescription": "Description (90 characters)",
       "upsert": {
         "details": "Details",
-        "banner": "Banner",
+        "banner": "Banner (donate tickets)",
         "onboarding": "Onboarding (web)"
       }
     },
