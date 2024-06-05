@@ -21,7 +21,7 @@ function useApiIntegrations() {
     return integration;
   }
 
-  async function createApiIntegration(data: Integration, file: string) {
+  async function createApiIntegration(data: Integration, file?: string) {
     const upload = useUploadFile(data.logo);
 
     let integration;
@@ -43,7 +43,7 @@ function useApiIntegrations() {
     return integration;
   }
 
-  async function updateApiIntegration(data: Integration, file: string) {
+  async function updateApiIntegration(data: Integration, file?: string) {
     const upload = useUploadFile(data.logo);
     let integration;
 
