@@ -17,4 +17,9 @@ export default interface Integration {
   integrationTask: IntegrationTask | null;
   mobilityAttributes?: string[];
   integrationDeeplinkAddress?: string;
+  bannerTitle?: string;
+  bannerDescription?: string;
+  onboardingTitle?: string;
+  onboardingDescription?: string;
+  onboardingImage?: any;
 }
