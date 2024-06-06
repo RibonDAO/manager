@@ -5,6 +5,7 @@ import { Button } from "@chakra-ui/react";
 import theme from "styles/theme";
 import { logError } from "services/crashReport";
 import useSubscriptions from "hooks/apiHooks/useSubscriptions";
+import ModalBlank from "components/atomics/ModalBlank";
 import * as S from "./styles";
 
 interface IFormInput {
@@ -14,10 +15,12 @@ interface IFormInput {
 }
 
 function DirectTransferSubscriptionPage() {
-  const { register, handleSubmit } = useForm<IFormInput>();
+  const { register, handleSubmit, reset } = useForm<IFormInput>();
   const [file, setFile] = useState<File | null>(null);
   const [csvPreview, setCsvPreview] = useState<string[][] | null>(null);
   const [csvContent, setCsvContent] = useState<string>("");
+  const [modalVisible, setModalVisible] = useState(false);
+  const [modalMessage, setModalMessage] = useState("");
   const { neutral } = theme.colors;
   const { uploadDirectTransferSubscriptions } = useSubscriptions();
 
@@ -38,21 +41,32 @@ function DirectTransferSubscriptionPage() {
         },
         header: false,
       });
-
     }
   };
 
   const onSubmit: SubmitHandler<IFormInput> = async (data) => {
-    if (!file) {
-      console.log("No file selected");
-      return;
-    }
+    if (!file) return;
 
     try {
-      await uploadDirectTransferSubscriptions(csvContent, data.offerId, data.integrationId);
+      await uploadDirectTransferSubscriptions(
+        csvContent,
+        data.offerId,
+        data.integrationId,
+      );
+      setModalVisible(true);
+      setModalMessage("Upload successful!");
+      reset(); // Reset form fields
+      setFile(null); // Clear file state
+      setCsvPreview(null); // Clear CSV preview
     } catch (e) {
       logError(e);
+      setModalVisible(true);
+      setModalMessage("Upload failed. Please try again.");
     }
+  };
+
+  const handleCloseModal = () => {
+    setModalVisible(false);
   };
 
   useEffect(() => {
@@ -65,6 +79,9 @@ function DirectTransferSubscriptionPage() {
     <S.Container>
       <S.Title>Upload Direct Transfer CSV File</S.Title>
       <S.ContentContainer>
+        <ModalBlank visible={modalVisible} onClose={handleCloseModal}>
+          <p>{modalMessage}</p>
+        </ModalBlank>
         <form onSubmit={handleSubmit(onSubmit)} encType="multipart/form-data">
           <S.Subtitle>Preview</S.Subtitle>
           <S.PreviewSection>
@@ -83,7 +100,19 @@ function DirectTransferSubscriptionPage() {
               </p>
             )}
           </S.PreviewSection>
-          <S.ButtonContainer>
+          <S.Input>
+            <input
+              type="number"
+              placeholder="Offer ID"
+              {...register("offerId")}
+              required
+            />
+            <input
+              type="number"
+              placeholder="Integration ID"
+              {...register("integrationId")}
+              required
+            />
             <input
               id="file"
               type="file"
@@ -93,25 +122,16 @@ function DirectTransferSubscriptionPage() {
               onChange={handleFileChange}
               required
             />
-            <input
-              type="number"
-              placeholder="Offer ID"
-              {...register("offerId", { required: true })}
-            />
-            <input
-              type="number"
-              placeholder="Integration ID"
-              {...register("integrationId", { required: true })}
-            />
-            <Button
-              type="submit"
-              color={neutral[50]}
-              backgroundColor={neutral[800]}
-              _hover={{ bg: neutral[500] }}
-            >
-              Upload
-            </Button>
-          </S.ButtonContainer>
+          </S.Input>
+          <Button
+            type="submit"
+            color={neutral[50]}
+            backgroundColor={neutral[800]}
+            _hover={{ bg: neutral[500] }}
+            marginTop="12px"
+          >
+            Upload
+          </Button>
         </form>
       </S.ContentContainer>
     </S.Container>

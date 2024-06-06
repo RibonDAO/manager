@@ -33,8 +33,15 @@ export const PreviewSection = styled.div`
   text-align: center;
 `;
 
-export const ButtonContainer = styled.div`
+export const Input = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-top: 20px;
+  gap: 12px;
+
+  input:not(:last-child) {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: ${({ theme }) => theme.colors.neutral[50]};
+  }
 `;
