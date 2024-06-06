@@ -55,18 +55,18 @@ function DirectTransferSubscriptionPage() {
       );
       setModalVisible(true);
       setModalMessage("Upload successful!");
-      reset(); // Reset form fields
-      setFile(null); // Clear file state
-      setCsvPreview(null); // Clear CSV preview
     } catch (e) {
       logError(e);
       setModalVisible(true);
       setModalMessage("Upload failed. Please try again.");
     }
   };
-
+  
   const handleCloseModal = () => {
     setModalVisible(false);
+    reset(); 
+    setFile(null);
+    setCsvPreview(null); 
   };
 
   useEffect(() => {
@@ -79,8 +79,24 @@ function DirectTransferSubscriptionPage() {
     <S.Container>
       <S.Title>Upload Direct Transfer CSV File</S.Title>
       <S.ContentContainer>
-        <ModalBlank visible={modalVisible} onClose={handleCloseModal}>
-          <p>{modalMessage}</p>
+        <ModalBlank
+          visible={modalVisible}
+          onClose={handleCloseModal}
+          customStyles={{
+            content: {
+              padding: 8,
+              margin: 0,
+              width: "300px",
+              height: "150px",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              fontSize: "42px",
+              fontWeight: "bold",
+            },
+          }}
+        >
+          <h3>{modalMessage} ✅</h3>
         </ModalBlank>
         <form onSubmit={handleSubmit(onSubmit)} encType="multipart/form-data">
           <S.Subtitle>Preview</S.Subtitle>
