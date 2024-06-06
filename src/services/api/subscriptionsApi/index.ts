@@ -1,12 +1,17 @@
 import { AxiosResponse } from "axios";
-import { apiFormDataPost } from "services/apiFormData";
+import { apiPost } from "..";
 
 const subscriptionsApi = {
   uploadDirectTransferSubscriptions: (
-    file: any,
+    csvContent: string,
+    offerId: number,
+    integrationId: number
   ): Promise<AxiosResponse<any>> =>{
-    console.log("file-subscriptionsApi", file)
-    return apiFormDataPost("subscriptions/upload_csv_and_create_subscriptions", file)
+    return apiPost("subscriptions/upload_csv_and_create_subscriptions", {
+      csv_content: csvContent,
+      offer_id: offerId,
+      integration_id: integrationId,
+    })
   }
 };
 

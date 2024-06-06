@@ -8,19 +8,28 @@ import useSubscriptions from "hooks/apiHooks/useSubscriptions";
 import * as S from "./styles";
 
 interface IFormInput {
-  file: File;
+  file: string;
+  offerId: number;
+  integrationId: number;
 }
 
 function DirectTransferSubscriptionPage() {
   const { register, handleSubmit } = useForm<IFormInput>();
   const [file, setFile] = useState<File | null>(null);
   const [csvPreview, setCsvPreview] = useState<string[][] | null>(null);
+  const [csvContent, setCsvContent] = useState<string>("");
   const { neutral } = theme.colors;
   const { uploadDirectTransferSubscriptions } = useSubscriptions();
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files && event.target.files.length > 0) {
       const selectedFile = event.target.files[0];
+      const reader = new FileReader();
+
+      reader.readAsText(selectedFile, "UTF-8");
+      reader.onload = (e) => {
+        setCsvContent(e.target?.result as string);
+      };
       setFile(selectedFile);
 
       Papa.parse(selectedFile, {
@@ -29,30 +38,20 @@ function DirectTransferSubscriptionPage() {
         },
         header: false,
       });
+
     }
   };
 
-  const onSubmit: SubmitHandler<IFormInput> = async () => {
+  const onSubmit: SubmitHandler<IFormInput> = async (data) => {
     if (!file) {
       console.log("No file selected");
       return;
     }
 
-    const formData = new FormData();
-    formData.append("file", file);
-    formData.append("test", "clara");
-
-    // Log FormData content for debugging
-    for (let [key, value] of formData.entries()) {
-      console.log(`${key}: ${value}`);
-    }
-
     try {
-      await uploadDirectTransferSubscriptions(csvPreview);
-      console.log("Successfully uploaded direct transfer subscriptions");
+      await uploadDirectTransferSubscriptions(csvContent, data.offerId, data.integrationId);
     } catch (e) {
       logError(e);
-      console.error("Failed to upload direct transfer subscriptions");
     }
   };
 
@@ -93,6 +92,16 @@ function DirectTransferSubscriptionPage() {
               title="Upload CSV File"
               onChange={handleFileChange}
               required
+            />
+            <input
+              type="number"
+              placeholder="Offer ID"
+              {...register("offerId", { required: true })}
+            />
+            <input
+              type="number"
+              placeholder="Integration ID"
+              {...register("integrationId", { required: true })}
             />
             <Button
               type="submit"

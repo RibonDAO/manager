@@ -1,9 +1,16 @@
 import subscriptionsApi from "services/api/subscriptionsApi";
 
 function useSubscriptions() {
-  async function uploadDirectTransferSubscriptions(file: any) {
-    console.log("file-usesubscriptions", file);
-    await subscriptionsApi.uploadDirectTransferSubscriptions(file);
+  async function uploadDirectTransferSubscriptions(
+    csvContent: string,
+    offerId: number,
+    integrationId: number,
+  ) {
+    await subscriptionsApi.uploadDirectTransferSubscriptions(
+      csvContent,
+      offerId,
+      integrationId,
+    );
   }
 
   return {
