@@ -7,7 +7,7 @@ import { logError } from "services/crashReport";
 import { useTranslation } from "react-i18next";
 import useSubscriptions from "hooks/apiHooks/useSubscriptions";
 import ModalBlank from "components/atomics/ModalBlank";
-import { AxiosError } from "axios";
+import Loading from "components/moleculars/Loading";
 import * as S from "./styles";
 
 interface IFormInput {
@@ -22,6 +22,7 @@ function DirectTransferSubscriptionPage() {
   });
   const { register, handleSubmit, reset } = useForm<IFormInput>();
   const [file, setFile] = useState<File | null>(null);
+  const [loading, setLoading] = useState(false);
   const [csvPreview, setCsvPreview] = useState<string[][] | null>(null);
   const [csvContent, setCsvContent] = useState<string>("");
   const [modalVisible, setModalVisible] = useState(false);
@@ -49,15 +50,35 @@ function DirectTransferSubscriptionPage() {
     }
   };
 
+  const handleError = (error: any) => {
+    logError(error);
+  
+    let errorMessage = "Upload failed! ❌";
+    if (error.isAxiosError && error.response && error.response.data) {
+      const { message, failed } = error.response.data;
+  
+      if (failed && Array.isArray(failed)) {
+        errorMessage += "The following emails had a problem: ";
+        failed.forEach(({ email }) => {
+          errorMessage += `${email}, `;
+        });
+      } else {
+        errorMessage += message;
+      }
+    }
+    setModalMessage(errorMessage);
+  };
+
   const onSubmit: SubmitHandler<IFormInput> = async (data) => {
     if (!file) return;
-
+    setLoading(true);
     try {
       await uploadDirectTransferSubscriptions(
         csvContent,
         data.offerId,
         data.integrationId,
       );
+      setLoading(false);
       setModalVisible(true);
       setModalMessage("Upload successful! ✅");
       reset();
@@ -65,30 +86,16 @@ function DirectTransferSubscriptionPage() {
       setCsvPreview(null);
     } catch (e) {
       logError(e);
+      setLoading(false);
       setModalVisible(true);
-      const isAxiosError = (error: any): error is AxiosError =>
-        error.isAxiosError === true;
-
-      let errorMessage =
-        "Upload failed! ❌ The following emails had a problem: ";
-
-      if (isAxiosError(e) && e.response && e.response.data) {
-        const responseData = e.response.data as {
-          failed: { email: string; errors: string[] }[];
-        };
-        if (responseData.failed && Array.isArray(responseData.failed)) {
-          responseData.failed.forEach((failure) => {
-            errorMessage += `${failure.email}, `;
-          });
-        }
-      }
-      setModalMessage(errorMessage);
+      handleError(e);
     }
   };
 
   const handleCloseModal = () => {
     setModalVisible(false);
   };
+
 
   useEffect(() => {
     if (!file) {
@@ -119,7 +126,7 @@ function DirectTransferSubscriptionPage() {
         >
           <p>{modalMessage}</p>
         </ModalBlank>
-        <form onSubmit={handleSubmit(onSubmit)} encType="multipart/form-data">
+        <form onSubmit={handleSubmit(onSubmit)}>
           <S.Subtitle>{t("preview")}</S.Subtitle>
           <S.PreviewSection>
             {csvPreview ? (
@@ -130,9 +137,7 @@ function DirectTransferSubscriptionPage() {
                 <p>...</p>
               </>
             ) : (
-              <p>
-                {t("description")}
-              </p>
+              <p>{t("description")}</p>
             )}
           </S.PreviewSection>
           <S.Input>
@@ -168,6 +173,7 @@ function DirectTransferSubscriptionPage() {
             {t("button")}
           </Button>
         </form>
+        {loading && <Loading/>}
       </S.ContentContainer>
     </S.Container>
   );
