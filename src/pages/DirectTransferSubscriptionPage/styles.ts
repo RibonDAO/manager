@@ -36,6 +36,7 @@ export const PreviewSection = styled.div`
 export const Input = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: center;
   gap: 12px;
 
   input:not(:last-child) {

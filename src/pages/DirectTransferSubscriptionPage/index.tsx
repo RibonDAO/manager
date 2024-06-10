@@ -6,6 +6,7 @@ import theme from "styles/theme";
 import { logError } from "services/crashReport";
 import useSubscriptions from "hooks/apiHooks/useSubscriptions";
 import ModalBlank from "components/atomics/ModalBlank";
+import { AxiosError } from "axios";
 import * as S from "./styles";
 
 interface IFormInput {
@@ -54,19 +55,35 @@ function DirectTransferSubscriptionPage() {
         data.integrationId,
       );
       setModalVisible(true);
-      setModalMessage("Upload successful!");
+      setModalMessage("Upload successful! ✅");
+      reset();
+      setFile(null);
+      setCsvPreview(null);
     } catch (e) {
       logError(e);
       setModalVisible(true);
-      setModalMessage("Upload failed. Please try again.");
+      const isAxiosError = (error: any): error is AxiosError =>
+        error.isAxiosError === true;
+
+      let errorMessage =
+        "Upload failed! ❌ The following emails had a problem: ";
+
+      if (isAxiosError(e) && e.response && e.response.data) {
+        const responseData = e.response.data as {
+          failed: { email: string; errors: string[] }[];
+        };
+        if (responseData.failed && Array.isArray(responseData.failed)) {
+          responseData.failed.forEach((failure) => {
+            errorMessage += `${failure.email}, `;
+          });
+        }
+      }
+      setModalMessage(errorMessage);
     }
   };
-  
+
   const handleCloseModal = () => {
     setModalVisible(false);
-    reset(); 
-    setFile(null);
-    setCsvPreview(null); 
   };
 
   useEffect(() => {
@@ -87,7 +104,7 @@ function DirectTransferSubscriptionPage() {
               padding: 8,
               margin: 0,
               width: "300px",
-              height: "150px",
+              height: "min-content",
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
@@ -96,7 +113,7 @@ function DirectTransferSubscriptionPage() {
             },
           }}
         >
-          <h3>{modalMessage} ✅</h3>
+          <p>{modalMessage}</p>
         </ModalBlank>
         <form onSubmit={handleSubmit(onSubmit)} encType="multipart/form-data">
           <S.Subtitle>Preview</S.Subtitle>
