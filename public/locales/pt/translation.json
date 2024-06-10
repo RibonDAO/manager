@@ -724,6 +724,12 @@
       "required": "Este campo é obrigatório"
     }
   },
+  "directTransferSubscriptionPage": {
+    "title": "Upload de CSV de assinaturas por transferência direta",
+    "preview": "Pré-visualização",
+    "description": "Quando você selecionar um arquivo .csv, uma pré-visualização dos primeiros 15 itens aparecerá aqui. Verifique se parece correto antes de clicar no botão de upload. O CSV deve conter apenas uma coluna de emails, com o cabeçalho 'email'.",
+    "button": "Upload"
+  },
   "layouts": {
     "walletLayout": {
       "connectWallet": "conectar"

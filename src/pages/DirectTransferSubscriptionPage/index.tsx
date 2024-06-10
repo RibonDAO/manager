@@ -4,6 +4,7 @@ import Papa from "papaparse";
 import { Button } from "@chakra-ui/react";
 import theme from "styles/theme";
 import { logError } from "services/crashReport";
+import { useTranslation } from "react-i18next";
 import useSubscriptions from "hooks/apiHooks/useSubscriptions";
 import ModalBlank from "components/atomics/ModalBlank";
 import { AxiosError } from "axios";
@@ -16,6 +17,9 @@ interface IFormInput {
 }
 
 function DirectTransferSubscriptionPage() {
+  const { t } = useTranslation("translation", {
+    keyPrefix: "directTransferSubscriptionPage",
+  });
   const { register, handleSubmit, reset } = useForm<IFormInput>();
   const [file, setFile] = useState<File | null>(null);
   const [csvPreview, setCsvPreview] = useState<string[][] | null>(null);
@@ -94,7 +98,7 @@ function DirectTransferSubscriptionPage() {
 
   return (
     <S.Container>
-      <S.Title>Upload Direct Transfer CSV File</S.Title>
+      <S.Title>{t("title")}</S.Title>
       <S.ContentContainer>
         <ModalBlank
           visible={modalVisible}
@@ -116,7 +120,7 @@ function DirectTransferSubscriptionPage() {
           <p>{modalMessage}</p>
         </ModalBlank>
         <form onSubmit={handleSubmit(onSubmit)} encType="multipart/form-data">
-          <S.Subtitle>Preview</S.Subtitle>
+          <S.Subtitle>{t("preview")}</S.Subtitle>
           <S.PreviewSection>
             {csvPreview ? (
               <>
@@ -127,9 +131,7 @@ function DirectTransferSubscriptionPage() {
               </>
             ) : (
               <p>
-                When you select a .csv file, a preview of the first items will
-                appear here. Check if it seems correct before hitting the upload
-                button.
+                {t("description")}
               </p>
             )}
           </S.PreviewSection>
@@ -163,7 +165,7 @@ function DirectTransferSubscriptionPage() {
             _hover={{ bg: neutral[500] }}
             marginTop="12px"
           >
-            Upload
+            {t("button")}
           </Button>
         </form>
       </S.ContentContainer>
