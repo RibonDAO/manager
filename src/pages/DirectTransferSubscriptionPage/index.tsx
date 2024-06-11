@@ -52,11 +52,11 @@ function DirectTransferSubscriptionPage() {
 
   const handleError = (error: any) => {
     logError(error);
-  
+
     let errorMessage = "Upload failed! ❌";
     if (error.isAxiosError && error.response && error.response.data) {
       const { message, failed } = error.response.data;
-  
+
       if (failed && Array.isArray(failed)) {
         errorMessage += "The following emails had a problem: ";
         failed.forEach(({ email }) => {
@@ -95,7 +95,6 @@ function DirectTransferSubscriptionPage() {
   const handleCloseModal = () => {
     setModalVisible(false);
   };
-
 
   useEffect(() => {
     if (!file) {
@@ -173,7 +172,7 @@ function DirectTransferSubscriptionPage() {
             {t("button")}
           </Button>
         </form>
-        {loading && <Loading/>}
+        {loading && <Loading />}
       </S.ContentContainer>
     </S.Container>
   );
