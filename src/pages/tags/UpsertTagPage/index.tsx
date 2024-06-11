@@ -134,7 +134,6 @@ function UpsertTagPage({ isEdit }: Props) {
       value: nonProfit.id,
     }));
     
-    console.log(onNonProfitChanged, labeledNonProfits)
     return (
       <>
       <S.Title>{t(`upsert.${mode}.title`)}</S.Title>
