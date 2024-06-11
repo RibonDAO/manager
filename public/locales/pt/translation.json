@@ -461,7 +461,8 @@
     "reportsLabel": "Relatórios",
     "couponsLabel": "Cupons",
     "settingsLabel": "Configurações",
-    "urlBuilderLabel": "URL Builder"
+    "urlBuilderLabel": "URL Builder",
+    "directTransferSubscriptionLabel": "Assinaturas por transferência direta"
   },
   "login": {
     "title": "Dapp Manager",

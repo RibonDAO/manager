@@ -463,7 +463,8 @@
     "couponsLabel": "Coupons",
     "settingsLabel": "Settings",
     "urlBuilderLabel": "URL Builder",
-    "tagsLabel": "Tags"
+    "tagsLabel": "Tags",
+    "directTransferSubscriptionLabel": "Direct Transfer Subscriptions"
   },
   "login": {
     "title": "Dapp Manager",
