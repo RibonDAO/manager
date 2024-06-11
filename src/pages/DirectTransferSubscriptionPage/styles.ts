@@ -46,3 +46,16 @@ export const Input = styled.div`
     background-color: ${({ theme }) => theme.colors.neutral[50]};
   }
 `;
+
+export const Image = styled.img`
+  width: "300px";
+  height: "auto";
+  margin: "16px";
+`;
+
+export const PlaceHoldTextContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;

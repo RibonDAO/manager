@@ -8,6 +8,7 @@ import { useTranslation } from "react-i18next";
 import useSubscriptions from "hooks/apiHooks/useSubscriptions";
 import ModalBlank from "components/atomics/ModalBlank";
 import Loading from "components/moleculars/Loading";
+import ExampleImage from "./assets/sheet-example.png";
 import * as S from "./styles";
 
 interface IFormInput {
@@ -136,7 +137,14 @@ function DirectTransferSubscriptionPage() {
                 <p>...</p>
               </>
             ) : (
-              <p>{t("description")}</p>
+              <S.PlaceHoldTextContainer>
+                <p>{t("description")}</p>
+                <S.Image
+                  src={ExampleImage}
+                  alt="planilha com emails"
+                  style={{ width: "300px", height: "auto", margin: "16px" }}
+                />
+              </S.PlaceHoldTextContainer>
             )}
           </S.PreviewSection>
           <S.Input>

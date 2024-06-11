@@ -729,7 +729,7 @@
   "directTransferSubscriptionPage": {
     "title": "Upload Direct Transfer CSV File",
     "preview": "Preview",
-    "description": "When you select a .csv file, a preview of the first 15 items will appear here. Check if it seems correct before hitting the upload button. The CSV file must contain only one column with the email addresses and the 'email' header.",
+    "description": "When you select a .csv file, a preview of the first 15 items will appear here. Check if it seems correct before hitting the upload button. The CSV file **must contain only one column with the email addresses and the 'email' header.** See the image below for reference:",
     "button": "Upload"
   },
   "layouts": {
