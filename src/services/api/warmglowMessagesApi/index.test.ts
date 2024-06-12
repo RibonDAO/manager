@@ -33,4 +33,47 @@ describe("warmglowMessagesApi", () => {
       );
     });
   });
+
+  describe("#createWarmglowMessage", () => {
+    const data = {
+      message: "Message 1",
+      status: "active",
+    };
+
+    beforeEach(() => {
+      api.post = jest.fn();
+    });
+
+    it("expects to send a post request with the correct info: url and params", () => {
+      warmglowMessagesApi.createWarmglowMessage(data);
+
+      expect(api.post).toHaveBeenCalledWith(
+        "/managers/v1/warmglow_messages",
+        data,
+      );
+    });
+  });
+
+  describe("#updateWarmglowMessage", () => {
+    const id = 1;
+
+    const data = {
+      id: 1,
+      message: "Message 1",
+      status: "active",
+    };
+
+    beforeEach(() => {
+      api.put = jest.fn();
+    });
+
+    it("expects to send a put request with the correct info: url and params", () => {
+      warmglowMessagesApi.updateWarmglowMessage(1, data);
+
+      expect(api.put).toHaveBeenCalledWith(
+        `/managers/v1/warmglow_messages/${id}`,
+        data,
+      );
+    });
+  });
 });

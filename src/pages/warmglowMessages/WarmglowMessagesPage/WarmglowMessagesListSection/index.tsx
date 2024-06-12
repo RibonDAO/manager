@@ -30,7 +30,7 @@ function WarmglowMessagesListSection(): JSX.Element {
   const navigate = useNavigate();
 
   const handleAddNew = () => {
-    navigate("/WarmglowMessages/new");
+    navigate("/warmglow_messages/new");
   };
 
   const fetchWarmglowMessages = useCallback(async () => {

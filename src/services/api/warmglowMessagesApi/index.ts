@@ -1,7 +1,7 @@
 import { AxiosResponse } from "axios";
 
 import WarmglowMessage from "types/entities/WarmglowMessage";
-import { apiGet, apiGetWithParams } from "..";
+import { apiGet, apiGetWithParams, apiPost, apiPut } from "..";
 
 type warmglowMessagesParams = {
   perPage?: number;
@@ -22,6 +22,13 @@ const warmglowMessagesApi = {
 
   getWarmglowMessage: (id: any): Promise<AxiosResponse<WarmglowMessage>> =>
     apiGet(`warmglow_messages/${id}`),
+  createWarmglowMessage: (data: any): Promise<AxiosResponse<WarmglowMessage>> =>
+    apiPost("warmglow_messages", data),
+  updateWarmglowMessage: (
+    id: any,
+    data: WarmglowMessage,
+  ): Promise<AxiosResponse<WarmglowMessage>> =>
+    apiPut(`warmglow_messages/${id}`, data),
 };
 
 export default warmglowMessagesApi;

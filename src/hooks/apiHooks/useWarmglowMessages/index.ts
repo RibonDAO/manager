@@ -31,6 +31,23 @@ function useWarmglowMessages() {
     return warmglowMessage;
   }
 
+  async function createWarmglowMessage(create: any) {
+    const { data: offer } = await warmglowMessagesApi.createWarmglowMessage(
+      create,
+    );
+
+    return offer;
+  }
+
+  async function updateWarmglowMessage(data: any) {
+    const { data: tag } = await warmglowMessagesApi.updateWarmglowMessage(
+      data.id,
+      data,
+    );
+
+    return tag;
+  }
+
   function incrementPage() {
     setPage((oldPage) => oldPage + 1);
   }
@@ -39,7 +56,8 @@ function useWarmglowMessages() {
     warmglowMessages,
     getWarmglowMessages,
     getWarmglowMessage,
-
+    createWarmglowMessage,
+    updateWarmglowMessage,
     incrementPage,
   };
 }

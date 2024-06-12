@@ -473,7 +473,8 @@
     "couponsLabel": "Coupons",
     "settingsLabel": "Settings",
     "urlBuilderLabel": "URL Builder",
-    "tagsLabel": "Tags"
+    "tagsLabel": "Tags",
+    "warmglowMessagesLabel": "Warmglow Messages"
   },
   "login": {
     "title": "Dapp Manager",
@@ -567,6 +568,19 @@
       "createdAt": "Created at",
       "lastEditedAt": "Last edited at",
       "details": "Details"
+    },
+    "upsert": {
+      "create": {
+        "title": "Add new warmglow message",
+        "save": "Save",
+        "cancel": "Cancel"
+      },
+      "edit": {
+        "title": "Edit warmglow message",
+        "save": "Save",
+        "cancel": "Cancel"
+      },
+      "required": "this is required"
     }
   },
   "bigDonors": {

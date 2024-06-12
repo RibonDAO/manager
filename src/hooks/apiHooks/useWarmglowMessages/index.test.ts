@@ -36,4 +36,49 @@ describe("usewarmglowMessages", () => {
       expect(warmglowMessagesApi.getWarmglowMessage).toHaveBeenCalledWith(id);
     });
   });
+
+  describe("#createWarmglowMessage", () => {
+    const data = {
+      message: "New Message",
+      status: "active",
+      nonProfitIds: [1, 2],
+    };
+
+    beforeEach(() => {
+      warmglowMessagesApi.createWarmglowMessage = jest.fn(() => ({} as any));
+    });
+
+    it("calls createWarmglow with correct params", () => {
+      hook.createWarmglowMessage(data);
+
+      expect(warmglowMessagesApi.createWarmglowMessage).toHaveBeenCalled();
+      expect(warmglowMessagesApi.createWarmglowMessage).toHaveBeenCalledWith(
+        data,
+      );
+    });
+  });
+
+  describe("#updateWarmglowMessage", () => {
+    const id = "1";
+    const data = {
+      id,
+      message: "Message 1",
+      status: "active",
+      nonProfitIds: [1, 2, 3],
+    };
+
+    beforeEach(() => {
+      warmglowMessagesApi.updateWarmglowMessage = jest.fn(() => ({} as any));
+    });
+
+    it("calls updateWarmglowMessage with correct params", () => {
+      hook.updateWarmglowMessage(data);
+
+      expect(warmglowMessagesApi.updateWarmglowMessage).toHaveBeenCalled();
+      expect(warmglowMessagesApi.updateWarmglowMessage).toHaveBeenCalledWith(
+        id,
+        data,
+      );
+    });
+  });
 });

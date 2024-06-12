@@ -135,6 +135,12 @@ function Navigation(): JSX.Element {
       title: t("tagsLabel"),
     },
     {
+      path: "/warmglow_messages",
+      iconOn: ReportsIconOn,
+      iconOff: ReportIconOff,
+      title: t("warmglowMessagesLabel"),
+    },
+    {
       path: "/settings",
       iconOn: SettingsIconOn,
       iconOff: SettingsIconOff,

@@ -26,10 +26,13 @@ function WarmglowMessagesItems({ warmglowMessages }: Props) {
           {" "}
           <S.StatusTableCell
             style={{
-              color: warmglowMessage?.status ? primary[300] : tertiary[400],
+              color:
+                warmglowMessage?.status === "active"
+                  ? primary[300]
+                  : tertiary[400],
             }}
           >
-            {warmglowMessage?.status
+            {warmglowMessage?.status === "active"
               ? t("attributes.active")
               : t("attributes.inactive")}
           </S.StatusTableCell>

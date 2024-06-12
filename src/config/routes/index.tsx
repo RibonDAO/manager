@@ -45,6 +45,7 @@ import TagsPage from "pages/tags/TagsPage";
 import TagDetailsPage from "pages/tags/TagDetailsPage";
 import WarmglowMessagesPage from "pages/warmglowMessages/WarmglowMessagesPage";
 import WarmglowMessageDetailsPage from "pages/warmglowMessages/WarmglowMessageDetailsPage";
+import UpsertWarmglowMessagePage from "pages/warmglowMessages/UpsertWarmglowMessagePage";
 import Navigation from "./Navigation";
 import PrivateRoute from "./privateRoute";
 
@@ -756,6 +757,34 @@ function RoutesComponent(): JSX.Element {
               <Navigation />
               <MainLayout>
                 <WarmglowMessageDetailsPage />
+              </MainLayout>
+            </Suspense>
+          </PrivateRoute>
+        }
+      />
+
+      <Route
+        path="/warmglow_messages/new"
+        element={
+          <PrivateRoute>
+            <Suspense fallback={<div />}>
+              <Navigation />
+              <MainLayout>
+                <UpsertWarmglowMessagePage />
+              </MainLayout>
+            </Suspense>
+          </PrivateRoute>
+        }
+      />
+
+      <Route
+        path="/warmglow_messages/:id/edit"
+        element={
+          <PrivateRoute>
+            <Suspense fallback={<div />}>
+              <Navigation />
+              <MainLayout>
+                <UpsertWarmglowMessagePage isEdit />
               </MainLayout>
             </Suspense>
           </PrivateRoute>
