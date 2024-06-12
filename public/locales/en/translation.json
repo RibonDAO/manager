@@ -549,6 +549,26 @@
       "required": "this is required"
     }
   },
+  "warmglowMessages": {
+    "title": "Warmglow Messages",
+    "titleDetails": "Warmglow Message details",
+    "createNew": "Add new",
+    "next": "next >",
+    "previous": "< previous",
+    "edit": "Edit",
+    "attributes": {
+      "id": "ID",
+      "message": "Message",
+      "status": "Status",
+      "active": "Active",
+      "inactive": "Inactive",
+      "Test": "Test",
+      "nonProfits": "Non Profits",
+      "createdAt": "Created at",
+      "lastEditedAt": "Last edited at",
+      "details": "Details"
+    }
+  },
   "bigDonors": {
     "title": "Donors",
     "noBigDonors": "No donors found",
