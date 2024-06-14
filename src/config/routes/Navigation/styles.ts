@@ -39,8 +39,10 @@ export const Container = styled.div`
 
   @media (min-width: ${({ theme }) => theme.breakpoints.desktop}) {
     max-width: 168px;
+    height: 100%;
     padding: ${({ theme }) => theme.spacing(4, 12)};
     align-items: flex-start;
+    overflow: scroll;
   }
 `;
 
