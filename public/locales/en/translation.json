@@ -473,7 +473,8 @@
     "couponsLabel": "Coupons",
     "settingsLabel": "Settings",
     "urlBuilderLabel": "URL Builder",
-    "tagsLabel": "Tags"
+    "tagsLabel": "Tags",
+    "warmglowMessagesLabel": "Warmglow Messages"
   },
   "login": {
     "title": "Dapp Manager",
@@ -543,6 +544,39 @@
       },
       "edit": {
         "title": "Edit tag",
+        "save": "Save",
+        "cancel": "Cancel"
+      },
+      "required": "this is required"
+    }
+  },
+  "warmglowMessages": {
+    "title": "Warmglow Messages",
+    "titleDetails": "Warmglow Message details",
+    "createNew": "Add new",
+    "next": "next >",
+    "previous": "< previous",
+    "edit": "Edit",
+    "attributes": {
+      "id": "ID",
+      "message": "Message",
+      "status": "Status",
+      "active": "Active",
+      "inactive": "Inactive",
+      "Test": "Test",
+      "nonProfits": "Non Profits",
+      "createdAt": "Created at",
+      "lastEditedAt": "Last edited at",
+      "details": "Details"
+    },
+    "upsert": {
+      "create": {
+        "title": "Add new warmglow message",
+        "save": "Save",
+        "cancel": "Cancel"
+      },
+      "edit": {
+        "title": "Edit warmglow message",
         "save": "Save",
         "cancel": "Cancel"
       },
