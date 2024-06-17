@@ -146,6 +146,12 @@ function Navigation(): JSX.Element {
       iconOff: SettingsIconOff,
       title: t("settingsLabel"),
     },
+    {
+      path: "/direct-transfer-subscriptions",
+      iconOn: ReportsIconOn,
+      iconOff: ReportIconOff,
+      title: t("directTransferSubscriptionLabel"),
+    },
   ];
 
   return (
