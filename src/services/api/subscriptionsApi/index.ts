@@ -7,7 +7,7 @@ const subscriptionsApi = {
     offerId: number,
     integrationId: number,
   ): Promise<AxiosResponse<any>> =>
-    apiPost("subscriptions/upload_csv", {
+    apiPost("subscriptions/create_direct_transfer_subscriptions", {
       csv_content: csvContent,
       offer_id: offerId,
       integration_id: integrationId,
