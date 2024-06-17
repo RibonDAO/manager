@@ -434,6 +434,7 @@ function UpsertNonProfitPage({ isEdit }: Props) {
 
             <S.Divider />
 
+            <S.Subtitle>{t("upsert.carousel")}</S.Subtitle>
             <StoriesForm
               registerStory={storyForm.register}
               StoryObject={storyForm.getValues}

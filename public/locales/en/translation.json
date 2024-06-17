@@ -25,7 +25,6 @@
       "name": "Name",
       "status": "Status",
       "activityStatus": "Activity status",
-
       "logo": "Integration logo",
       "walletAddress": "Wallet address",
       "integrationAddress": "Integration address",
@@ -46,7 +45,17 @@
       "ctaLink": "Conversion link",
       "typeDescription": "Type description",
       "linkName": "Link name",
-      "linkAddress": "Link address"
+      "linkAddress": "Link address",
+      "onboardingTitle": "Title (56 characters)",
+      "onboardingDescription": "Description (60 characters)",
+      "onboardingImage": "Onboarding image",
+      "bannerTitle": "Title (30 characters)",
+      "bannerDescription": "Description (90 characters)",
+      "upsert": {
+        "details": "Details",
+        "banner": "Banner (donate tickets)",
+        "onboarding": "Onboarding (web)"
+      }
     },
     "list": {
       "title": "Integrations list",
@@ -268,6 +277,7 @@
       "activityStatus": "Activity status",
       "details": "Details",
       "impacts": "Impacts",
+      "carousel": "Carousel",
       "maxCharacters": "Character limit",
       "required": "* Required",
       "create": {
@@ -287,8 +297,8 @@
         "cancel": "Cancel"
       },
       "storiesForm": {
-        "title": "Title",
-        "description": "Description",
+        "backgroundImage": "Background image",
+        "content": "Content",
         "position": "Position",
         "status": "Status",
         "altText": "Alt text",
@@ -464,7 +474,8 @@
     "settingsLabel": "Settings",
     "urlBuilderLabel": "URL Builder",
     "tagsLabel": "Tags",
-    "directTransferSubscriptionLabel": "Direct Transfer Subscriptions"
+    "directTransferSubscriptionLabel": "Direct Transfer Subscriptions",
+    "warmglowMessagesLabel": "Warmglow Messages"
   },
   "login": {
     "title": "Dapp Manager",
@@ -534,6 +545,39 @@
       },
       "edit": {
         "title": "Edit tag",
+        "save": "Save",
+        "cancel": "Cancel"
+      },
+      "required": "this is required"
+    }
+  },
+  "warmglowMessages": {
+    "title": "Warmglow Messages",
+    "titleDetails": "Warmglow Message details",
+    "createNew": "Add new",
+    "next": "next >",
+    "previous": "< previous",
+    "edit": "Edit",
+    "attributes": {
+      "id": "ID",
+      "message": "Message",
+      "status": "Status",
+      "active": "Active",
+      "inactive": "Inactive",
+      "Test": "Test",
+      "nonProfits": "Non Profits",
+      "createdAt": "Created at",
+      "lastEditedAt": "Last edited at",
+      "details": "Details"
+    },
+    "upsert": {
+      "create": {
+        "title": "Add new warmglow message",
+        "save": "Save",
+        "cancel": "Cancel"
+      },
+      "edit": {
+        "title": "Edit warmglow message",
         "save": "Save",
         "cancel": "Cancel"
       },

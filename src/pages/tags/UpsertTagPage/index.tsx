@@ -87,7 +87,7 @@ function UpsertTagPage({ isEdit }: Props) {
       const tagObject: any = {
         id: tag().id,
         name: tag().name,
-        status: "active",
+        status: statusTag,
         nonProfitTagsAttributes: selectedNonProfits?.map((nonProfit: any) => ({
           nonProfitId: nonProfit.value,
         })),

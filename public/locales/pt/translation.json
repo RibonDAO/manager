@@ -46,7 +46,17 @@
       "ctaLink": "Link de conversão",
       "typeDescription": "Type description",
       "linkName": "Link name",
-      "linkAddress": "Link address"
+      "linkAddress": "Link address",
+      "onboardingTitle": "Título (56 caracteres)",
+      "onboardingDescription": "Descrição (60 caracteres)",
+      "onboardingImage": "Imagem do onboarding",
+      "bannerTitle": "Título (30 caracteres)",
+      "bannerDescription": "Descrição (90 caracteres)",
+      "upsert": {
+        "details": "Detalhes",
+        "banner": "Banner (doe tickets)",
+        "onboarding": "Introdução (onboarding web)"
+      }
     },
     "list": {
       "title": "Lista de Integrações",
@@ -267,6 +277,7 @@
       "activityStatus": "Status",
       "details": "Detalhes",
       "impacts": "Impactos",
+      "carousel": "Carrosel",
       "maxCharacters": "Limite de caracteres",
       "create": {
         "title": "Adicionar Nova NonProfit",
@@ -285,8 +296,8 @@
         "cancel": "Cancelar"
       },
       "storiesForm": {
-        "title": "Título",
-        "description": "Descrição",
+        "backgroundImage": "Imagem de fundo",
+        "content": "Conteúdo",
         "position": "Posição",
         "status": "Status",
         "save": "Salvar",
@@ -462,7 +473,9 @@
     "couponsLabel": "Cupons",
     "settingsLabel": "Configurações",
     "urlBuilderLabel": "URL Builder",
-    "directTransferSubscriptionLabel": "Assinaturas por transferência direta"
+    "directTransferSubscriptionLabel": "Assinaturas por transferência direta",
+    "tagsLabel": "Tags",
+    "warmglowMessagesLabel": "Warmglow Messages"
   },
   "login": {
     "title": "Dapp Manager",
@@ -511,6 +524,7 @@
     "createNew": "Adicionar tag",
     "next": "próximo >",
     "previous": "< anterior",
+    "edit": "Editar",
     "attributes": {
       "id": "ID",
       "name": "Nome",
@@ -535,6 +549,24 @@
         "cancel": "Cancelar"
       },
       "required": "Este campo é obrigatório"
+    }
+  },
+  "warmglowMessages": {
+    "title": "Warmglow Messages",
+    "titleDetails": "Warmglow Message",
+    "createNew": "Adicionar novo",
+    "next": "próximo >",
+    "previous": "< anterior",
+    "attributes": {
+      "id": "ID",
+      "message": "Mensagem",
+      "status": "Status",
+      "active": "Ativo",
+      "inactive": "Inativo",
+      "Test": "Test",
+      "createdAt": "Created at",
+      "lastEditedAt": "Last edited at",
+      "details": "Detalhes"
     }
   },
   "bigDonors": {

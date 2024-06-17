@@ -3,6 +3,10 @@ import { renderComponent } from "config/testUtils";
 
 import UpsertNonProfitPage from ".";
 
+jest.mock("@uiw/react-md-editor", () => ({
+  __esModule: true,
+}));
+
 describe("UpsertNonProfitPage", () => {
   it("should render without error", () => {
     renderComponent(<UpsertNonProfitPage />);
