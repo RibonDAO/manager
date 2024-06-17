@@ -43,6 +43,9 @@ import UpsertCouponPage from "pages/coupons/UpsertCouponPage";
 import UpsertTagPage from "pages/tags/UpsertTagPage";
 import TagsPage from "pages/tags/TagsPage";
 import TagDetailsPage from "pages/tags/TagDetailsPage";
+import WarmglowMessagesPage from "pages/warmglowMessages/WarmglowMessagesPage";
+import WarmglowMessageDetailsPage from "pages/warmglowMessages/WarmglowMessageDetailsPage";
+import UpsertWarmglowMessagePage from "pages/warmglowMessages/UpsertWarmglowMessagePage";
 import Navigation from "./Navigation";
 import PrivateRoute from "./privateRoute";
 
@@ -726,6 +729,62 @@ function RoutesComponent(): JSX.Element {
               <Navigation />
               <MainLayout>
                 <UrlBuilder />
+              </MainLayout>
+            </Suspense>
+          </PrivateRoute>
+        }
+      />
+
+      <Route
+        path="/warmglow_messages"
+        element={
+          <PrivateRoute>
+            <Suspense fallback={<div />}>
+              <Navigation />
+              <MainLayout>
+                <WarmglowMessagesPage />
+              </MainLayout>
+            </Suspense>
+          </PrivateRoute>
+        }
+      />
+
+      <Route
+        path="/warmglow_messages/:id"
+        element={
+          <PrivateRoute>
+            <Suspense fallback={<div />}>
+              <Navigation />
+              <MainLayout>
+                <WarmglowMessageDetailsPage />
+              </MainLayout>
+            </Suspense>
+          </PrivateRoute>
+        }
+      />
+
+      <Route
+        path="/warmglow_messages/new"
+        element={
+          <PrivateRoute>
+            <Suspense fallback={<div />}>
+              <Navigation />
+              <MainLayout>
+                <UpsertWarmglowMessagePage />
+              </MainLayout>
+            </Suspense>
+          </PrivateRoute>
+        }
+      />
+
+      <Route
+        path="/warmglow_messages/:id/edit"
+        element={
+          <PrivateRoute>
+            <Suspense fallback={<div />}>
+              <Navigation />
+              <MainLayout>
+                <UpsertWarmglowMessagePage isEdit />
               </MainLayout>
             </Suspense>
           </PrivateRoute>

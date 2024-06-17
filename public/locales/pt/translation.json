@@ -472,7 +472,9 @@
     "reportsLabel": "Relatórios",
     "couponsLabel": "Cupons",
     "settingsLabel": "Configurações",
-    "urlBuilderLabel": "URL Builder"
+    "urlBuilderLabel": "URL Builder",
+    "tagsLabel": "Tags",
+    "warmglowMessagesLabel": "Warmglow Messages"
   },
   "login": {
     "title": "Dapp Manager",
@@ -521,6 +523,7 @@
     "createNew": "Adicionar tag",
     "next": "próximo >",
     "previous": "< anterior",
+    "edit": "Editar",
     "attributes": {
       "id": "ID",
       "name": "Nome",
@@ -545,6 +548,24 @@
         "cancel": "Cancelar"
       },
       "required": "Este campo é obrigatório"
+    }
+  },
+  "warmglowMessages": {
+    "title": "Warmglow Messages",
+    "titleDetails": "Warmglow Message",
+    "createNew": "Adicionar novo",
+    "next": "próximo >",
+    "previous": "< anterior",
+    "attributes": {
+      "id": "ID",
+      "message": "Mensagem",
+      "status": "Status",
+      "active": "Ativo",
+      "inactive": "Inativo",
+      "Test": "Test",
+      "createdAt": "Created at",
+      "lastEditedAt": "Last edited at",
+      "details": "Detalhes"
     }
   },
   "bigDonors": {
