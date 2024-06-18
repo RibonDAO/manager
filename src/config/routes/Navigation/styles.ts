@@ -22,11 +22,12 @@ export const Container = styled.div`
   justify-content: space-around;
   background: ${({ theme }) => theme.colors.neutral10};
   box-shadow: 0 -2px 4px ${({ theme }) => theme.colors.defaultShadow};
+  /* overflow: auto; */
 
   @media (min-width: ${({ theme }) => theme.breakpoints.pad}) {
-    max-width: 80px;
+    max-width: 100px;
     min-height: 100vh;
-    padding: ${({ theme }) => theme.spacing(64, 0)};
+    padding: ${({ theme }) => theme.spacing(4, 0)};
     position: fixed;
     flex-direction: column;
     align-items: center;
@@ -37,9 +38,11 @@ export const Container = styled.div`
   }
 
   @media (min-width: ${({ theme }) => theme.breakpoints.desktop}) {
-    max-width: 148px;
-    padding: ${({ theme }) => theme.spacing(64, 12)};
+    max-width: 168px;
+    height: 100%;
+    padding: ${({ theme }) => theme.spacing(4, 12)};
     align-items: flex-start;
+    overflow: scroll;
   }
 `;
 

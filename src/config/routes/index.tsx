@@ -43,6 +43,7 @@ import UpsertCouponPage from "pages/coupons/UpsertCouponPage";
 import UpsertTagPage from "pages/tags/UpsertTagPage";
 import TagsPage from "pages/tags/TagsPage";
 import TagDetailsPage from "pages/tags/TagDetailsPage";
+import DirectTransferSubscriptionPage from "pages/DirectTransferSubscriptionPage";
 import WarmglowMessagesPage from "pages/warmglowMessages/WarmglowMessagesPage";
 import WarmglowMessageDetailsPage from "pages/warmglowMessages/WarmglowMessageDetailsPage";
 import UpsertWarmglowMessagePage from "pages/warmglowMessages/UpsertWarmglowMessagePage";
@@ -785,6 +786,20 @@ function RoutesComponent(): JSX.Element {
               <Navigation />
               <MainLayout>
                 <UpsertWarmglowMessagePage isEdit />
+              </MainLayout>
+            </Suspense>
+          </PrivateRoute>
+        }
+      />
+
+      <Route
+        path="/direct-transfer-subscriptions"
+        element={
+          <PrivateRoute>
+            <Suspense fallback={<div />}>
+              <Navigation />
+              <MainLayout>
+                <DirectTransferSubscriptionPage />
               </MainLayout>
             </Suspense>
           </PrivateRoute>
