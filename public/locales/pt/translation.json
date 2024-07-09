@@ -355,7 +355,8 @@
         "costForOneImpact": "Custo por 1 unidade de impacto (USDC)",
         "logo": "Logo",
         "backgroundImage": "Support Image",
-        "cardCause": "Card da ONG"
+        "cardCause": "Card da ONG",
+        "confirmationImage": "Imagem de confirmação"
       }
     }
   },
