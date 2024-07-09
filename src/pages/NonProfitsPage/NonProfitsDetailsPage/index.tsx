@@ -210,6 +210,11 @@ function NonProfitsDetailsPage(): JSX.Element {
               </S.ItemBox>
 
               <S.ItemBox>
+                <InfoName>{t("details.attributes.confirmationImage")}</InfoName>
+                <S.CardImage src={nonProfit?.confirmationImage} />
+              </S.ItemBox>
+
+              <S.ItemBox>
                 <InfoName>{t("attributes.icon")}</InfoName>
                 <S.CardImage src={nonProfit?.icon} />
               </S.ItemBox>
