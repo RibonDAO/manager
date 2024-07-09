@@ -534,7 +534,7 @@ function UpsertNonProfitPage({ isEdit }: Props) {
                   value={confirmationImageFile}
                 />
                 <S.ImageRecommendation>
-                  {t("attributes.imageRecommendation", { size: "400x400" })}
+                  {t("attributes.imageRecommendation", { size: "640x480" })}
                 </S.ImageRecommendation>
               </S.ItemBox>
               <S.ItemBox>

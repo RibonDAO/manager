@@ -356,7 +356,8 @@
         "costForOneImpact": "Cost for 1 unit impact (USDC)",
         "logo": "Logo",
         "backgroundImage": "Support Image",
-        "cardCause": "NGO Card"
+        "cardCause": "NGO Card",
+        "confirmationImage": "Confirmation Image"
       }
     }
   },
