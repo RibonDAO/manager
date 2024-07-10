@@ -222,35 +222,19 @@ function UpsertIntegrationPage({ isEdit }: Props) {
             <InfoName hasTranslation>
               {t("attributes.onboardingTitle")}
             </InfoName>
-            <S.TextInput
-              {...register("onboardingTitle", {
-                required: t("upsert.required"),
-              })}
-            />
+            <S.TextInput {...register("onboardingTitle")} />
             <InfoName hasTranslation>
               {t("attributes.onboardingDescription")}
             </InfoName>
-            <S.TextInput
-              {...register("onboardingDescription", {
-                required: t("upsert.required"),
-              })}
-            />
+            <S.TextInput {...register("onboardingDescription")} />
 
             <S.Subtitle>{t("attributes.upsert.banner")}</S.Subtitle>
             <InfoName hasTranslation>{t("attributes.bannerTitle")}</InfoName>
-            <S.TextInput
-              {...register("bannerTitle", {
-                required: t("upsert.required"),
-              })}
-            />
+            <S.TextInput {...register("bannerTitle")} />
             <InfoName hasTranslation>
               {t("attributes.bannerDescription")}
             </InfoName>
-            <S.TextInput
-              {...register("bannerDescription", {
-                required: t("upsert.required"),
-              })}
-            />
+            <S.TextInput {...register("bannerDescription")} />
 
             <S.Subtitle>{t("attributes.logo")}</S.Subtitle>
             <FileUpload
