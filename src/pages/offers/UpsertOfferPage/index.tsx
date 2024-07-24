@@ -106,7 +106,7 @@ function UpsertOfferPage({ isEdit }: Props) {
         },
         category: offer().category,
       };
-      if (offer().category === "club") {
+      if (offer().category === "club" || offer().category === "business") {
         offerObject = {
           ...offerObject,
           plansAttributes: [PlanObject()],
