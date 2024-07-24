@@ -183,7 +183,7 @@ function UpsertOfferPage({ isEdit }: Props) {
             <S.LeftSection>
               <S.Subtitle>{t("attributes.category")}</S.Subtitle>
               <S.SelectInput
-                values={["direct_contribution", "club"]}
+                values={["direct_contribution", "club", "business"]}
                 name="category"
                 onOptionChanged={(value) => setValue("category", value)}
                 defaultValue={offer().category || "direct_contribution"}
