@@ -314,7 +314,7 @@ function UpsertNonProfitPage({ isEdit }: Props) {
   const nonProfitName = nonProfitForm.watch()?.name;
   const watchStoryValues = storyForm.watch();
   const watchImpactFields = nonProfitImpactForm.watch();
-  const maxLengthNonProfitName = 25;
+  const maxLengthNonProfitName = 28;
 
   useEffect(() => {
     fetchCauses();
