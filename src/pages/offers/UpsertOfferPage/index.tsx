@@ -106,7 +106,7 @@ function UpsertOfferPage({ isEdit }: Props) {
         },
         category: offer().category,
       };
-      if (offer().category === "club") {
+      if (offer().category === "club" || offer().category === "business") {
         offerObject = {
           ...offerObject,
           plansAttributes: [PlanObject()],
@@ -183,7 +183,7 @@ function UpsertOfferPage({ isEdit }: Props) {
             <S.LeftSection>
               <S.Subtitle>{t("attributes.category")}</S.Subtitle>
               <S.SelectInput
-                values={["direct_contribution", "club"]}
+                values={["direct_contribution", "club", "business"]}
                 name="category"
                 onOptionChanged={(value) => setValue("category", value)}
                 defaultValue={offer().category || "direct_contribution"}
@@ -191,57 +191,59 @@ function UpsertOfferPage({ isEdit }: Props) {
               />
             </S.LeftSection>
           </S.ContentSection>
-          {watch() && offer().category === "club" && (
-            <S.PlanContainer>
-              <S.Subtitle>{t("attributes.plan.title")}</S.Subtitle>
-              <S.SubtitleDescription>
-                {t("attributes.plan.status")}
-              </S.SubtitleDescription>
-              <S.CheckboxContainer>
-                <S.Checkbox
-                  name="planStatus"
-                  type="checkbox"
-                  onChange={handlePlanStatus}
-                  checked={planCheckbox}
+          {watch() &&
+            (offer().category === "club" ||
+              offer().category === "business") && (
+              <S.PlanContainer>
+                <S.Subtitle>{t("attributes.plan.title")}</S.Subtitle>
+                <S.SubtitleDescription>
+                  {t("attributes.plan.status")}
+                </S.SubtitleDescription>
+                <S.CheckboxContainer>
+                  <S.Checkbox
+                    name="planStatus"
+                    type="checkbox"
+                    onChange={handlePlanStatus}
+                    checked={planCheckbox}
+                  />
+                  <S.Span>
+                    {PlanObject().status === "active"
+                      ? t("attributes.plan.active")
+                      : t("attributes.plan.inactive")}
+                  </S.Span>
+                </S.CheckboxContainer>
+                <S.SubtitleDescription>
+                  {t("attributes.plan.dailyTickets")}
+                </S.SubtitleDescription>
+                <S.NumberInput
+                  type="number"
+                  {...registerPlan("dailyTickets", {
+                    required: t("upsert.required"),
+                  })}
                 />
-                <S.Span>
-                  {PlanObject().status === "active"
-                    ? t("attributes.plan.active")
-                    : t("attributes.plan.inactive")}
-                </S.Span>
-              </S.CheckboxContainer>
-              <S.SubtitleDescription>
-                {t("attributes.plan.dailyTickets")}
-              </S.SubtitleDescription>
-              <S.NumberInput
-                type="number"
-                {...registerPlan("dailyTickets", {
-                  required: t("upsert.required"),
-                })}
-              />
-              {formStatePlan?.errors.dailyTickets &&
-                formStatePlan?.errors.dailyTickets.type && (
-                  <S.Error>
-                    {formStatePlan?.errors.dailyTickets.message}
-                  </S.Error>
-                )}
-              <S.SubtitleDescription>
-                {t("attributes.plan.monthlyTickets")}
-              </S.SubtitleDescription>
-              <S.NumberInput
-                type="number"
-                {...registerPlan("monthlyTickets", {
-                  required: t("upsert.required"),
-                })}
-              />
-              {formStatePlan?.errors.monthlyTickets &&
-                formStatePlan?.errors.monthlyTickets.type && (
-                  <S.Error>
-                    {formStatePlan?.errors.monthlyTickets.message}
-                  </S.Error>
-                )}
-            </S.PlanContainer>
-          )}
+                {formStatePlan?.errors.dailyTickets &&
+                  formStatePlan?.errors.dailyTickets.type && (
+                    <S.Error>
+                      {formStatePlan?.errors.dailyTickets.message}
+                    </S.Error>
+                  )}
+                <S.SubtitleDescription>
+                  {t("attributes.plan.monthlyTickets")}
+                </S.SubtitleDescription>
+                <S.NumberInput
+                  type="number"
+                  {...registerPlan("monthlyTickets", {
+                    required: t("upsert.required"),
+                  })}
+                />
+                {formStatePlan?.errors.monthlyTickets &&
+                  formStatePlan?.errors.monthlyTickets.type && (
+                    <S.Error>
+                      {formStatePlan?.errors.monthlyTickets.message}
+                    </S.Error>
+                  )}
+              </S.PlanContainer>
+            )}
           <br />
           <S.Subtitle>{t("details.details")}</S.Subtitle>
           <S.ContentSection>
