@@ -264,7 +264,9 @@
       "imageRecommendation": "Recommended size:\n{{ size }}",
       "imagesSection": "Images",
       "availableToDonation": "Available to donation (USDC)",
-      "altText": "Alt text"
+      "altText": "Alt text",
+      "kind": "Kind",
+      "owner": "Owner"
     },
     "list": {
       "title": "Ngos List",
@@ -351,6 +353,8 @@
         "cause": "Cause",
         "createdAt": "Created at",
         "updatedAt": "Updated at",
+        "kind": "Kind",
+        "owner": "Owner",
         "impactDescription": "Impact description",
         "donorRecipients": "Donor recipients",
         "costForOneImpact": "Cost for 1 unit impact (USDC)",
@@ -737,7 +741,9 @@
         "bigDonor": "Big Donor",
         "cause": "Cause",
         "processingDate": "Processed in",
-        "status": "Status"
+        "status": "Status",
+        "kind": "Kind",
+        "owner": "Owner"
       }
     }
   },

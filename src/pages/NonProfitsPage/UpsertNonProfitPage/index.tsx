@@ -1,7 +1,7 @@
 import { Button, useToast } from "@chakra-ui/react";
 import { useCallback, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useForm } from "react-hook-form";
+import { set, useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router";
 import { logError } from "services/crashReport";
 import useCauses from "hooks/apiHooks/useCauses";
@@ -44,6 +44,8 @@ function UpsertNonProfitPage({ isEdit }: Props) {
   const { neutral } = theme.colors;
   const { tertiary } = theme.colors.brand;
   const [statusNonProfit, setStatusNonProfit] = useState("");
+  const [kindNonProfit, setKindNonProfit] = useState("free");
+  const [ownerId, setOwnerId] = useState(0);
   const [stories, setStories] = useState<CreateStory[]>([]);
   const [logoFile, setLogoFile] = useState("");
   const [mainImageFile, setMainImageFile] = useState("");
@@ -91,6 +93,10 @@ function UpsertNonProfitPage({ isEdit }: Props) {
           .measurementUnit,
       );
       setStatusNonProfit(nonProfit.status);
+      if (nonProfit.kind) {
+        setKindNonProfit(nonProfit.kind);
+      }
+      setOwnerId(nonProfit?.owner?.id || 0);
     } catch (e) {
       logError(e);
     }
@@ -210,6 +216,11 @@ function UpsertNonProfitPage({ isEdit }: Props) {
     setStatusNonProfit(status);
   };
 
+  const onKindChanged = (kind: string) => {
+    nonProfitForm.setValue("kind", kind);
+    setKindNonProfit(kind);
+  };
+
   const handleUploadImage = (
     image: File,
     attribute:
@@ -308,6 +319,12 @@ function UpsertNonProfitPage({ isEdit }: Props) {
     nonProfitForm.setValue("causeId", causeId);
   };
 
+  const onOwnerIdChanged = (ownerIdValue: number) => {
+    setOwnerId(ownerIdValue);
+    // nonProfitForm.setValue("owner", ownerId); TODO - adjust owner field
+  };
+
+
   const causeText = (value: any) =>
     causes.find((cause) => cause.id === value)?.name ?? "";
 
@@ -323,6 +340,10 @@ function UpsertNonProfitPage({ isEdit }: Props) {
   useEffect(() => {
     fetchConfig();
   }, [fetchConfig]);
+
+  useEffect(() => {
+    console.log(kindNonProfit)
+  }, [kindNonProfit])
 
   return (
     <>
@@ -387,6 +408,30 @@ function UpsertNonProfitPage({ isEdit }: Props) {
                   name="causeId"
                 />
               </S.ItemBox>
+
+              <S.ItemBox>
+                <InfoName>{t("attributes.kind")}</InfoName>
+                <Dropdown
+                  values={["free", "club", "business", "business_and_club"]}
+                  onOptionChanged={onKindChanged}
+                  defaultValue={kindNonProfit}
+                  containerId="kind-dropdown"
+                  name="kind"
+                />
+              </S.ItemBox>
+
+              <S.ItemBox>
+              <InfoName>{t("attributes.owner")}</InfoName>
+              <S.TextInput
+                {...nonProfitForm.register("owner")}
+              />
+              {nonProfitForm.formState?.errors.name &&
+                nonProfitForm.formState?.errors.name.type && (
+                  <S.Error>
+                    {nonProfitForm.formState?.errors.name.message}
+                  </S.Error>
+                )}
+            </S.ItemBox>
             </S.DoubleItemSection>
             <S.ItemBox>
               <InfoName>{t("attributes.address")}</InfoName>
