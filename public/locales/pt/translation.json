@@ -264,7 +264,9 @@
       "imageRecommendation": "Tamanho recomendado:`\n`{{ size }}",
       "imagesSection": "Imagens",
       "availableToDonation": "Disponível para doação (USDC)",
-      "altText": "Texto alternativo"
+      "altText": "Texto alternativo",
+      "kind": "Tipo",
+      "owner": "Owner"
     },
     "list": {
       "title": "Lista de Ongs",
@@ -725,7 +727,9 @@
         "bigDonor": "Grande Doador",
         "cause": "Causa",
         "processingDate": "Processado em",
-        "status": "Status"
+        "status": "Status",
+        "kind": "Tipo",
+        "owner": "Owner"
       }
     }
   },

@@ -264,7 +264,9 @@
       "imageRecommendation": "Recommended size:\n{{ size }}",
       "imagesSection": "Images",
       "availableToDonation": "Available to donation (USDC)",
-      "altText": "Alt text"
+      "altText": "Alt text",
+      "kind": "Kind",
+      "owner": "Owner"
     },
     "list": {
       "title": "Ngos List",
@@ -739,7 +741,9 @@
         "bigDonor": "Big Donor",
         "cause": "Cause",
         "processingDate": "Processed in",
-        "status": "Status"
+        "status": "Status",
+        "kind": "Kind",
+        "owner": "Owner"
       }
     }
   },
