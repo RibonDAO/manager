@@ -1,3 +1,4 @@
+import Integration from "types/entities/Integration";
 import { CreateCause } from "./cause";
 import { CreateNonProfitImpacts } from "./nonProfitImpacts";
 import { CreateStory } from "./story";
@@ -24,4 +25,6 @@ export interface CreateNonProfit {
   mainImageDescription?: string;
   backgroundImageDescription?: string;
   confirmationImageDescription?: string;
+  kind?: string;
+  owner?: Integration;
 }

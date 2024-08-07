@@ -350,6 +350,8 @@
         "cause": "Causa",
         "createdAt": "Criado em",
         "updatedAt": "Atualizado em",
+        "kind": "Tipo",
+        "owner": "Owner",
         "impactDescription": "Descrição do impacto",
         "donorRecipients": "Beneficiários",
         "costForOneImpact": "Custo por 1 unidade de impacto (USDC)",

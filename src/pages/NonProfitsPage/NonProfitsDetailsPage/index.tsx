@@ -98,12 +98,16 @@ function NonProfitsDetailsPage(): JSX.Element {
             page={`/causes/${nonProfit?.cause.id}`}
             text={nonProfit?.cause.name ?? ""}
           />
+          <InfoName>{t("details.attributes.kind")}</InfoName>
+          <S.InfoValue>{nonProfit?.kind ?? "-"}</S.InfoValue>
           <InfoName>{t("details.attributes.walletAddress")}</InfoName>
           <S.InfoValue>{nonProfit?.walletAddress}</S.InfoValue>
           <InfoName>{t("details.attributes.createdAt")}</InfoName>
           <S.InfoValue>{dateFormatter(nonProfit?.createdAt ?? "")}</S.InfoValue>
           <InfoName>{t("details.attributes.updatedAt")}</InfoName>
           <S.InfoValue>{dateFormatter(nonProfit?.updatedAt ?? "")}</S.InfoValue>
+          <InfoName>{t("details.attributes.owner")}</InfoName>
+          <S.InfoValue>{nonProfit?.owner?.id ?? "-"}</S.InfoValue>
 
           <S.ContainerStories>
             {nonProfit?.stories

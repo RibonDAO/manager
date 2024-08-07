@@ -3,6 +3,7 @@ import { CreateNonProfitImpacts } from "types/apiResponses/nonProfitImpacts";
 import Cause from "./Cause";
 import Story from "./Story";
 import { NonProfitImpact } from "./NonProfitImpact";
+import Integration from "./Integration";
 
 export default interface NonProfit {
   id: string;
@@ -32,4 +33,6 @@ export default interface NonProfit {
   mainImageDescription?: string;
   backgroundImageDescription?: string;
   confirmationImageDescription?: string;
+  kind?: string;
+  owner?: Integration;
 }

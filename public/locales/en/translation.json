@@ -351,6 +351,8 @@
         "cause": "Cause",
         "createdAt": "Created at",
         "updatedAt": "Updated at",
+        "kind": "Kind",
+        "owner": "Owner",
         "impactDescription": "Impact description",
         "donorRecipients": "Donor recipients",
         "costForOneImpact": "Cost for 1 unit impact (USDC)",
